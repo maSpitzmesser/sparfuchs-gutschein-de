@@ -1,0 +1,221 @@
+/* ---------------------------------------COUPON-------------------------------------------------- */
+.c {
+	margin:0 0 0px 0;
+	padding:0;
+	position:relative;
+    line-height: 20px;
+	min-width: 100%
+}
+
+.nk,.bk,.mb,.kmb,.vato,.dbtn,.mc .se {
+  display:block;
+}
+
+ul.c li {
+	float:left;
+}
+
+ul.c li, 
+ul.cs li {
+	position:relative;
+   width: 100%;
+	padding: 5px 0px	
+}
+ul.cs li {
+	height:100px;
+	cursor:pointer;
+}
+ul.cs li a {
+ width: 37%;
+	display: inline-block;
+	float: left;
+}
+.cs li img {
+	float:left;
+	margin: 2px 15px 0px 5px
+}
+.cs li .mc {
+	width:61%;
+	height:93px;
+	overflow:hidden
+}
+.cs li .mc .count {
+	margin:0 0 3px 0;
+}
+
+ul.cs li .ex {
+	position: absolute;
+	left: -12px;
+	top: 2px;
+	padding: 0px 5px 1px;
+	box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+}
+
+ul.cs li .ex:after {
+    border-color: #CE3600 rgba(206, 54, 0, 0);
+    border-style: solid;
+    border-width: 6px 0px 0px 7px;
+    content: "";
+    display: block;
+    height: 0px;
+    position: absolute;
+	left:0px;
+	bottom:-6px;
+    width: 0px;
+    z-index: 1;
+}
+
+.c li img {
+    margin: 0px 5% 0px 1%;
+}
+.c li img {
+	float:left;
+	max-width:15%
+}
+
+
+.mc {
+	float:left;
+	width: 38%;	
+	text-overflow: ellipsis;
+}
+
+.mc p {
+   text-align:left !important;
+	margin:0 !important;
+	font-size:140%;
+	padding:2px 2px 4px 0
+}
+
+.mc b {
+	font-size:100%;
+    font-weight: bold;
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+
+
+.mc p:nth-child(2) {
+	font-size:16px;
+    line-height: 15px;
+}
+
+.cs .mc p:nth-child(2) {
+    height: 45px;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    line-height: 20px;
+}
+
+article .mc p:nth-child(2), .nk, .bk, .mb {
+    color: #333;
+}
+.kmb {
+    color: #1E824C;
+}
+.rc {
+	width:40%;
+	float:right;
+	position:relative;
+	text-align:left
+}
+
+.rc:after {
+  content:"";
+	position:absolute;
+	width:45px;
+	height:45px;
+	right:5px;
+	top:0px
+}
+.vato {
+  	color:#1E824C
+}
+.rc .b {
+	margin:30px 0 0 0;
+	padding:5px 0;
+	display:inline-block;
+	font-size:105%;
+	width:100%;
+	text-align:center;
+	cursor:pointer
+}
+
+.rc .b:hover:before {
+	width:20px;
+	height:20px
+}
+
+.c .rc .button-offer {
+    line-height: 1.7;
+}
+
+.new-offer {
+position: absolute;
+left: 0;
+top:5px;
+	display:inline-block;
+	padding:0px 5px 1px 5px;
+	color:#fff;
+	background: #00A6F9;
+}
+
+.count {
+	display:inline-block;
+	padding:0px 5px 1px 2px;
+}
+
+.used {
+	position: absolute;
+	top: 23px;
+	left:0;
+	color:#9A9A9A;
+}
+
+.code {
+	position:absolute;
+	height:20px;
+	width:250px;
+	z-index:-1;
+	opacity:1.0
+}
+.detail {
+	position:absolute;
+	right:50px;
+	top:35px;
+	padding:2px 5px 0 18px;
+	z-index:3
+}
+
+.dt{display:none;float:left}
+.dt ul{float:right;width:575px}
+.dt ul li{font-size:16px;float:left;padding:0 18px}
+
+.la {
+	float:left;
+	position:relative;
+	padding:4px 0 5px 0;
+	margin:5px 15px 0 8px;
+	width:127px;
+	font-size:25px;
+	text-align:center
+}
+.la:before {
+	content:"";
+	position:absolute;
+	left:2px;
+	right:2px;
+	top:2px;
+	bottom:2px
+}
+.noc {
+	background: none repeat scroll 0% 0% #FFFFE0;
+	border: 1px solid #E6DB55;
+	padding: 8px 17px 8px
+}
+/* ---------------------------------------COUPON-------------------------------------------------- */

@@ -1,0 +1,1351 @@
+@font-face {
+	font-family:'Bree Serif';
+	font-style:normal;
+	font-weight:400;
+	src:local('Bree Serif'),local('BreeSerif-Regular'),url(http://themes.googleusercontent.com/static/fonts/breeserif/v2/LQ7WLTaITDg4OSRuOZCpsxsxEYwM7FgeyaSgU71cLG0.woff) format('woff')
+}
+
+@font-face {
+  font-family: "Kalam";
+  font-style: normal;
+  font-weight: 300;
+  src: local("Kalam Light"), local("Kalam-Light"), url("https://fonts.gstatic.com/l/font?kit=kvWqRL30CB6aEWHAl3XFytbbHjYAYf5StpTAWWf0-2shU65Org-VsHihMsgCE9y49EhpiqJDj9lnQaq249QEOeUQPIbVTiqEwuMCDJhqySqAF-3UcCca8cMM1MEG7byc&skey=160ea477ddf906aa") format("woff");
+}
+/* sprites */
+
+header #submit,
+.prev,.next,
+.prev2,.next2,
+.mc p .ex,
+.start:before,
+#sb,#sbs,#lk,
+.pin:before,
+.thumb-wrap a:before,
+nav.cols ul:last-child:after,
+.site-footer:before,
+
+article h1,
+.shop-meta h3,
+#sidebar h4:before,
+.sb h2, hgroup h1,
+figure:first-child,
+.pin h3:before,
+.rc:after,.adress:before,.service:before,.versand:before,
+span.date,.tags,.cats:before,
+.video ol li:before, .video ol:after,.video span:before,
+footer nav.cols ul li a,
+.sideinfo ol li,#sidebar section ol li,
+.main-menu ul li:nth-child(1) a,.main-menu ul li.active:nth-child(1) a,
+ul.liste li {
+	background-image: url(tpl-sg.png);
+	background-repeat:no-repeat;
+   -webkit-font-smoothing: antialiased
+}
+
+html {
+	background-color: #00A6F9;
+}
+
+
+/* ----------------------------------- PAPER -------------------------------- */
+article,
+aside div.shop-meta, aside div.pop, aside div.new, aside div.aktion, aside div.social, aside div.similar, 
+section,
+.box-300,
+#slideshow,
+#div-gpt-ad-1403906711175-0,
+#div-gpt-ad-1403907182536-0,
+#div-gpt-ad-1403907470989-0{
+   position:relative;
+  	background:#fff;
+   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.298), -2px 0px 3px 2px rgba(255, 255, 255, 0.6) inset, 2px 0px 3px 2px rgba(255, 255, 255, 0.6) inset, -10px 0px 10px 1px rgba(155, 155, 155, 0.098) inset, 10px 0px 10px 1px rgba(155, 155, 155, 0.098) inset;
+}
+
+
+
+
+
+/* ----------------------------------- PAPER ROUND SHADOW -------------------------------- */
+.slider,
+.sl-logos,
+.moreshops {
+    background:#FFF;
+    box-shadow:0px 1px 2px rgba(0, 0, 0, 0.298), -2px 0px 3px 2px rgba(255, 255, 255, 0.6) inset, 2px 0px 3px 2px rgba(255, 255, 255, 0.6) inset, -10px 0px 10px 1px rgba(155, 155, 155, 0.098) inset, 10px 0px 10px 1px rgba(155, 155, 155, 0.098) inset, 0px 22px 10px -14px #8C8C8C;
+}
+
+
+.slider:after,
+.moreshops:after,
+.sl-logos:after
+{
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0px;
+    bottom: -17px;
+    width: 100%;
+    height: 15px;
+    background-color: #FFF;
+    border-radius: 450% 450% 0px 0px / 570% 570% 0px 0px;
+    box-shadow: 0px -2px 2px #FFF;
+}
+
+.sl-logos {
+  position:relative
+}
+
+
+#content:after,
+article:after,
+footer:after,
+ul:after {clear:both;content:"";display:block;height:0;visibility:hidden}
+
+
+
+
+
+
+/* tags */
+body {
+background-image: url(bodyBG.jpg);
+background-size:cover;
+background-attachment:fixed;
+	background-repeat:no-repeat;
+	background-color:#00a6f9
+}
+body {
+	color:#333;
+		font-size: 85%;
+  font-family: "Kalam";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b {
+	font-family:'Bree Serif',serif;
+	font-weight:normal
+}
+
+h1{color:#ff5800;text-shadow:1px 1px 1px #ccc}
+h2{font-size:19px}
+
+
+strong {
+	text-align:left !important
+}
+
+
+a.textlink {
+	color:#ff5800
+}
+
+
+
+.btn {
+	font-family:'Bree Serif',serif;
+	text-shadow:1px 1px 0 rgba(255,255,255,0.6);
+	border-radius:3px;
+   background: #eee;
+	background-image:linear-gradient(#f7f7f7 0,#dadada 51%,#f7f7f7 100%);
+   background: linear-gradient(to bottom, #eeeeee 0%,#eeeeee 100%);
+	box-shadow:0 1px 2px #ccc,1px 1px 0 rgba(255,255,255,0.701961) inset
+}
+.btn:hover {
+	text-shadow:none;
+	background:#fcef02;
+	background:linear-gradient(to bottom,#fcef02 0,#ff0 50%,#fceb00 51%,#fbdf93 100%)
+}
+
+/* site-header */
+.bread {
+	color:#fff
+}
+.bread a {
+  color:#fff;
+  border-radius:3px 4px ;
+  background:#1F96DA;
+
+  transition:background 0.1s ease-in 0s
+}
+.bread a:hover {
+  background:#00A6F9;
+  transition:background 0.1s ease-in 0s
+}
+
+header:first-child p {
+	margin:90px 0 0 260px;
+	font-size:22px;
+	position:absolute;
+	text-shadow:0 1px 1px #003660;
+	color:#fff
+}
+
+header:first-child form {
+	background:#00A5FA;
+}
+header:first-child form input {
+	color:#ccc;
+	background:#fff;
+	border-radius: 3px 5px 5px;
+  	box-shadow: -2px -2px 0px 0px #D7D7D7 inset, 1px 1px 2px 0px #003B72
+}
+header:first-child form input:focus {
+	color:#333 !important
+}
+header:first-child form input:focus > header #submit {
+	background-position:-230px -32px
+}
+header:first-child #submit {
+   width:30px;
+   height:30px;
+	right:8px;
+	top:2px;
+   box-shadow:none;
+	background-position:-230px -60px
+}
+header:first-child #submit:hover {
+	background-position:-230px -30px
+}
+
+#ac_s {
+	border-radius:0 0 3px 3px;
+	background:#fff;
+	box-shadow:0px 3px 3px rgba(220, 220, 220, 0.5) inset, -1px -1px 0px 0px #D7D7D7 inset, 0 5px 10px rgba(0,0,0,0.2)
+}
+#ac_s ul li {
+	border-bottom:1px solid #EFEFEF
+}
+#ac_s ul li:last-child {
+	border-bottom:0
+}
+#ac_s img {
+	border-radius:3px
+}
+#ac_s a {
+	font-family:'Bree Serif',serif;
+	border-radius:3px
+}
+#ac_s a:hover {
+	background:#efefef
+}
+
+
+/* main-menu */
+#menu-trigger {
+  box-shadow:0 -2px 0 #B70F00 inset;
+}
+
+.main-menu {
+	margin:0 0 -6px 0;
+}
+
+.main-menu ul li:nth-child(1) a {
+	z-index:1005
+}
+.main-menu ul li:nth-child(2) a {
+	z-index:1004
+}
+.main-menu ul li:nth-child(3) a {
+	z-index:1003
+}
+.main-menu ul li:nth-child(4) a {
+	z-index:1002
+}
+.main-menu ul li:nth-child(5) a {
+	z-index:1001
+}
+.main-menu ul li:nth-child(6) a {
+	z-index:1000
+}
+
+.main-menu ul li{
+   width:20%;
+	margin: 0 -1% 0 0
+}
+.main-menu ul li a {
+	font-family: 'Bree Serif',serif;
+	border-radius:3px 3px 0 0;
+	background-image:linear-gradient(to bottom, #FF5800 0px, #FF5400 50%, #F24000 51%, #D60E00 100%);
+   box-shadow: 0px 1px 2px 0px #000, 1px 1px 0px #F49F61 inset;
+   text-shadow: 0px -1px 0px #9E3400, 0px 1px 0px #FA7500
+}
+.main-menu ul li a:hover {
+	background-image:linear-gradient(to bottom,#ff6f01 0,#ff6b01 50%,#f25500 51%,#d62000 100%)
+}
+
+.main-menu ul li ul li a {
+   color:#333;
+   text-shadow: none !important;
+	box-shadow:none
+}
+.main-menu ul li ul li a:hover {
+   background-image:none;
+	background-color:#fff
+}
+
+.main-menu ul li ul {
+  	border-radius:0 0 5px 5px;
+	box-shadow:-2px -2px 0px 0px #D7D7D7 inset, 0px 1px 2px 0px #000
+}
+.main-menu ul li.active a{
+   margin-top:-3px;
+   margin-bottom:-3px;
+   padding-bottom:6px;
+  	border-radius:3px 6px 0 0 !important;
+   text-shadow: none !important;
+	box-shadow:inset -3px -3px 0 0 #d7d7d7, 0px 1px 2px 0px #000 !important
+}
+.main-menu ul li:nth-child(1) a {
+    background-position: -220px -312px;
+}
+.main-menu ul li.active:nth-child(1) a {
+    background-position: -215px -348px;
+}
+
+
+
+
+/* box-shadow */
+.bread a {
+  box-shadow: 1px 1px 0px rgba(255, 255, 255, 0.2) inset, -2px -2px 0px 0px rgba(0, 0, 0, 0.1) inset, 1px 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+
+header:first-child form input,
+#main {
+  box-shadow:-3px -3px 0 0 rgba(0, 0, 0, 0.15) inset, 1px 1px 2px 2px rgba(0, 0, 0, 0.2);
+}
+/* box-shadow */
+
+
+
+
+/* content */
+#main {  
+  border-radius:0 0 5px 5px;
+  padding: 10px;
+  background:#fff;
+}
+
+article p {
+  font-size: 120%;
+}
+
+
+
+
+
+/* slider */
+.prev, .next {
+    top:233px
+}
+
+.prev,.next,.prev2,.next2{
+  background-position:0 -115px
+}
+.next,
+.next2 {
+  background-position:-55px -115px
+}
+
+
+
+
+.start:before{content:"";z-index:3;position:absolute;height:90px;display:block;width:90px;left:5px;top:99px;background-position:0 -20px}
+
+
+.hello {
+  margin:10px 0 20px
+}
+.hello:before{
+  border:1px dashed #cecdcd;
+  content:"";
+  position:absolute;
+  left:4px;
+  right:4px;
+  bottom:4px;
+  top:4px
+}
+.hello p {
+  font-family:'Bree Serif',serif
+}
+
+
+
+
+
+
+.content-box:after,
+#sidebar aside:after,
+#sidebar section:after,
+#sidebar article:after,
+.video:after,
+.sb:after {
+	position:absolute;
+	bottom:0;
+	right:0;
+	border-width:26px 26px 0 0;
+	border-style:solid;
+	border-color:#efefef transparent;
+	box-shadow:-1px -1px 1px #ccc
+}
+
+.content-box:before,
+#sidebar aside:before,
+#sidebar section:before,
+#sidebar article:before,
+.video:before,
+.sb:before {	
+	position:absolute;
+	bottom:-3px;
+	right:-2px;
+	border-width:29px 29px 0 0;
+	border-style:solid;
+	border-color:#ccc #fff;
+	box-shadow:1px 1px 1px #fff
+}
+
+
+
+
+
+
+
+article h1,
+.sb h2,
+hgroup h1{
+  margin-left:-38px;
+	margin-bottom:10px;
+	position:relative;
+	z-index:2001;
+	overflow:hidden;
+	line-height:40px;
+	width:250px;
+	height:40px;
+	text-align:center;
+	font-size:19px;
+	color:#fff;
+	text-shadow:0 1px 1px #6d3101;
+	background-position:-9px -148px
+}
+
+
+
+
+
+
+hgroup {
+	position:relative;
+   width: 100%;
+   display: inline-block;
+}
+hgroup h1 {
+margin-left: -23px;  
+}
+hgroup h2 {
+float:right;
+  height:40px;
+  line-height:40px;
+  padding:0 10px 0 0;
+  text-align:right;
+}
+
+
+
+.tags {
+	background-position:-245px -639px
+}
+.cats:before  {
+	background-position:-243px -662px
+}
+.date {
+	background-position:-243px -468px
+}
+
+
+
+.article-title {
+	position:relative;
+  border:1px solid #e7e4e1;
+  border-radius:3px;
+  background:#f9f8f6
+}
+
+.article-title:before {
+    border: 1px dashed #CECDCD;
+    border-radius: 3px;
+    content: "";
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    left: 3px;
+    bottom: 3px;
+}
+
+
+
+
+#more {
+  cursor:pointer;
+  color:#ff5800;
+  background:#fff
+}
+
+
+figure:first-child{width:200px;height:110px;margin:-8px 0 0 -38px;padding:7px 0 0 40px;background-position:0 -322px}
+
+figure:first-child img{width:129px;height:90px}
+
+.socialbar {
+  border-top:1px solid #e6e6e6
+}
+
+
+
+
+.logos {
+  position:relative
+}
+.logos:before {
+  content:"";
+  position:absolute;
+  background:url("http://sg.sparfuchs-gutschein.de/images/loch.png") repeat scroll 2px 0 transparent;
+  height:7px;
+  width:100%;
+  top:-15px;
+  left:-2px
+}
+.logos a img{
+  border-radius:3px
+}
+
+
+
+
+
+.sb {
+  box-shadow:0 1px 2px rgba(0,0,0,0.298),-2px 0 3px 2px rgba(255,255,255,0.6) inset,2px 0 3px 2px rgba(255,255,255,0.6) inset,-10px 0 10px 1px rgba(155,155,155,0.098) inset,10px 0 10px 1px rgba(155,155,155,0.098) inset
+}
+.sb.pin:last-child {
+	margin:0 0 20px 0
+
+}
+
+.sb h2{position:relative;margin-left:-23px !important;margin:0 0 10px -23px}
+
+
+.sb ul:before{content:"";display:block;left:-2px;background:url("http://sg.sparfuchs-gutschein.de/images/loch.png") repeat scroll 4px 0 transparent;width:101%;height:7px;bottom:-7px;position:absolute}
+
+.sb ul:after{content:"";display:block;height:0;clear:both}
+
+
+.sb.pin h3{text-align:center;font-size:19px;padding:20px 0 10px;margin:0 !important;background:none}
+.sb a:last-child {display:block;padding:24px 0;text-align:center}
+
+
+/* coupon style */
+ul.c {
+	margin:0 -15px 20px -15px
+}
+.nk,.bk,.mb,.kmb,.vato,.dbtn,.mc .se {
+	background-image:url(http://sg.sparfuchs-gutschein.de/images/tpl-sg.png);
+	background-position:-243px -388px;
+	background-repeat:no-repeat
+}
+ul.c li{
+padding: 10px 0 3px 0;
+}
+
+
+ul.c li, 
+ul.cs li {
+	background:#fff;
+	background-image:linear-gradient(to bottom,rgba(255,255,255,1) 0,rgba(237,237,237,1) 88%,rgba(229,229,229,1) 98%,rgba(255,255,255,1) 100%);
+	transition:background .2s ease-in
+}
+.cs li .mc:before {
+	content:"";
+	display:block;
+	left:-2px;
+	top: 0;
+	background:url("http://sg.sparfuchs-gutschein.de/images/loch.png") repeat scroll 4px 0 transparent;
+	width:100%;
+	height:7px;
+	position:absolute
+}
+
+.cs li .mc .count {
+	position:static;
+	margin:0 0 3px 0
+}
+
+.cs li .mc p .ex {
+	  right: 0;
+}
+
+ul.c li:before,
+ul.c li:after,
+.cs li:before,
+.cs li:after {
+	content:"";
+	z-index:1;
+	width:7px;
+	height:100px;
+	position:absolute;
+	top:5px;
+   background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAABkBAMAAAC4HDcUAAAAMFBMVEUAAAAmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiYmJiabk6KlAAAAEHRSTlMADQIWBgkiMgQRLBpBHic6/rBZugAAAKZJREFUeAFjYGBQEQASrROQCSZHAzixgYGBIxJMXIARwUCCRTgBqBVOqM5+ANSKIOaCiQUMDI22C4CGmCGIAiCxDUhE7itg4EAmPgCJe3DiFgoRDCRYhMFE1gegjVkHMIl04ghprAQJBmBaDnYVkIC4FN31CG+BfQn3LzgMIKEBDhd4CEFCDRR+YAIpYMHhjAh2cCyA4wMRPdDYYvLcgIhGlPhtEQAAoDuK/ABtGOYAAAAASUVORK5CYII=");
+	transition:all .2s ease-in
+}
+
+ul.c li:before,
+.cs li:before {
+	left:-7px
+}
+
+ul.c li:after,
+.cs li:after {
+	right:-8px;
+  -webkit-transform:rotate(180deg);
+	transform:rotate(180deg)
+}
+
+ul.c li:hover:before,
+ul.c li:hover:after,
+.cs li:hover:before,
+.cs li:hover:after {
+	left:0;
+   z-index:-1;
+   width:0;
+	transition:all .1s ease-in
+}
+
+ul.c li:hover:after,
+.cs li:hover:after {
+	right:0
+}
+
+
+ul.c li:hover,
+.cs li:hover {
+	background-image:none !important;
+	transition:background .2s ease-in
+}
+
+
+
+.shopname {
+	display:block;
+	position:absolute;
+	color:#333;
+	margin:0 0 0 -142px;
+	font-weight:normal !important;
+	line-height:15px;
+	font-size:8px
+}
+
+
+
+.mc p {
+	font-family:'Bree Serif',serif;
+	color:#ff5800 !important
+}
+
+.mc b {
+	font-family:'Bree Serif',serif;
+	color:#333 !important
+}
+
+.mc p .ex {
+	text-indent:-9999px;
+	position:absolute;
+	z-index:9;
+	width:15px;
+	height:109px;
+   margin: 0px 0 0 35.5%;
+	display:block;
+	top:0;
+
+	background-position:-115px -22px
+}
+
+.mc p:nth-child(2) {
+	font-size:16px;
+	margin-bottom:0 !important;
+	color:#333 !important;
+	background-position:-243px -550px;
+  font-family: "Kalam";
+}
+
+
+
+.bk {  
+	background-position:-243px -408px
+}
+
+.mb {
+	background-position:-243px -428px
+}
+
+.kmb {
+	background-position:-243px -448px;
+	color:#689d00
+}
+
+.rc {
+  font-family: "Kalam";
+}
+
+.rc:after {
+  content:"";
+	position:absolute;
+	width:45px;
+	height:45px;
+	right:5px;
+	top:9px;
+	background-position:-186px -102px
+}
+
+.rc .vato span {
+	color:#699d00
+}
+
+.rc .b {
+	font-family:'Bree Serif',serif;
+	background:#c40601;
+	border:1px solid #bc0900;
+	text-shadow:0 1px 1px #a50500;
+	color:#fff !important;
+	border-radius:3px;
+	background:#d60202;
+   width:97%;
+	background:linear-gradient(to bottom,#d60202 50%,#bc0000 51%,#bf0300 100%);
+	transition:all .2s ease-in
+}
+
+.rc .b a {
+	color:#fff
+}
+
+.rc .b:hover:before {
+	width:20px;
+	height:20px
+}
+
+.c:hover .rc .b {
+	box-shadow:1px 1px 2px rgba(0,0,0,0.4);
+	transition:all .2s ease-in
+}
+
+
+
+.rc:before,
+ul.coupons:after {
+	content:"";
+	position:absolute;
+	display:block;
+	left:-2px;
+   top:-7px;
+	width:100%;
+	height:7px;
+	background:url("http://sg.sparfuchs-gutschein.de/images/loch.png") repeat scroll 2px 0 transparent
+}
+
+
+
+.rc:before {
+	top:0
+}
+
+ul.coupons:after {
+	bottom:-7px
+}
+
+.vato {
+	background-position:-243px -467px
+}
+
+.count {
+	position:absolute;
+	display:inline-block;
+	top:35px;
+	left:460px;
+	margin:3px 0 0 0;
+	width:auto;
+	border-radius:3px;
+	padding:0 2px;
+	background:#abe12c;
+	color:#fff !important
+}
+
+.code {
+	position:absolute;
+	height:20px;
+	border:1px solid #ccc !important;
+	text-shadow:none !important;
+	width:250px;
+	color:#333 !important;
+	z-index:-1;
+	opacity:1.0;
+	background-position:0 -334px !important
+}
+
+.detail {
+	position:absolute;
+	right:50px;
+	top:35px;
+	padding:2px 5px 0 18px;
+	color:#333 !important;
+	border-radius:5px;
+	z-index:3;
+	background-position:-243px -523px;
+}
+
+.detail:hover {
+	background-color:#e0e0e0;
+	transition:all .2s ease-in
+}
+
+.dt{display:none;float:left}
+.dt ul{float:right;width:575px}
+.dt ul li{  font-family: "Kalam";font-size:16px;float:left;padding:0 18px;background:url(http://sg.sparfuchs-gutschein.de/images/i.png) no-repeat left center}
+
+.la {
+	float:left;
+	position:relative;
+	border:1px solid #e7e4e1;
+	padding:4px 0 5px 0;
+	margin:5px 15px 0 8px;
+	background:#f9f8f6;
+	border-radius:3px;
+	width:127px;
+	font-size:25px;
+	font-family:'Bree Serif',serif;
+	text-align:center
+}
+
+.la:before {
+	content:"";
+	position:absolute;
+	left:2px;
+	right:2px;
+	top:2px;
+	bottom:2px;
+	border:1px dashed #cecdcd;
+	border-radius:3px
+}
+
+
+/* Google AdSense */
+#div-gpt-ad-1386156192058-0 {
+	width:728px;
+	height:90px;
+	float:left;
+	margin:0 10px 20px
+}
+
+#div-gpt-ad-1386156779926-0 {
+	width:728px;
+	height:90px;
+	margin:0 0 5px -10px;
+	overflow:hidden
+}
+
+#div-gpt-ad-1390127481704-0 {
+	width:728px;
+	height:90px;
+	position:relative;
+	margin:30px 0 30px -15px
+}
+
+#div-gpt-ad-1390127481704-0:before,
+#div-gpt-ad-1390127481704-0:after {
+	content:"";
+	display:block;
+	background:url("http://sg.sparfuchs-gutschein.de/images/loch.png") repeat scroll 2px 0 transparent;
+	width:99%;
+	height:7px;
+	position:absolute
+}
+
+#div-gpt-ad-1390127481704-0:before {
+	top:-10px;
+	left:-2px
+}
+
+#div-gpt-ad-1390127481704-0:after {
+	bottom:-10px;
+	left:-2px
+}
+
+
+
+ul.cat_img li a {
+	color:#333 !important;
+	border-radius:3px;
+	border:1px solid #bfbfbf
+}
+
+ul.cat_img li a:hover {
+	color:#ff5800 !important;
+	border:1px solid #ff5800;
+	transition:all .2s ease-in
+}
+
+.sk {
+	background:#fff;
+	position:relative;
+	font-size:13px
+}
+
+#c:before {
+position:relative;
+}
+#c:before {
+content:"";
+  width:100%;
+  height:50px;
+  overflow:hidden
+}
+
+.sk.mo {
+	width:718px;
+	height:auto
+}
+
+.sk p {
+	margin:0 0 10px 0
+}
+
+.sk a {
+	color:#ff5800
+}
+
+.sk h2,
+.sk h3,
+.moreshops h3 {
+	border-bottom:1px solid #ccc;
+}
+
+
+
+
+.sk:after,.sk:before{position:absolute;display:block;content:"";height:0;width:0;border-width:12px;border-style:solid}
+.sk:after{border-color:#fff transparent transparent transparent;bottom:-20px;right:90px}
+.sk:before{border-color:#d7d7d7 transparent transparent transparent;bottom:-22px;right:88px}
+.sk.mo:after{border-color:transparent transparent transparent #fff;right:-20px;top:88px}
+.sk.mo:before{border-color:transparent transparent transparent #d7d7d7;right:-22px;top:90px}
+
+
+/* sidebar */
+#sidebar,
+.sidebar {
+	  font-family: "Kalam";
+}
+
+.video span,
+#sidebar h4 {
+   margin:0 0 20px 0;
+	color:#fff;
+	text-shadow:0 1px 1px #6d3101;
+   text-align:right;
+   position:relative;
+   z-index:2
+
+}
+
+
+#sidebar h4:after,
+.video span:after {
+	content:"";
+	position:absolute;
+	top:47px;
+	left:-2px;
+	width:101%;
+	height:7px;
+	background-image:url(http://sg.sparfuchs-gutschein.de/images/loch.png);
+	background-position:2px 0;
+	background-repeat:repeat
+}
+
+
+.shop-meta h3 {
+  background-position: -2px -190px;
+	width:250px;
+	height:40px;
+	color:#fff;
+	text-shadow: 0px 1px 1px #6D3101;
+}
+
+
+#sidebar h4:before,
+.video span:before {
+	content:"";
+   position: absolute;
+	width:250px;
+	height:40px;
+   right: -22px;
+   top:0;
+   z-index:-1;  
+   background-position: -2px -190px;
+}
+
+
+#sidebar ul{padding:7px 0 20px 8px}
+#sidebar ul li:last-child{border:0 !important}
+#sidebar ul li a{padding:0 5px 0 40px;background-image:url(http://sg.sparfuchs-gutschein.de/images/sidebox-li.png);background-position:0 0;background-repeat:no-repeat}
+#sidebar ul.g{padding:0}
+#sidebar ul.g li{height:60px;background:0;padding:2px 0;padding:5px 0 0 92px;border-bottom:1px dotted #ccc;color:#333;font-size:16px;text-shadow:none;display:block;font-family:'Bree Serif';line-height:13px;overflow:hidden}
+#sidebar ul.g li img{float:left;width:80px;height:56px;padding:0 !important;margin:0 8px 1px 5px}
+#sidebar ul.g li a{position:absolute;display:block;float:left;line-height:15px;font-size:16px;padding:0 !important;margin-left:-92px;background:0;width:100%}
+#sidebar ul.g li span{color:#333;  font-family: "Kalam";margin-top:5px;font-size:14px;text-shadow:none;display:block;line-height:13px}
+#sidebar ul.g .count{display:block !important;margin:-62px 0 0 90px;border-radius:0;z-index:1;width:auto !important;padding:0 30px 0 2px;background:none repeat scroll 0 0 #abe12c;color:#fff !important;position:absolute;font-size:12px;line-height:16px}
+
+
+
+
+#sidebar section ol{padding:10px 0 10px 0}
+#sidebar section ol li{font-size:16px;padding:2px 0 2px 20px;background-position:-243px -523px}
+
+
+
+
+#sidebar article h2 {
+  line-height:15px;
+  text-align:center;
+  padding:20px 0 12px 0
+}
+
+#sidebar article p {
+  font-family:"arial",serif;
+  text-align:justify;
+  font-size:13px;
+  padding:5px 5px 5px 3px
+}
+
+#sidebar article p:first-letter {
+  font-size:290%;
+  margin:8px 3px 0 0;
+  float:left
+}
+
+
+#sidebar .gads{text-align:center}
+
+.more-shop span {
+  font-family:'Bree Serif',serif
+}
+
+.adress:before,.service:before,.versand:before{content:"";height:25px;width:16px;position:absolute;left:5px}
+.adress:before{background-position:-243px -682px}
+.service:before{background-position:-243px -708px}
+.versand:before{background-position:-243px -730px}
+
+
+
+
+.video ol:after {
+	content:"";
+	position:absolute;
+	width:200px;
+	height:125px;
+	left:15px;
+	top:130px;
+	background-position:0 -432px
+}
+
+.video ol li {
+	padding-left:35px;
+	font-size:18px;
+	line-height:28px;
+  font-family: "Kalam";
+}
+
+.video ol li:before {
+	background-position:-190px -34px
+}
+
+
+/* site-footer */
+.site-footer {
+	color:#fff;
+	background:#222;
+	position: relative;
+	padding: 60px 0px 0px;
+	margin: 70px 0px 0px
+}
+.site-footer:before {
+	content:"";
+	position:absolute;
+	height:92px;
+	left:0;
+	top:-60px;
+	width:100%;
+	background-position:0 -231px;
+	background-repeat:repeat-x;
+	z-index:2000
+}
+
+.site-footer .box {
+  background:#323232
+}
+
+nav.cols ul:first-child {
+	padding:0 0 10px 0
+}
+
+nav.cols ul li:first-child {
+	text-transform:uppercase;
+	font-family:'Bree Serif',serif;
+  border-bottom:2px solid #323232
+}
+
+nav.cols ul li a {
+	color:#fff;
+	background-position:-246px -501px;
+	transition:all .2s ease-in
+}
+
+nav.cols ul li a:hover {
+	background-position:-242px -501px;
+	color:#ff5400;
+	transition:all .1s ease-in
+}
+
+.site-footer  .site-info ul li {
+  float:left;
+  padding:10px;
+  margin:0 10px 0 0
+}
+
+.site-footer  .site-info img {
+  height:25px
+}
+
+.site-footer  .site-info #sb {
+  float:none !important;
+  margin-top:10px;
+	background-position:0 0 !important
+}
+
+.site-footer .site-info { 
+  border-top:1px solid #323232;
+  border-bottom:1px solid #323232
+}
+
+.site-footer .site-info ul {
+  width: 500px;
+  margin:0 auto; 
+  background:#1E1E1E
+}
+
+.site-footer .copy {
+  background:#1E1E1E;
+  border-top:1px solid #161616  
+}
+
+
+
+
+
+
+
+
+
+#sb,#sbs{background-position:55px 0}
+
+#lk{background-position:5px -560px}
+
+.pin strong{font-size:18px;display:block;margin:10px 0;text-align:center !important}
+.pin h3:before, 
+#sidebar article h2:before {content:"";width:45px;height:40px;background-position:-136px -20px;position:absolute;top:-15px;left:45%}
+
+
+
+
+
+.oben{
+  color:#fff;
+  text-shadow:0 -1px 0 #9e3400,0 1px 0 #fa7500;
+  background:#ff894f;
+  background:linear-gradient(to bottom,rgba(255,137,79,1) 0,rgba(211,67,0,1) 100%)
+}
+
+
+
+
+
+
+.moreshops h3 {
+	margin:10px
+}
+
+
+
+.ratings{border:1px solid #e7e4e1;border-radius:3px;background:#f9f8f6}
+.ratings:before{border:1px dashed #cecdcd;border-radius:3px;content:"";position:absolute;right:3px;top:3px;left:3px;bottom:3px}
+.stars{height:24px;width:120px;margin:0 auto;position:relative}
+.star{background-position:0 0}
+.fuel{height:24px;position:absolute;top:0;left:0;z-index:0;}
+.stars a{width:24px;height:24px;float:left;position:relative;z-index:1}
+.legend{  font-family: "Kalam";font-size:15px;color:#333;text-align:center;line-height:18px;padding:3px}
+.kksr-title{display:none}
+
+
+
+
+
+
+
+#tabs li {
+  float: left;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.298), -2px 0px 3px 2px rgba(255, 255, 255, 0.6) inset, 2px 0px 3px 2px rgba(255, 255, 255, 0.6) inset, -10px 0px 10px 1px rgba(155, 155, 155, 0.098) inset, 10px 0px 10px 1px rgba(155, 155, 155, 0.098) inset;
+}
+
+#tabs a {
+  position: relative;
+  background: #ff5800;
+  font-weight:bold;font-size: 16px;
+  padding: 10px;
+  float: left;
+  text-decoration: none;
+  color: #fff;font-family: 'Bree Serif',serif;
+text-shadow: 0px -1px 0px #9E3400, 0px 1px 0px #FA7500;
+  border-radius: 3px 5px 0px 0px;
+box-shadow: 0px 1px 2px 0px #000, 1px 1px 0px #F49F61 inset;
+background: linear-gradient(to bottom, #FF5800 0px, #FF5400 50%, #F24000 51%, #D60E00 100%) repeat scroll 0% 0% transparent 
+}
+
+#tabs a:hover,
+#tabs a:hover::after,
+#tabs a:focus,
+#tabs a:focus::after {
+color: #FF5800 !important;
+text-shadow: none !important;
+box-shadow: 0px 1px 2px 0px #000
+}
+
+#tabs a:focus {
+  outline: 0;
+}
+
+
+
+#tabs #current a,
+#tabs #current a::after {
+  background: #fff;
+  z-index: 3;
+}
+
+
+
+
+
+.breadcrumbs {
+  padding:0 0 0 250px;
+  width:70%;
+  font-family: "Kalam";
+  position:absolute;
+  z-index:2000;
+  line-height:35px;
+  left: 0
+}
+
+.breadcrumbs:after,
+.breadcrumbs:before{
+  content:"";
+  width:100%;
+  bottom:0;
+  left:0;
+  position:absolute;
+  height:1px;
+  background:linear-gradient(to right,rgba(204,204,204,0) 0,rgba(204,204,204,0.75) 50%,rgba(204,204,204,0) 100%)
+}
+.breadcrumbs:before {
+  top:0
+}
+.breadcrumbs ul {
+    display: block;
+}
+.breadcrumbs a:hover{
+  text-shadow:none;color:#ff5800
+}
+.breadcrumbs a::after{
+  content: ">";
+  position: absolute;
+  padding:0 0 0 8px
+}
+
+article ul {
+  width: auto;
+}
+
+#theme-wrapper {
+box-shadow: 0px 1px 2px 0px #000
+}
+#drawer-toggler {
+font-family: 'Bree Serif',serif;
+border-radius: 0 3px 3px 0px;
+background:linear-gradient(to bottom,#ff5800 0,#ff5400 50%,#f24000 51%,#d60e00 100%);
+text-shadow: 0px -1px 0px #9E3400, 0px 1px 0px #FA7500;
+box-shadow: 0px 1px 2px 0px #000, 1px 1px 0px #F49F61 inset
+}
+#theme-drawer span {
+font-family: 'Bree Serif',serif;
+font-size:100%
+}
+#theme-drawer ul li:nth-child(2) span{
+  background: url("http://sg.sparfuchs-gutschein.de/images/checkmark.min.png") no-repeat scroll 0px 0px transparent
+}
+
+
+
+
+/*single cats site*/
+
+a.pfeil {font-size:14px;padding:0 0 3px 18px;background: url("http://sg.sparfuchs-gutschein.de/images/down.png") no-repeat scroll left center transparent !important;font-family: 'Bree Serif',serif}
+
+
+
+
+/* alle Shops */
+.ABC {
+    position: relative
+}
+.ABC a {
+	font-family:'Bree Serif',serif;
+  text-shadow: 0px -1px 0px #9E3400, 0px 1px 0px #FA7500;
+border-radius:3px;
+background:linear-gradient(to bottom,#ff5800 0,#ff5400 50%,#f24000 51%,#d60e00 100%);
+  box-shadow: 1px 1px 1px 0px #ccc, 1px 1px 0px #F49F61 inset
+}
+
+.shop-list h3 {
+  font-size:155%;
+	padding:0 0 0 10px;
+    color: #FF5800;
+  text-shadow: 1px 1px 1px #CCC;
+	line-height:40px;
+    background: #fff
+}
+
+.shop-list a {
+  font-family: "Kalam";
+}
+
+
+
+.oben {
+	font-family:'Bree Serif',serif;
+	border-radius:10px 0 0 10px;
+	box-shadow:-1px 1px 2px #333, 1px 1px 0px #F49F61 inset
+}
+
+a.oben {
+    font-size: 13px;
+	text-align:center;
+	color:#fff;
+	background-image: linear-gradient(to bottom, #FF5800 0px, #FF5400 50%, #F24000 51%, #D60E00 100%)
+}  

@@ -1,0 +1,28 @@
+/* autocomplet */
+#ac_s {
+	position:absolute;
+	display:none;
+	z-index:9999;
+	width:360px;
+	background:#fff;
+	margin:-8px 0 0 6px;
+}
+#ac_s ul {
+	margin:5px
+}
+#ac_s ul li:last-child {
+	border-bottom:0
+}
+#ac_s img {
+	float:left;
+	background:#fff;
+	height:40px;
+	width:auto;
+	margin:4px 10px 0 4px
+}
+#ac_s a {
+	height:48px;
+	display:block;
+	font-size:18px;
+	line-height:46px
+}

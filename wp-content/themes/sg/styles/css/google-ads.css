@@ -1,0 +1,25 @@
+#div-gpt-ad-1403906711175-0,
+#div-gpt-ad-1403907182536-0,
+#div-gpt-ad-1403907470989-0 {
+  overflow:hidden;
+  text-align: center;
+  margin-bottom:20px;
+  background:#fff
+}
+
+
+@media screen and (min-width:240px) {
+	#div-gpt-ad-1403906711175-0 /*900*/  {display:none}
+	#div-gpt-ad-1403907182536-0 /*600*/ {display:none}
+	#div-gpt-ad-1403907470989-0 /*320*/ {display:block}   
+} 
+@media screen and (min-width:601px) {
+	#div-gpt-ad-1403906711175-0 /*900*/  {display:block}
+	#div-gpt-ad-1403907182536-0 /*600*/ {display:none}
+	#div-gpt-ad-1403907470989-0 /*320*/ {display:none}
+}
+@media screen and (min-width:1025px) {
+	#div-gpt-ad-1403906711175-0 /*900*/ {display:block}
+	#div-gpt-ad-1403907182536-0 /*600*/ {display:none}
+	#div-gpt-ad-1403907470989-0 /*320*/ {display:none}
+}

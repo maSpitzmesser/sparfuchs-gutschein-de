@@ -1,0 +1,135 @@
+html, body {background: #fff;padding: 0 5px 0px 5px;}
+
+.layer {
+    padding: 15px;
+}
+
+.clr {
+  visibility: hidden;
+  display: block;
+  content: "";
+  clear: both;
+  height: 20px;
+  width: 100%;
+}
+
+.layer img {
+  float:left;
+  margin: 0 15px 15px 0;
+}
+
+
+h2 {
+  margin: 0px 0px 10px;
+  position: relative;
+  z-index: 2001;
+overflow-y: hidden;
+  line-height: 26px;
+  padding-bottom: 7px;
+  font-weight: 400;
+  height: auto;
+	font-size: 150%;
+  text-align: left;
+  border-bottom: 2px solid #E6E7E7;
+}
+
+.redirect-code {
+  margin:10px auto;
+  width:100%;
+  padding:5px 0;
+  font-size: 135%;
+
+  text-align:center;
+  display: block;
+  background:#fff
+}
+
+
+.redirect-head-h2 {
+  display: inline-block;
+	  font-size: 125%;
+  width: 100%;
+  text-align: center;
+	color: #444;
+}
+
+body h2.headline-a2 {
+  height: auto;
+}
+
+
+.redirect-code {
+  color: #333;
+  border:3px solid #DE1B00;
+  background: url("http://sg.sparfuchs-gutschein.de/images/schere.jpg") no-repeat scroll 5px 5px #FFF;
+  position: relative;
+}
+
+
+table {
+  margin-top: 30px;
+  border-collapse: collapse;
+}
+
+table tr td {
+  padding: 5px;
+}
+
+
+table tr td:first-child {
+  width: 150px;
+  text-align: right;
+  font-weight: 400;
+}
+
+
+tr:first-child {
+  border-top: 1px solid #DCDCDC;
+}
+tr {
+  border-bottom: 1px solid #DCDCDC;
+}
+
+td, th {
+  padding: 2px 4px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.socialbar {
+  width: auto;
+  line-height: 13px !important;
+  display: block;
+  margin: 0 !important;
+  padding-top: 0px;
+  float: left;
+  border:0;
+  overflow: hidden;
+}
+
+ol {
+  list-style: outside disc;
+  margin-left: 18px;
+}
+
+.rc {
+  display: block !important;
+}
+.rc:after {
+  top: 60px;
+  right: 10px;
+  background-position: -186px -102px;
+}
+
+.code-iframe {
+  height: 20px;
+  overflow: hidden;
+  width: 200px;
+  margin: 2px auto;
+}
+.code-iframe iframe {
+  margin-left: -730px;
+  margin-top:-50px;
+  width: 1000px;
+}
+.rc:after {display:none}

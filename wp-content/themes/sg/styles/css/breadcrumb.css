@@ -1,0 +1,11 @@
+.breadcrumbs {    
+	display: inline-block;
+    clear: both;
+}
+.breadcrumbs li {
+	float:left
+}
+.breadcrumbs li a{
+  padding: 0 10px;
+  position: relative
+}

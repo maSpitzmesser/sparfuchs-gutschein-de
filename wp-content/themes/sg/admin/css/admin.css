@@ -1,0 +1,425 @@
+
+html {
+  position:relative;
+  background: url('http://sg.sparfuchs-gutschein.de/images/pattern.png') repeat top left  #f1f1f1 !important;
+}			
+html:after {
+  content:" ";
+  position:fixed;
+  width:100%;
+  height:100%;
+  right:0;
+  bottom:0;
+  z-index: -1;
+  background: url('http://sg.sparfuchs-gutschein.de/images/barney-bg.png') no-repeat bottom right transparent !important;
+}			
+
+#adminmenu, #adminmenu .wp-submenu, #adminmenuback, #adminmenuwrap,
+#wpadminbar .ab-sub-wrapper, #wpadminbar ul, #wpadminbar ul li {
+  background: url('http://sg.sparfuchs-gutschein.de/images/pattern.png') repeat top left #101316 !important;
+}
+
+#wp-admin-bar-updates, #wp-admin-bar-comments, #wp-admin-bar-wpseo-menu, #wp-admin-bar-new-content, #wp-admin-bar-site-name .ab-sub-wrapper {
+	display:none !important;
+}
+
+#wp-admin-bar-site-name {
+	max-width: 160px;
+}
+
+
+#wpadminbar{
+background: transparent !important;
+z-index: auto;
+}
+#adminmenu .wp-has-current-submenu .wp-submenu, #adminmenu .wp-has-current-submenu .wp-submenu.sub-open, #adminmenu .wp-has-current-submenu.opensub .wp-submenu, #adminmenu a.wp-has-current-submenu:focus + .wp-submenu, .no-js li.wp-has-current-submenu:hover .wp-submenu {
+  background: url('http://sg.sparfuchs-gutschein.de/images/pattern.png') repeat top left #101316 !important;
+}
+
+#wpadminbar .ab-top-menu > li.hover > .ab-item, #wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus, #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item, #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus {
+  background: rgba(25, 30, 35,0.7);
+}
+
+
+
+#wp-admin-bar-wp-logo,
+#footer-thankyou,
+#footer-upgrade,
+#contextual-help-link-wrap {
+  display:none
+}
+
+
+.wrap {
+    margin: -25px 10px 0px 0px;
+
+}
+.wrap-header {
+   margin: 0px 0px 15px 0px;
+    display: inline-block;
+}
+.wrap-header h2, .wrap-header h3 {
+    float: left;    
+}
+.wrap-header input {
+   margin: 9px 15px 4px 0px;
+   float: left;
+}
+
+
+div.updated {
+  position:relative; 
+  margin: 5px 0px 15px 85px !important;
+  border-left: 0;
+  min-height:70px;
+  border-radius:3px;
+}
+
+div.updated:before,
+div.success:before,
+div.error:before {
+  content:" ";
+  float:left;
+  margin:0 7px 0 -95px;
+  width:54px;
+  height:70px;
+  padding: 4px;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  background: url('http://sg.sparfuchs-gutschein.de/images/Barney-Stinson.png') no-repeat center center / 54px 70px #FFF !important;
+}
+
+div.updated:after,
+div.success:after,
+div.error:after {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: -10px;
+  border-style: solid;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #fff;
+  display: block;
+  width: 0;
+  z-index: 1;
+}
+
+div.updated p,
+div.error p {
+  font-size:14px;
+}
+
+div.success {
+  position:relative; 
+  margin: 5px 0px 15px 85px !important;
+  border-left: 0;
+  min-height:70px;
+  border-radius:3px;
+}
+div.success:before {
+  background: url('http://sg.sparfuchs-gutschein.de/images/Barney-Stinson-update.png') no-repeat center center / 54px 70px #FFF !important;
+}
+
+div.error {
+  position:relative; 
+  margin: 5px 0px 15px 85px !important;
+  border-left: 0;
+  min-height:70px;
+  border-radius:3px;
+}
+div.error:before {
+  background: url('http://sg.sparfuchs-gutschein.de/images/Barney-Stinson-fail.png') no-repeat center center / 54px 70px #FFF !important;
+}
+
+
+
+
+.ui-widget {
+  font-family: "Open Sans",sans-serif;
+}
+
+.ui-datepicker {
+  border:0px;
+  border-radius:0px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  display:none;
+}
+
+.ui-datepicker .ui-datepicker-header {
+  background:#fff;
+  border:0px;
+  border-radius:0px;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  border: 0;
+  background: #fff;
+}	  
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+  border: 0;
+  background: #ff3203;
+  text-shadow: 1px 1px rgb(199, 39, 2), 2px 2px rgb(199, 39, 2), 3px 3px rgb(199, 39, 2), 4px 4px rgb(199, 39, 2), 5px 5px rgb(199, 39, 2), 6px 6px rgb(199, 39, 2), 7px 7px rgb(199, 39, 2), 8px 8px rgb(199, 39, 2), 9px 9px rgb(199, 39, 2);
+  color: #fff;
+  overflow:hidden;
+}
+.ui-datepicker table {
+  color:#ff3203;
+}
+
+.ui-datepicker td span, .ui-datepicker td a {
+  padding: 0.2em 9px 0.2em 0;
+}
+
+input[type="checkbox"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="radio"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, select:focus, textarea:focus {
+  border-color: #ff3203;
+  box-shadow: 0px 0px 2px rgba(30, 140, 190, 0.8);
+}
+
+
+
+/*
+a {
+    color: #ff3203;
+}
+a:active, a:hover {
+    color: #ff5800;
+}
+
+
+.wp-core-ui .button-primary {
+    background: #ff3203;
+    border: 0;
+        border-radius:2px;
+        overflow:hidden;
+        padding: 0px 10px 3px;
+        height: 30px;
+        vertical-align: top;		
+            border: 1px solid rgba(0,0,0,0.50);
+    border-top: 1px solid rgba(0,0,0,0.001);
+    box-shadow: 0 0 10px rgba(0,0,0,0.35), 0px 1px 3px rgba(0,0,0,0.18), inset 0px -2px 0px rgba(0,0,0,0.35), inset 0px 14px 14px rgba(255,255,255,0.10);
+    cursor: pointer;
+}
+
+.wp-core-ui .button-primary:hover {
+        background: #ff3203;
+        border: 1px solid rgba(0,0,0,0.50);
+    box-shadow: 0 0 10px rgba(0,0,0,0.35), 0px 1px 3px rgba(0,0,0,0.18), inset 0px -1px 0px rgba(0,0,0,0.35), inset 0px 14px 14px rgba(255,255,255,0.25);
+}
+
+.wp-core-ui .button-primary:active { 
+    background: #ff3203;  
+    border-top: 1px solid rgba(0,0,0,0.55);
+    box-shadow: 0 0 10px rgba(0,0,0,0.35), 0px 2px 1px rgba(255,255,255,0.50), inset 0px 1px 4px rgba(0,0,0,0.35), inset 0px -14px 14px rgba(255,255,255,0.10); 
+}
+*/
+
+.button-delete {
+  color:#FF1000;
+  border: 0px none;
+  border-radius: 0px;
+  overflow: hidden;
+  vertical-align: top;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight:900;
+  line-height: 26px;
+  height: 28px;
+  margin: 0px;
+  padding: 0px 10px 1px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.button-edit {
+  color:#FF1000;
+  border: 0px none;
+  border-radius: 0px;
+  overflow: hidden;
+  vertical-align: top;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight:900;
+  line-height: 26px;
+  height: 28px;
+  margin: 0px;
+  padding: 0px 10px 1px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: absolute;
+  right: 40px;
+  top: 0;
+}
+
+.button-edit input {
+  color:#FF1000;
+  border: 0px none;
+  border-radius: 0px;
+  overflow: hidden;
+  vertical-align: top;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight:900;
+  line-height: 26px;
+  height: 28px;
+  margin: 0px;
+  padding: 0px 10px 1px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-sizing: border-box;
+  position: absolute;
+  right: 40px;
+  top: 0;
+}
+
+.button-edit:before {
+  content: "\f111";
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  color:#333;
+  vertical-align: top;
+  font: normal 20px/1 'dashicons';
+  border: 0px none;
+  border-radius: 0px;
+  text-shadow: 1px 1px rgb(189, 189, 189), 2px 2px rgb(189, 189, 189), 3px 3px rgb(189, 189, 189), 4px 4px rgb(189, 189, 189), 5px 5px rgb(189, 189, 189), 6px 6px rgb(189, 189, 189), 7px 7px rgb(189, 189, 189), 8px 8px rgb(189, 189, 189), 9px 9px rgb(189, 189, 189), 10px 10px rgb(189, 189, 189), 11px 11px rgb(189, 189, 189), 12px 12px rgb(189, 189, 189), 13px 13px rgb(189, 189, 189), 14px 14px rgb(189, 189, 189), 15px 15px rgb(189, 189, 189), 16px 16px rgb(189, 189, 189), 17px 17px rgb(189, 189, 189), 18px 18px rgb(189, 189, 189), 19px 19px rgb(189, 189, 189), 20px 20px rgb(189, 189, 189), 21px 21px rgb(189, 189, 189), 22px 22px rgb(189, 189, 189), 23px 23px rgb(195, 195, 195), 24px 24px rgb(202, 202, 202), 25px 25px rgb(208, 208, 208), 26px 26px rgb(215, 215, 215), 27px 27px rgb(222, 222, 222), 28px 28px rgb(228, 228, 228), 29px 29px rgb(235, 235, 235), 30px 30px rgb(241, 241, 241), 31px 31px rgb(248, 248, 248), 32px 32px rgb(255, 255, 255);		 background-color: #fff;
+  overflow: hidden;
+  vertical-align: top;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight:900;
+  line-height: 26px;
+  height: 28px;
+  margin: 0px;
+  padding: 0px 10px 1px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+.loading {
+  background: url('http://sparfuchs-gutschein.de/wp-admin/images/spinner.gif') no-repeat center center #f2f2f2 !important;
+  cursor: default;
+  text-indent:-9999px;
+  border:0 !important;
+  box-shadow:0 !important;
+  height:40px;
+  line-height:40px;
+}
+
+.download.psd {
+  padding-left:20px;
+  background: url('http://sg.sparfuchs-gutschein.de/images/psd-vorlage-icon.png') no-repeat left center;
+}
+
+
+
+.wp-admin input[type="file"] {
+  padding: 3px;
+  background: none repeat scroll 0% 0% #FFF;
+  vertical-align: top;
+}
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+  border: 0 !important;
+  background: #ff3203 !important;
+  color: #fff !important;
+}
+
+
+
+
+.col_link_description {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+
+/* sidebar */
+.sidebar{
+  float: right;
+  width: 25%;
+  margin-right: 2%;
+  margin-top:150px;
+}
+
+.bubble {
+  padding: 1px 12px;
+  background-color: #FFF;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  position:relative;
+  border-radius: 3px;
+}
+.bubble:after {
+  content: "";
+  position: absolute;
+  bottom: -11px;
+  right: 60px;
+  border-style: solid;
+  border-width: 11px 11px 0;
+  border-color: #FFFFFF transparent;
+  display: block;
+  width: 0px;
+  z-index: 1;
+}
+.bubble:before {
+  content: "";
+  position: absolute;
+  bottom: -13px;
+  right: 58px;
+  border-style: solid;
+  border-width: 13px 13px 0;
+  border-color: #DDDDDD transparent;
+  display: block;
+  width: 0px;
+  z-index: 1;
+}
+
+
+
+
+.toplevel_page_shops-options {
+  margin-bottom: 20px;
+}
+
+p.description, span.description {
+  font-size: 12px;
+
+}
+
+
+body.wp-core-ui .button-primary {
+    box-shadow: 0 1px 0 rgb(80, 159, 185) inset;
+}
+
+body.wp-core-ui .button,
+body.wp-core-ui .button-secondary {
+    background: #fff;
+    border-radius: 3px;
+    border-color: #e5e5e5 #e5e5e5 #e5e5e5;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.6) inset;
+}
+
+body.wp-core-ui .button-secondary {
+    background: #e7e9ec;
+    background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
+    border-radius: 3px;
+    border-color: #adb1b8 #a2a6ac #8d9096;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.6) inset;
+}

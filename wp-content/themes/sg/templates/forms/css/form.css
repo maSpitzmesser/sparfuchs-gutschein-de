@@ -1,0 +1,649 @@
+
+
+
+.ok {
+	padding:4px 8px;
+	font-size:11px;
+	font-weight:bold;
+	padding:5px;
+	background-color: #D3EEAC;
+	margin:8px 0 8px 0;
+	color:#390;
+}
+
+.success:before {
+	content:"✓";
+	position:absolute;
+	left:0;
+	top:0;
+	width:30px;
+	height:100%;
+	background:#27ae60;
+	color:#fff;
+	font-size:150%;
+	text-align:center;
+	font-weight:bolder;
+	   text-shadow: 1px 1px rgb(32, 146, 81), 2px 2px rgb(32, 148, 82), 3px 3px rgb(33, 150, 83), 4px 4px rgb(33, 152, 84), 5px 5px rgb(34, 154, 85), 6px 6px rgb(34, 156, 86), 7px 7px rgb(35, 158, 87), 8px 8px rgb(35, 160, 88), 9px 9px rgb(36, 162, 89), 10px 10px rgb(36, 164, 90), 11px 11px rgb(37, 166, 91), 12px 12px rgb(37, 168, 92), 13px 13px rgb(38, 170, 93), 14px 14px rgb(38, 172, 94), 15px 15px rgb(39, 174, 96);
+		 overflow:hidden;
+}
+.success {
+	position:relative;
+	padding:0 0 0 40px;
+	height:30px;
+	line-height:30px;
+	background: #2ecc71;
+  margin:0 0 10px 0;
+	color:#fff;
+}
+
+
+
+
+
+.error:before {
+	content:"!";
+	position:absolute;
+	left:0;
+	top:0;
+	width:30px;
+	height:100%;
+	background:#C00;
+	color:#fff;
+	font-size:150%;
+	text-align:center;
+	font-weight:bolder;
+	text-shadow: 1px 1px #9E0200, 2px 2px #9E0200, 3px 3px #9E0200, 4px 4px #9E0200, 5px 5px #9E0200, 6px 6px #9E0200, 7px 7px #9E0200, 8px 8px #9E0200, 9px 9px #9E0200, 10px 10px #9E0200, 11px 11px #9E0200, 12px 12px #9E0200, 13px 13px #9E0200, 14px 14px #9E0200;
+	overflow:hidden;
+}
+.error {
+	position:relative;
+	padding:0 0 0 40px;
+	height:30px;
+	line-height:30px;
+	background: #E52727;
+  margin:0 0 10px 0;
+	color:#fff;
+}
+
+
+.required {
+	font-weight:500;
+	color:#C00;
+}
+p.required {
+	font-size:90%;
+	font-weight:300;
+}
+
+.circled {
+	background:#333;
+	width:25px;
+	height:25px;
+	line-height:25px;
+	text-align:center;
+	color:#fff;
+	display:block;
+	border-radius:50%;
+	margin: 0 5px 0 0;
+	cursor:pointer;
+	transition: all 0.2s ease-out 0s;
+}
+.circled:hover {
+	background:#ff5800;
+	  transition: all 0.2s ease-out 0s;
+}
+
+
+
+h3  {color:#ff5800;text-shadow: 1px 1px 1px rgb(238, 238, 238);}
+
+
+
+.main form h2{ 
+	margin: 0 0 10px;
+}
+.main form div.field {
+	margin: 1px 0 1px;
+	padding: 3px 0;
+	display: inline-block;
+	width: 100%;
+}
+
+.main form div.field:nth-child(odd) {
+	background:#ecf0f1;
+}
+.main form div.field:last-child {
+	background:transparent;
+}
+
+label.full-width {
+	display:inline-block;
+	width: 100%;
+}
+
+label {
+	float: left;
+	font-size:105%;
+	line-height: 30px;
+	font-weight:400;
+}
+
+select option {
+	padding:0 15px;
+	border:0;
+}
+select optgroup {
+	padding:0 5px;
+}
+
+.description {
+display:inline-block;
+margin: 4px 0 0 0;
+font-style: italic;
+color: #666;
+width: 100%;
+font-size: 80%;
+}
+
+strong  {color:#ff5800;}
+
+label[for="name"],
+label[for="email"],
+label[for="betreff"],
+label[for="code"],
+label[for="wert"],
+label[for="link"],
+label[for="shop"],
+label[for="date"] {
+	width:100px;
+}
+
+
+.main input,
+.main select,
+.main textarea {
+	border: 1px solid #D8D8D8;
+	color:#333;
+	font-family:Arial;
+	transition: border-color 0.05s ease-in-out 0s;
+}
+.main input,
+.main select{
+	height:30px;
+	line-height:30px;
+}
+.main input{
+	padding: 0 5px 0 25px;
+	float: left;
+}
+
+
+
+input[type="checkbox"]:focus, 
+input[type="email"]:focus, 
+input[type="number"]:focus, 
+input[type="password"]:focus, 
+input[type="radio"]:focus, 
+input[type="search"]:focus, 
+input[type="tel"]:focus, 
+input[type="text"]:focus, 
+input[type="url"]:focus, 
+select:focus, 
+textarea:focus {
+	border-color: #FF5800;
+	transition: border-color 0.05s ease-in-out 0s;
+}
+
+
+
+
+input[name="name"],
+input[name="email"],
+input[name="betreff"],
+input[name="code"],
+input[name="date"],
+input[name="link"],
+input[name="wert"] {
+	min-width:280px;
+	max-width:450px;
+	background-image: url('../images/fields.png');
+	background-repeat: no-repeat;
+}
+
+input[name="name"] {
+	background-position: 2px -268px;
+}
+
+input[name="email"] {
+	background-position: 2px -238px;
+}
+
+input[name="betreff"] {
+	background-position: 2px -30px;
+}
+
+input[name="code"] {
+	background-position: 2px -120px;
+}
+
+input[name="wert"] {
+	max-width:400px;
+		min-width:220px;
+	background-position: 2px -180px;
+}
+
+input[name="link"] {
+	background-position: 2px -60px;
+}
+
+input[name="ate"] {
+	background-position: 5px -256px;
+}
+
+input[name="date"] {
+	background-position: 2px -148px;
+}
+
+textarea {
+	position:relative;
+	padding: 3px 5px 3px 25px;
+	width:100%;
+	min-height:100px;
+	font-family: "Roboto",sans-serif;
+	font-size: 105%;
+	background-image: url('../images/fields.png');
+	background-position: 5px -332px;
+	background-repeat: no-repeat;
+}
+
+textarea:before {
+	content:"";
+	position:absolute;
+	display:block;
+	left:0;
+	top:0;
+	width:20px;
+	height:20px;
+
+}
+
+input[type=submit] {
+	background: #bdc3c7;
+	display: inline-block;
+	color: #fff;
+	height:30px;
+	line-height:30px;
+	padding: 0 15px;
+	border: 0;
+	cursor: pointer;
+	float:right;
+}
+input[type=submit]:hover {
+	background: #ff5800;
+}
+
+
+
+
+
+/* Form Validation */
+#capcha	{
+	display:inline-block;
+	margin: 0 0 15px 0px;
+	width:auto;
+}
+#capcha p {
+	display:inline-block;
+	border-top:2px solid #ecf0f1;
+	width:100%;	
+}
+
+
+#capcha label {
+  float: left;
+	display:inline-block;
+	width:35px;
+	height:35px
+}
+#capcha label {
+	border:1px solid #D8D8D8;
+	margin: 0px 10px 3px 0;
+	text-indent:-9999px;
+	cursor:pointer;
+}
+#capcha label:hover {
+	border:1px solid #ff5800;
+}
+
+#capcha input:checked + label {
+	border:1px solid #ff5800;
+}
+
+#capcha label[title="Apfel"] {
+	background: url(http:///sparfuchs-gutschein.de/wp-content/themes/sg/templates/forms/images/Apfel.png) top center / 100% 100% no-repeat;
+}
+#capcha label[title="Kirsche"] {
+	background: url(http:///sparfuchs-gutschein.de/wp-content/themes/sg/templates/forms/images/Kirsche.png) top center / 100% 100% no-repeat;
+}
+#capcha label[title="Zitrone"] {
+	background: url(http:///sparfuchs-gutschein.de/wp-content/themes/sg/templates/forms/images/Zitrone.png) top center / 100% 100% no-repeat;
+}
+#capcha label[title="Birne"] {
+	background: url(http:///sparfuchs-gutschein.de/wp-content/themes/sg/templates/forms/images/Birne.png) top center / 100% 100% no-repeat;
+}
+#capcha label[title="Erdbeere"] {
+	background: url(http:///sparfuchs-gutschein.de/wp-content/themes/sg/templates/forms/images/Erdbeere.png) top center / 100% 100% no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+input[type="radio"] {
+	display:none;
+}
+
+input[type="checkbox"]:checked + label {
+	background:#ff5800;
+  transition: all 0.2s ease-out 0s;
+}
+
+input[type="radio"]:checked + label {
+	background:#ff5800;
+  transition: all 0.2s ease-out 0s;
+}
+
+ 
+
+
+
+
+
+
+
+
+
+.grid-05 {
+	max-width:50px;
+}
+
+.grid-06 {
+	max-width:60px;
+}
+.grid-07 {
+	max-width:70px;
+}
+
+.grid-10 {
+	max-width:100px;
+}
+.grid-25 {
+
+	max-width: 250px;
+}
+.grid-50 {
+	max-width: 500px;
+}
+.grid-100 {
+	max-width: 1000px;
+}
+
+
+
+/* Default custom select styles */
+div.cs-select {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	text-align: left;
+	background: #fff;
+
+
+		height:30px;
+	line-height:30px;
+
+	margin: 0 !important;
+padding: 0 !important;
+	
+	border: 1px solid #D8D8D8;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;	
+}
+
+div.cs-select:focus {
+	outline: none; /* For better accessibility add a style for this in your skin */
+}
+
+.cs-select select {
+	display: none;
+}
+
+.cs-select span {
+	display: block;
+	position: relative;
+	cursor: pointer;
+	padding: 0 10px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+			border-bottom: 1px solid #D8D8D8;
+}
+
+/* Placeholder and selected option */
+.cs-select > span {
+	padding-right: 3em;
+}
+
+.cs-select > span::after,
+.cs-select .cs-selected span::after {
+	speak: none;
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.cs-select > span::after {
+	content: '\25BE';
+	right: 10px;
+}
+
+.cs-select .cs-selected span::after {
+	content: '\2713';
+	margin-left: 10px;
+}
+
+.cs-select.cs-active > span::after {
+	-webkit-transform: translateY(-50%) rotate(180deg);
+	transform: translateY(-50%) rotate(180deg);
+}
+
+
+.cs-placeholder {
+line-height: 28px;
+}
+
+
+
+/* Options */
+.cs-select .cs-options {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	background: #fff;
+	visibility: hidden;	
+display:none;
+	z-index: 7700;
+	
+}
+.cs-select.cs-active .cs-options {	
+	display: inline-block;
+}
+
+.cs-select ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	background:#fff;
+border: 1px solid #D8D8D8;
+
+border-bottom:3px solid #D8D8D8;
+border-right: 3px solid #D8D8D8;
+
+margin: 0 0px 0 -1px;
+
+}
+
+.cs-select ul:first-child {
+max-height: 300px;	
+overflow: auto;
+}
+
+
+.cs-select ul span {
+	padding: 2px 10px;
+}
+
+.cs-select ul li.cs-focus span {
+	background-color: #ddd;
+}
+
+/* Optgroup and optgroup label */
+.cs-select li.cs-optgroup ul {
+	padding-left: 10px;
+}
+
+.cs-select li.cs-optgroup > span {
+	background:#f2f2f2;
+	color:#333;
+	cursor: default;
+}
+
+
+
+
+
+
+
+
+div.cs-skin-elastic {
+	background: transparent;
+	font-weight: 400;
+
+}
+
+
+
+.cs-skin-elastic > span {
+	background-color: #fff;
+
+}
+
+.cs-skin-elastic > span::after {
+
+	content: '▾';
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.cs-skin-elastic .cs-options {
+	overflow: visible;
+	background: transparent;
+	opacity: 1;
+	visibility: visible;
+
+
+	pointer-events: none;
+}
+
+.cs-skin-elastic.cs-active .cs-options {
+	pointer-events: auto;
+}
+
+
+
+.cs-skin-elastic .cs-options ul li {
+	opacity: 0;
+	-webkit-transform: translate3d(0,-25px,0);
+	transform: translate3d(0,-25px,0);
+	-webkit-transition: opacity 0.15s, -webkit-transform 0.15s;
+	transition: opacity 0.15s, transform 0.15s;
+}
+
+.cs-skin-elastic.cs-active .cs-options ul li {
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+	opacity: 1;
+	-webkit-transition: none;
+	transition: none;
+	-webkit-animation: bounce 0.6s ease-out;
+  	animation: bounce 0.6s ease-out;
+}
+
+
+.cs-skin-elastic .cs-options span:hover,
+.cs-skin-elastic .cs-options li.cs-focus span,
+.cs-skin-elastic .cs-options .cs-selected span {
+		color:#ff5800;
+}
+
+.cs-skin-elastic .cs-options .cs-selected span::after {
+	content: '';
+}
+
+
+
+@-webkit-keyframes expand { 
+	0% { -webkit-transform: scale3d(1,0,1); }
+	25% { -webkit-transform: scale3d(1,1.2,1); }
+	50% { -webkit-transform: scale3d(1,0.85,1); }
+	75% { -webkit-transform: scale3d(1,1.05,1) }
+	100% { -webkit-transform: scale3d(1,1,1); }
+}
+
+@keyframes expand { 
+	0% { -webkit-transform: scale3d(1,0,1); transform: scale3d(1,0,1); }
+	25% { -webkit-transform: scale3d(1,1.2,1); transform: scale3d(1,1.2,1); }
+	50% { -webkit-transform: scale3d(1,0.85,1); transform: scale3d(1,0.85,1); }
+	75% { -webkit-transform: scale3d(1,1.05,1); transform: scale3d(1,1.05,1); }
+	100% { -webkit-transform: scale3d(1,1,1); transform: scale3d(1,1,1); }
+}
+
+
+@-webkit-keyframes bounce { 
+	0% { -webkit-transform: translate3d(0,-25px,0); opacity:0; }
+	25% { -webkit-transform: translate3d(0,10px,0); }
+	50% { -webkit-transform: translate3d(0,-6px,0); }
+	75% { -webkit-transform: translate3d(0,2px,0); }
+	100% { -webkit-transform: translate3d(0,0,0); opacity: 1; }
+}
+
+@keyframes bounce { 
+	0% { -webkit-transform: translate3d(0,-25px,0); transform: translate3d(0,-25px,0); opacity:0; }
+	25% { -webkit-transform: translate3d(0,10px,0); transform: translate3d(0,10px,0); }
+	50% { -webkit-transform: translate3d(0,-6px,0); transform: translate3d(0,-6px,0); }
+	75% { -webkit-transform: translate3d(0,2px,0); transform: translate3d(0,2px,0); }
+	100% { -webkit-transform: translate3d(0,0,0); transform: translate3d(0,0,0); opacity: 1; }
+}
+
+
+
+
+
+

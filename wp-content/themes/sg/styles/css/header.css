@@ -1,0 +1,163 @@
+
+/* ---------------------------------------HEADER-------------------------------------------------- */
+.bread {
+    height: 25px;
+    line-height: 25px;
+    font-size:80%;
+    font-weight:300;
+}
+h1.top-level-heading {
+    font-size:70%;
+    color:#fff;
+    text-align:left;
+    font-weight:normal;
+}
+
+.bread a {
+  float:right;
+  margin:5px 0 -15px 10px;
+  padding:0 10px
+}
+
+header[role="banner"] {
+    height: 165px;
+}
+
+header[role="banner"] #logo {
+    position:relative;
+    display:block;
+    float:left
+}
+header[role="banner"] a#logo:after {
+    display:none;
+    content:"";
+    position:absolute;
+    top:31%;
+    left:12%;
+    z-index:1;
+    width:50%;
+    height:50%;
+    background:url(https://sparfuchs-gutschein.de/wp-content/themes/sg/images/logo/auge.png) no-repeat 0 0
+}
+header[role="banner"] a#logo:hover:after {
+	display:block
+}
+header[role="banner"] p {
+	margin:90px 0 0 260px;
+	font-size:22px;
+	position:absolute;	
+	color:#fff
+}
+header[role="banner"] form {
+	float:right;
+	position: relative;
+    width:40%;
+	margin-top: 30px;
+	margin-bottom: 20px
+}
+header[role="banner"] form input {
+  border-radius: 0;
+	width:100%;
+	height:40px;
+    font-size:105%;
+	padding:0 2%;
+	border:0
+}
+header[role="banner"] #submit {
+	position:absolute;
+	right:0;
+	top:0;
+	width:40px;
+	background-color:#fff;
+	cursor:pointer
+}
+
+
+
+
+
+
+
+/* media queries */
+@media screen and (max-width:700px) {
+  .top-level-heading {
+    display: none;
+  }
+  
+  .bread {
+    display: none;
+  }
+  
+  .breadcrumbs {
+    display: none;
+  }
+  
+  header[role="banner"] form {
+    position: fixed;
+    z-index: 9100;
+    margin-top: 5px;
+    margin-right: 5px;
+    top: 0;
+    right: 0;
+	width:75%;
+  }
+  
+  header[role="banner"] a#logo {
+	margin-top: 50px;
+  }
+  
+  body header[role="banner"] {
+    margin: 0 auto -25px auto;
+  }
+
+  
+  
+  body.socialbar {
+    display: none;
+  }
+  
+  
+  
+  
+  .mc p {
+    font-size: 120%;    
+  }
+  .c li img {
+    max-width: 30%;
+  }
+  .mc {
+    width: 62%;
+  }
+  
+  .rc {
+    width: 100%;
+    float: none;
+        display: inline-block;
+  }
+  
+  
+  article.speek-right:before, article.speek-right:after,.logo2 {
+    display: none;
+  }
+}
+
+
+@media screen and (max-width:930px) {
+  .main-menu ul li a {
+    font-size: 100%;
+  }
+  
+  .main-menu ul li ul li a {
+    font-size: 85%;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------HEADER-------------------------------------------------- */

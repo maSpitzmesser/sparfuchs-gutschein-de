@@ -1,0 +1,192 @@
+/* weiterleitung */
+#progressbar{ 
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+    border: 0;  
+    height: 2px;
+		display:block;
+}
+
+.redirect-container {
+	margin:10% auto 0;
+	padding:0 5px;
+	max-width: 400px;
+	text-align:center;
+}
+
+.redirect-container-inner{
+	position:relative;
+	margin:0 0 20px;
+	padding:10px;
+	overflow: hidden;
+}
+
+.redirect-head-h1 {
+	font-size: 125%;
+	font-weight: bold;
+	padding:2px 0 4px;
+	margin:0 0 10px 0;
+	width:100%;
+	display:block
+}
+
+.headline-a2,
+.redirect-head-h2 {
+	font-size: 130%;
+	height:35px;
+	padding:5px 0 15px;
+}
+
+
+
+.headline-a3 {
+	font-size: 125%;
+	line-height:20px;
+	padding:10px 0 5px;
+}
+
+.redirect-showCode {
+	width:100%;
+	position: relative
+}
+
+.redirect-code {
+	margin:10px auto;
+	width:100%;
+	padding:5px 0;
+	font-size: 135%;
+	font-weight: 400;
+	text-align:center;
+	display: block;
+	background:#fff
+}
+
+.redirect-progress-value {
+    position: absolute;
+    top: 17px;
+    left: 15px;
+    font-size: 5px;
+}
+
+.redirect-loading {
+	padding:5px;
+	display:inline-block;
+	position:relative
+}
+
+.redirect-text {
+	position:relative
+}
+.redirect-text a {
+	text-decoration: underline
+}
+
+
+/* Frame Gutscheinleiste */
+.close,
+.mini{
+	width:20px;
+	height:20px;
+	position:absolute;
+	right:0;
+	top:5px
+}
+
+.close:hover{opacity:.9;filter:alpha(opacity=90)}
+
+
+
+html,body{height:100%;overflow:hidden}
+
+h4{
+	color:#fff;
+	text-align:center;
+	margin:8px 0 0 0
+}
+
+
+.gutscheinleiste {
+	position:relative;
+	margin:0 auto;
+	height:90px;
+	max-width:1260px;
+	min-width:240px;
+	overflow-y:hidden
+}
+
+.frame-logo{
+	float:left;
+	width:28%;
+	margin: 0 2% 0 0
+}
+
+.infobox{
+	height:80px;
+	width:67%;
+	margin-top:5px;
+	padding:5px;
+	background:#fff;
+	float:left;
+	overflow:hidden
+}
+
+.container_left {
+	float:left;
+	height:70px;
+	width:50%;
+	overflow:auto
+}
+
+.container_right{
+	float:right;
+	height:70px;
+	width:50%;
+	text-align:center
+}
+
+ul {
+	padding:0 0 10px 25px;
+	line-height:20px
+}
+	
+ol {
+	list-style:decimal;
+	padding:0 0 0 20px
+}
+
+.desc {
+	margin: 5px
+}
+
+
+.frame-code{
+	display:block;
+	border:0;
+	background:url(http://sg.sparfuchs-gutschein.de/images/schere.jpg) no-repeat left center #fff;
+	font-weight:bold;
+	text-align:center;
+	height:30px;
+	width:100%;
+	border:3px solid #DE1B00;
+	padding:5px 0;
+	position:relative
+}
+
+.title{
+	padding: 5px 0;
+	color:#ff5800
+}
+
+
+
+/* Media queries */
+@media screen and (max-width: 480px) {
+	.frame-logo {
+		display:none
+	}
+	.infobox {
+		width:100%
+	}
+}

@@ -1,0 +1,145 @@
+/*   Social Network Butten & Like box      */
+
+
+.socialbar {
+  width:100%;
+  line-height:25px;
+  display:block;
+  margin:-10px 0 20px 0 !important;
+  padding-top:8px;
+  overflow:hidden
+}
+
+.box-300 #social-active {
+margin:7px 0 3px 7px
+}
+
+#social-active {
+margin:0 0 3px 0
+}
+
+.socialbar #social-active {
+float:right
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  padding:3px;
+  width: 62px;
+  height: 20px;
+  cursor: pointer
+}
+
+.switch input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.switch-label {
+  position: relative;
+  display: block;
+  height: inherit;
+  font-size: 80%;
+  text-transform: uppercase;
+  background: #eceeef;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
+  transition: 0.15s ease-out;
+
+}
+.switch-label:before, .switch-label:after {
+  position: absolute;
+  top: 50%;
+  margin-top: -.5em;
+  line-height: 1;
+  -webkit-transition: inherit;
+  transition: inherit;
+}
+.switch-label:before {
+  content: "Aus";
+  right: 11px;
+  color: #aaa;
+
+}
+.switch-label:after {
+  content: "An";
+  left: 11px;
+  color: #fff;
+  opacity: 0;
+}
+.switch input:checked ~ .switch-label {
+  background: #00A6F9
+}
+.switch input:checked ~ .switch-label:before {
+  opacity: 0;
+}
+.switch input:checked ~ .switch-label:after {
+  opacity: 1;
+}
+
+.switch-handle {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 18px;
+  height: 18px;
+  background: white;  
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  transition: left 0.15s ease-out
+}
+
+.switch-input:checked ~ .switch-handle {
+  left: 40px;
+  box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.switch-green > .switch-input:checked ~ .switch-label {
+  background: #4fb845;
+}
+
+#sb,
+#sbs {
+	float:right;
+	line-height:20px;
+	height:20px;
+	width:325px;
+	background-position:55px 0
+}
+#sbs {
+	margin:2px
+}
+#sb>div,
+#sbs>div{
+	float:left;
+	margin-right:-5px;
+	overflow:hidden
+}
+.fb-like {
+	width:130px !important
+}
+.twitter-share-button {
+	width:100px !important
+}
+#___plusone_0 {
+	width:70px !important
+}
+#lk {
+	width:100%;
+	min-height:240px;
+	max-height:245px !important;
+	overflow: hidden;
+	background: url('https://sparfuchs-gutschein.de/wp-content/themes/sg/images/like-box.png') no-repeat 10px 10px !important;
+
+}
+.fb-like-box {
+	width:100%;
+	height:auto !important;
+	min-height:258px !important;
+	overflow:hidden;
+	background:#fff
+}

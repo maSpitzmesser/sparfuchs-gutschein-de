@@ -1,0 +1,340 @@
+@font-face{
+        font-family:'Bree Serif';
+        font-style:normal;
+        font-weight:400;
+        src:local('Bree Serif'),local('BreeSerif-Regular'),url(http://themes.googleusercontent.com/static/fonts/breeserif/v2/LQ7WLTaITDg4OSRuOZCpsxsxEYwM7FgeyaSgU71cLG0.woff) format('woff')
+}
+
+@font-face{
+        font-family:'Handlee';
+        font-style:normal;
+        font-weight:400;
+        src:local('Handlee Regular'),local('Handlee-Regular'),url(http://themes.googleusercontent.com/static/fonts/handlee/v2/6AfIXNH5pZ1Jj_pfExPOWQ.woff) format('woff')
+}
+
+html,body{
+        margin:0;
+        height:100%;
+        overflow:hidden;
+        color:#333
+}
+
+p{
+        font-size:16px;
+        font-weight:bold;
+        color:#fff;
+        font-family:'arial';
+        text-align:center;
+        margin:12px 0;
+        text-shadow:1px 1px 5px #101010
+}
+
+.gutscheinleiste{
+        height:100px;
+        border:0 !important;
+        background-image:url(http://sg.sparfuchs-gutschein.de/images/frame-bg.jpg);
+        box-shadow:0 1px 2px 0 #000 inset;
+        overflow:hidden
+}
+
+.gutscheinleistebox{
+        height:100px;
+        width:1000px;
+        margin-left:auto;
+        margin-right:auto
+}
+
+ul{
+        padding:0 0 10px 25px;
+        margin:0;
+        line-height:20px
+}
+
+li{
+        font-family:'Handlee',cursive;
+        list-style-image:url(http://sg.sparfuchs-gutschein.de/images/check.png);
+        text-decoration:none;
+        font-size:15px;
+        line-height:16px !important
+}
+
+.infobox{
+        height:80px;
+        width:550px;
+        border:0;
+        margin-top:5px;
+        padding:5px;
+        background-color:#fff;
+        float:left;
+        -moz-border-radius:5px;
+        -webkit-border-radius:5px;
+        border-radius:5px;
+        box-shadow:-3px -3px 2px 0 #d7d7d7 inset,1px 1px 3px 0 #000
+}
+
+.logo{
+        float:left;
+        overflow:hidden;
+        width:325px
+}
+
+.logo-bar{
+        border:0
+}
+
+.container_left{
+        float:left;
+        height:70px;
+        width:265px;
+        padding:5px 0 5px 10px;
+        overflow:auto;
+        border:0;
+        box-shadow:1px 1px 1px 0 #ccc inset;
+        border-radius:3px
+}
+
+.container_right{
+        background-color:#ff7b17;
+        float:right;
+        height:68px;
+        width:250px;
+        border:0;
+        -moz-border-radius:5px;
+        padding:0 10px 10px 10px;
+        background-image:url(data:image/png;base64,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);
+        -webkit-border-radius:5px;
+        border-radius:5px
+}
+
+input{
+        font-size:15px;
+        font-weight:normal;
+        font-family:'Bree Serif',serif;
+        color:#000;
+        text-align:center;
+        height:25px;
+        width:220px;
+        border:0;
+        -moz-border-radius:15px;
+        -webkit-border-radius:15px;
+        border-radius:15px;
+        -moz-box-shadow:inset 2px 2px 3px 0 #646464;
+        -webkit-box-shadow:inset 2px 2px 3px 0 #646464;
+        box-shadow:inset 2px 2px 3px 0 #646464
+}
+
+.socialbox{
+        float:right;
+        width:110px;
+        margin-top:45px
+}
+
+.closed{
+        position:absolute;
+        width:25px;height:25px;
+        margin:5px 0 0 5px;
+        background:url(http://sg.sparfuchs-gutschein.de/images/close2.png) no-repeat 0 0;
+        text-decoration:none
+}
+
+.closed:hover{
+        opacity:0.9;
+filter:alpha(opacity=90);
+}
+
+.leisteclose a{
+        color:#fff;
+        font-family:Arial;
+        text-decoration:none
+}
+
+.title{
+        font-weight:bold;
+        text-align:left;
+        margin:0 0 5px -23px;
+        padding:0;
+        font-weight:bold;
+        font-family:'Bree Serif',serif;
+        font-size:20px;
+        color:#ff5800;
+        text-shadow:1px 1px 1px #eee
+}
+
+iframe{
+        overflow-x:hidden
+}
+
+.shop{
+        overflow-x:hidden
+}
+
+.mCSB_container{
+        width:auto;
+        margin-right:30px;
+        overflow:hidden
+}
+
+.mCSB_container.mCS_no_scrollbar{
+        margin-right:0
+}
+
+.mCS_disabled>.mCustomScrollBox>.mCSB_container.mCS_no_scrollbar,.mCS_destroyed>.mCustomScrollBox>.mCSB_container.mCS_no_scrollbar{
+        margin-right:30px
+}
+
+.mCustomScrollBox>.mCSB_scrollTools{
+        width:11px;
+        height:94%;
+        top:0;
+        right:0
+}
+
+.mCSB_scrollTools .mCSB_draggerContainer{
+        position:absolute;
+        top:0;
+        left:-5px;
+        bottom:0;
+        right:0;
+        height:auto
+}
+
+.mCSB_scrollTools a+.mCSB_draggerContainer{
+        margin:20px 0
+}
+
+.mCSB_scrollTools .mCSB_draggerRail{
+        width:0;
+        margin:0 auto;
+        height:100%;
+        border-right:1px dashed #ff5800
+}
+
+.mCSB_scrollTools .mCSB_dragger{
+        cursor:pointer;
+        width:100%;
+        height:11px !important
+}
+
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+        width:11px;
+        height:100%;
+        margin:0 auto;
+        -webkit-border-radius:11px;
+        -moz-border-radius:11px;
+        border-radius:11px;
+        text-align:center;
+        box-shadow:1px 1px 2px 0 #ccc
+}
+
+.mCSB_scrollTools .mCSB_buttonUp,.mCSB_scrollTools .mCSB_buttonDown{
+        display:block;
+        position:relative;
+        height:20px;
+        overflow:hidden;
+        margin:0 auto;
+        cursor:pointer
+}
+
+.mCSB_scrollTools .mCSB_buttonDown{
+        top:100%;
+        margin-top:-40px
+}
+
+.mCSB_horizontal>.mCSB_container{
+        height:auto;
+        margin-right:0;
+        margin-bottom:30px;
+        overflow:hidden
+}
+
+.mCSB_horizontal>.mCSB_container.mCS_no_scrollbar{
+        margin-bottom:0
+}
+
+.mCS_disabled>.mCSB_horizontal>.mCSB_container.mCS_no_scrollbar,.mCS_destroyed>.mCSB_horizontal>.mCSB_container.mCS_no_scrollbar{
+        margin-right:0;
+        margin-bottom:30px
+}
+
+.mCSB_horizontal.mCustomScrollBox>.mCSB_scrollTools{
+        width:100%;
+        height:16px;
+        top:auto;
+        right:auto;
+        bottom:0;
+        left:0;
+        overflow:hidden
+}
+
+.mCSB_horizontal>.mCSB_scrollTools a+.mCSB_draggerContainer{
+        margin:0 20px
+}
+
+.mCSB_horizontal>.mCSB_scrollTools .mCSB_draggerRail{
+        width:100%;
+        height:2px;
+        margin:7px 0;
+        -webkit-border-radius:10px;
+        -moz-border-radius:10px;
+        border-radius:10px
+}
+
+.mCSB_horizontal>.mCSB_scrollTools .mCSB_dragger{
+        height:11px
+}
+
+.mCSB_horizontal>.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+        width:100%;
+        height:4px;
+        margin:6px auto;
+        -webkit-border-radius:10px;
+        -moz-border-radius:10px;
+        border-radius:10px
+}
+
+.mCSB_horizontal>.mCSB_scrollTools .mCSB_buttonLeft,.mCSB_horizontal>.mCSB_scrollTools .mCSB_buttonRight{
+        display:block;
+        position:relative;
+        width:20px;
+        height:100%;
+        overflow:hidden;
+        margin:0 auto;
+        cursor:pointer;
+        float:left
+}
+
+.mCSB_horizontal>.mCSB_scrollTools .mCSB_buttonRight{
+        margin-left:-40px;
+        float:right
+}
+
+.mCustomScrollBox{
+        -ms-touch-action:none
+}
+
+.mCSB_scrollTools .mCSB_draggerRail{
+        background:#000;
+        background:#eaeaea;
+        box-shadow:1px 1px 0 0 #646464 inset;
+
+}
+
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+        background:#ff5800;
+
+}
+
+.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
+        background:#ff5800;
+
+}
+
+.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{
+        background:#ff5800;
+
+}
+
+.mCSB_scrollTools .mCSB_buttonUp,.mCSB_scrollTools .mCSB_buttonDown,.mCSB_scrollTools .mCSB_buttonLeft,.mCSB_scrollTools .mCSB_buttonRight{
+        background-image:url(http://sg.sparfuchs-gutschein.de/images/mCSB_buttons.png);
+        background-repeat:no-repeat
+}

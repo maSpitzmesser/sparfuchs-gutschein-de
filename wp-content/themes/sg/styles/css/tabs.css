@@ -1,0 +1,31 @@
+
+.tabs li {
+  float: left;
+  line-height: 40px;
+	height: 40px;
+  margin: 0;
+  width: 25%;
+	font-size:120%;
+  text-align: center;
+	border-right: 1px solid #F13C00;
+  cursor:pointer
+}
+ul.tabs li:last-child {
+  border-right: 0px none;
+}
+
+.tabs a {
+  position: relative;
+  float: left;
+  text-decoration: none
+}
+.tabs a:hover,
+.tabs a:hover::after,
+.tabs a:focus,
+.tabs a:focus::after {
+  background: transparent;
+  color:#333
+}
+.tabs a:focus {
+  outline: 0;
+}

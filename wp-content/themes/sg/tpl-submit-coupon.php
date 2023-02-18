@@ -1,0 +1,141 @@
+<?php 
+/*
+Template Name: Share Coupon Template
+*/
+
+
+header("Cache-control: private");
+
+	
+global $posted, $user_ID, $app_abbr;
+$posted = array();
+$errors = new WP_Error();
+	
+?>
+
+
+<style>
+	/* Start Forms */
+  
+fieldset {border:0;padding:0;margin:0}
+form#loginform,
+form#registerform,
+form#lostpassform {border:0;padding:30px 0}
+
+form#loginform p,
+form#registerform p,
+form#lostpassform p {overflow:hidden;height:1%;padding:0 0 9px}
+
+p.lostpass {margin:10px 0 0 166px}
+
+#recaptcha_widget_div {margin-left:204px}
+
+input#recaptcha_response_field {left:0}
+
+ul.errors    {background:none repeat scroll 0 0 #ffe8e6;border:1px solid #de5749;list-style:none outside none !important;margin:1.54em 0 !important;padding:10px 20px}
+ul.errors li {color:#a43;list-style:none outside none}
+
+p.success {background:#ffffe0;border:1px solid #e6db55;color:#896f44;margin:0 0 20px !important;padding:12px}
+
+.box-yellow {background-color:#ffc;border:1px solid #d8d2a9;margin-bottom:10px;border-radius:4px;padding:7px}
+.box-red,
+.error      {background-color:#ffebe8;border:1px solid #c00;margin-bottom:10px;border-radius:4px;padding:7px}
+
+#couponForm ol,#loginForm ol {margin:0;padding:0}
+#couponForm li,#loginForm li,
+#commentForm li,.commentForm li{display:block;margin:15px 0;list-style-type:none}
+
+#couponForm .row{overflow:hidden;height:1%;padding:0 0 9px}
+
+#couponForm label,#loginForm label,#commentForm label,.commentForm label
+{float:left;width:160px;text-align:right;font:15px/15px Bree,sans-serif;font-family: 'Bree Serif',serif;margin:4px 10px 0 0px}
+h1 {font-family: 'Bree Serif',serif;font-weight: normal;text-align:center;color:#ff5800;font-size:22px}
+#couponForm .text,#loginForm .text,#commentForm .text,.commentForm .text,#loginForm .form-table .text
+{box-shadow:0 3px 3px 0 #d9d9d9 inset;border:1px solid #a3a9ad;border-bottom:1px solid #d9d9d9;width:280px;padding: 6px 5px;border-radius:4px;color:#8a8a8a}
+
+div.error   {font-size:12px;color:#c00;border-top:2px solid #fe7b7a;border-bottom:2px solid #fe7b7a;background:#ffd6d6;margin:0 0 15px;padding:5px 15px}
+div.success {font-size:12px;color:#57861a;border-top:2px solid #6caa00;border-bottom:2px solid #6caa00;background:#eef7dd;margin:0 0 15px;padding:5px 15px}
+
+.loginForm {width:450px;margin: 0 auto}
+.loginForm button.login, .yellowbutton {font-family: 'Bree Serif',serif;color:#fff;text-shadow: 0px -1px 0px rgb(158, 52, 0), 0px 1px 0px rgb(250, 117, 0);border:0;border-radius:3px;
+background: #ff5800;
+background: -moz-linear-gradient(top, #ff5800 0%, #ff5400 50%, #f24000 51%, #d60e00 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff5800), color-stop(50%,#ff5400), color-stop(51%,#f24000), color-stop(100%,#d60e00));
+background: -webkit-linear-gradient(top, #ff5800 0%,#ff5400 50%,#f24000 51%,#d60e00 100%);
+background: -o-linear-gradient(top, #ff5800 0%,#ff5400 50%,#f24000 51%,#d60e00 100%);
+background: -ms-linear-gradient(top, #ff5800 0%,#ff5400 50%,#f24000 51%,#d60e00 100%);
+background: linear-gradient(to bottom, #ff5800 0%,#ff5400 50%,#f24000 51%,#d60e00 100%);
+box-shadow:1px 1px 0px rgb(244, 159, 97) inset}
+.loginForm button.login {font-size:16px;width:277px;height:30px;cursor:pointer}
+
+#couponForm input.text,
+#loginForm input.text,
+#commentForm input.text,
+.commentForm input.text {width:280px;box-shadow:0 3px 3px 0 #d9d9d9 inset;margin:0;padding:6px 5px;font:11px/13px Verdana,Geneva,Arial,Helvetica,sans-serif;color:#8a8a8a}
+
+li#rememberme,li#lostpass,li#register {margin-left:167px}
+
+li#lostpass {margin-bottom:-10px}
+
+li#rememberme span{margin-left:3px;color:#8a8a8a;font:italic 11px/13px Verdana,Geneva,Arial,Helvetica,sans-serif}
+
+li#new-store-name,li#new-store-url,li#ctype-coupon-code,li#ctype-printable-coupon {display:none}
+
+input.invalid,textarea.invalid,select.invalid {border-color:#c00 !important}
+
+div.invalid{color:#c00;font-size:12px;margin:2px 0 0 167px}
+
+#respond textarea.commentbox {box-shadow:0 8px 8px 0 #eee inset;border:1px solid #a3a9ad;border-bottom:1px solid #d9d9d9;width:97% !important;height:100px;padding:5px;margin:0;font:11px/13px Verdana,Geneva,Arial,Helvetica,sans-serif;color:#8a8a8a;border-radius:4px}
+
+.post-box textarea#coupon,
+.post-box textarea#description {box-shadow:0 8px 8px 0 #eee inset;border:1px solid #a3a9ad;border-bottom:1px solid #d9d9d9;width:280px;height:200px;padding:5px;margin:0;font:11px/13px Verdana,Geneva,Arial,Helvetica,sans-serif;color:#8a8a8a;border-radius:4px}
+
+form.commentForm fieldset ol,form.post-form fieldset ol {padding:10px 0 0 80px}
+
+button.submit {float:right}
+button.coupon {float:right;margin-right:84px}
+button.edit   {float:right;margin:10px 45px 10px 10px}
+button.profile{margin:10px 10px 10px 165px}
+.reports_submit       {margin:-2px 0 0;padding:0;min-width:79px;height:23px;cursor:pointer;border:0;color:white;font-size:14px;letter-spacing:-1px;line-height:16px;text-align:center}
+.reports_submit:hover {background-position:bottom left}
+/* Ende Forms */
+</style>
+
+
+
+<div style="background:#fff">
+
+	
+	
+    <div class="box-t"><h1>Gutschein melden</h1></div>
+		
+		<div class="box-c">
+		
+				
+			
+			
+				<?php
+
+				// check and make sure the form was submitted from step1
+				 if(isset($_POST['submitted'])) {
+
+					 include_once(TEMPLATEPATH . '/includes/forms/submit-coupon/submit-coupon-process.php');
+
+				 } else {
+
+					 include_once(TEMPLATEPATH . '/includes/forms/submit-coupon/submit-coupon-form.php');
+
+				 }
+				?>   
+				
+				
+			
+		</div>
+		
+		
+		
+
+	
+</div>
+
+

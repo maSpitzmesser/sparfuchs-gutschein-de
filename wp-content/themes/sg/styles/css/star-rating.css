@@ -1,0 +1,89 @@
+.kksr-stars,
+.kksr-star.yellow,
+.kksr-star.gray,
+.orange,
+.kksr-fuel {
+	background-image:url(http://sg.sparfuchs-gutschein.de/images/stars.png);
+	background-repeat:repeat-x
+	
+
+}
+
+.kk-star-ratings {
+	margin: -10px 0 0 0;
+	padding:5px 0;
+	position:relative;
+	float: left;
+	    font-size: 80%;
+}
+
+.kk-star-ratings span {
+		overflow: hidden;
+}
+
+
+.kk-star-ratings span:first-child {
+    display: inherit;
+    height: auto;
+    line-height: inherit;
+    text-align: center;
+
+    font-weight: 300;
+		overflow: hidden;
+		text-shadow:none;
+}
+
+
+
+.kksr-stars {
+	height:24px;
+	width:120px;
+	margin:0 auto;
+	position:relative
+}
+
+.kksr-star {
+	background-position:0 0
+}
+
+.kksr-star.kksr-fuel {
+	height:24px;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:0;
+  background-position: 0px -30px;
+}
+.kksr-stars a {
+	width:24px;
+	height:24px;
+	float:left;
+	position:relative;
+	z-index:1
+}
+
+.kksr-legend {
+	text-align:center
+}
+
+.kksr-title {
+	display:none !important
+}
+
+
+.kksr-star.orange {
+	background-position:0 -60px
+}
+.kksr-star.yellow{
+	background-position:0 -30px
+}
+/*
+.kk-star-ratings { width:120px; }
+.kk-star-ratings .kksr-stars a { width:24px; }
+.kk-star-ratings .kksr-stars, .kk-star-ratings .kksr-stars .kksr-fuel, .kk-star-ratings .kksr-stars a { height:24px; }
+.kk-star-ratings .kksr-star.gray { background-image: url(http://sparfuchs-gutschein.de/wp-content/plugins/kk-star-ratings/gray.png); }
+.kk-star-ratings .kksr-star.yellow { background-image: url(http://sparfuchs-gutschein.de/wp-content/plugins/kk-star-ratings/yellow.png); }
+.kk-star-ratings .kksr-star.orange { background-image: url(http://sparfuchs-gutschein.de/wp-content/plugins/kk-star-ratings/orange.png); }
+*/
+
+/* ---------------------------------------SIDERBAR-------------------------------------------------- */
