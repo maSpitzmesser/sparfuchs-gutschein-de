@@ -75,15 +75,17 @@
 <script src="/wp-content/themes/sg/js/jquery-3.5.1.min.js"></script>
 
 <?php if (current_user_can( 'manage_options' )) {
-  $files = glob("/homepages/40/d393556749/htdocs/webseiten/sparfuchs-gutschein-de/wp-content/themes/sg/scripts/*.js");
-  foreach ($files as $dataJS){
-    $dataJS = explode("/", $dataJS);
-    echo '<script src="/wp-content/themes/sg/scripts/' . $dataJS[10] . '"></script>', PHP_EOL;
-  }
-  echo '<script src="/wp-content/themes/sg/admin/js/web-assistent.js"></script>', PHP_EOL;
+    $theme_root = get_template_directory();
+    $jsFiles    = glob($theme_root . "/scripts/*.js");
+
+    foreach ($jsFiles as $jsFile){ 
+        $jsFileName = pathinfo($jsFile, PATHINFO_FILENAME); ?>
+        <script src="<?php echo bloginfo('template_directory') . '/scripts/' . $jsFileName ?>"></script><?php PHP_EOL;
+    } ?>
+    <script src="<?php echo bloginfo('template_directory') ?>/admin/js/web-assistent.js"></script><?php PHP_EOL;
 
 } else  { ?>
-  <script src="/wp-content/themes/sg/scripts/sg_min.js.gz"></script>
+    <script src="<?php echo bloginfo('template_directory') ?>/scripts/sg_min.js.gz"></script>
 <?php }  ?>
 
 <?php
