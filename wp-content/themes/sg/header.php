@@ -17,17 +17,18 @@
         <meta name="keywords" content="<?php the_title(); ?> Gutschein, <?php the_title(); ?> Rabatt, <?php the_title(); ?> Gutscheincode"/>
 	<?php endif ?>
 
-    <?php if (current_user_can( 'manage_options' )) {
-            $files = glob("/homepages/40/d393556749/htdocs/Sparfuchs-Gutschein/wp-content/themes/sg/styles/css/*.css");
-            foreach ($files as $dataJS){
-                $dataJS = explode("/", $dataJS);  ?>
-                <link rel="stylesheet" href="<?php bloginfo('url'); ?>/wp-content/themes/sg/styles/css/<?php echo $dataJS[11] ?>" media="print, screen" /><?php  PHP_EOL;
-            }
+	<?php if (current_user_can( 'manage_options' )) {
+		$theme_root = get_template_directory();
+		$cssFiles   = glob($theme_root . "/styles/css/*.css");
+		foreach ($cssFiles as $cssFile){
+			$cssFilesName = pathinfo($cssFile, PATHINFO_FILENAME); ?>
+			<link rel="stylesheet" href="<?php echo bloginfo('template_directory') . '/styles/css/' . $cssFilesName ?>" media="print, screen" /><?php  PHP_EOL;
+		}
 
-        } else  { ?>
-        <link rel="preload" href="<?php bloginfo('url'); ?>/wp-content/themes/sg/styles/css/sg_min_all_2.css.gz" as="style"/>
-        <link rel="stylesheet" href="<?php bloginfo('url'); ?>/wp-content/themes/sg/styles/css/sg_min_all_2.css.gz" media="print, screen" />
-    <?php }  ?>
+	} else  { ?>
+		<link rel="preload" href="<?php echo bloginfo('template_directory') ?>/styles/css/sg_min_all_2.css.gz" as="style"/>
+		<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/sg_min_all_2.css.gz" media="print, screen" />
+	<?php }  ?>
   
     <link rel="preload" href="/wp-content/themes/sg/styles/flat/theme.css" as="style" />
     <link rel="stylesheet" href="/wp-content/themes/sg/styles/flat/theme.css" media="screen" />
