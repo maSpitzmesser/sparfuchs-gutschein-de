@@ -385,14 +385,14 @@
 
 
 	function get_logo_by_coupon($shopname) {
-		echo '<img data-funk="get_logo_by_coupon" alt="' . $shopname . ' Gutscheincode" src="https://sparfuchs-gutschein.de/wp-content/themes/sg/images/shop_logos/' . $shopname . '-logo.png" title="' . $shopname . '"/>';
+		echo '<img data-funk="get_logo_by_coupon" alt="' . $shopname . ' Gutscheincode" src="' . get_template_directory_uri() . '/images/shop_logos/' . $shopname . '-logo.png" title="' . $shopname . '"/>';
 	}
 	function get_logo($shopname) {
 		$parent_title = get_the_title($post->post_parent);
 		$search = array(" ", ".", "&#038;", "`", "'", "ö", "ü", "ä");
 		$replacelogo = array("-", "-", "-und-" , "-", "-", "oe", "ue", "ae");
 		$shopname = urldecode(strtolower(str_replace($search, $replacelogo, $parent_title)));
-		echo '<img data-funk="get_logo" alt="' . $shopname . ' Gutscheincode" src="https://sparfuchs-gutschein.de/wp-content/themes/sg/images/shop_logos/' . $shopname . '-logo.png" title="' . $shopname . '" itemprop="image"/>';
+		echo '<img data-funk="get_logo" alt="' . $shopname . ' Gutscheincode" src="' . get_template_directory_uri() . '/images/shop_logos/' . $shopname . '-logo.png" title="' . $shopname . '" itemprop="image"/>';
 	}
 
 	function get_logo_lazy_offer($shopname, $offerTitle) {
@@ -401,8 +401,7 @@
 		$replacelogo = array("-", "-", "-und-" , "-", "-", "oe", "ue", "ae");
 		$shopname = urldecode(strtolower(str_replace($search, $replacelogo, $parent_title)));
 
-		echo '<img loading="lazy" data-funk="get_logo_lazy_offer" class="i" alt="' . strip_tags($offerTitle) . '" src="https://sparfuchs-gutschein.de/wp-content/themes/sg/images/shop_logos/' . $shopname . '-logo.png" title="' . $shopname . '" itemprop="image"/>';
-		//echo '<noscript><img src="https://sparfuchs-gutschein.de/wp-content/themes/sg/images/shop_logos/' . $shopname . '-logo.png" alt="' . strip_tags($offerTitle) . '" /></noscript>';
+		echo '<img loading="lazy" data-funk="get_logo_lazy_offer" class="i" alt="' . strip_tags($offerTitle) . '" src="' . get_template_directory_uri() . '/images/shop_logos/' . $shopname . '-logo.png" title="' . $shopname . '" itemprop="image"/>';
 	}
 	function get_logo_lazy($shopname) {
 		$parent_title = get_the_title($post->post_parent);
@@ -410,8 +409,8 @@
 		$replacelogo = array("-", "-", "-und-" , "-", "-", "oe", "ue", "ae");
 		$shopname = urldecode(strtolower(str_replace($search, $replacelogo, $parent_title)));
 
-		echo '<img loading="lazy" data-funk="get_logo_lazy" class="i" alt="' . $shopname . ' Gutscheine" src="https://sparfuchs-gutschein.de/wp-content/themes/sg/images/shop_logos/' . $shopname . '-logo.png" title="' . $shopname . '" itemprop="image"/>';
-		//echo '<noscript><img src="https://sparfuchs-gutschein.de/wp-content/themes/sg/images/shop_logos/' . $shopname . '-logo.png" alt="' . strip_tags($offerTitle) . '" /></noscript>';
+		echo '<img loading="lazy" data-funk="get_logo_lazy" class="i" alt="' . $shopname . ' Gutscheine" src="' . get_template_directory_uri() . '/images/shop_logos/' . $shopname . '-logo.png" title="' . $shopname . '" itemprop="image"/>';
+		//echo '<noscript><img src="<?php echo get_template_directory_uri(); ?>/images/shop_logos/' . $shopname . '-logo.png" alt="' . strip_tags($offerTitle) . '" /></noscript>';
 	}
 
 
@@ -429,7 +428,7 @@
 		}
 
 		$mshot = 'https://s0.wordpress.com/mshots/v1/' . $domain . '?w=300';
-		$ch = curl_init('https://sparfuchs-gutschein.de/wp-content/themes/sg/images/shop_logos/screenshots/' . $shopname . '.jpg');
+		$ch = curl_init('<?php echo get_template_directory_uri(); ?>/images/shop_logos/screenshots/' . $shopname . '.jpg');
 
 		curl_setopt($ch, CURLOPT_NOBODY, true);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,false);

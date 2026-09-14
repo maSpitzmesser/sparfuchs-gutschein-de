@@ -1,6 +1,6 @@
 <?php $shopnameSlider = get_the_title( 3819 ); ?>
 <div class="slider-coupon <?php echo $shopnameSlider; ?>" data-offer-id="<?php echo $offer->ID; ?>" data-publisher="aw">
-<img alt="<?php echo $shopnameSlider; ?> Gutscheincode" src="https://sparfuchs-gutschein.de/wp-content/themes/sg/images/slider/slider-coupon-background/background-slider-zooplus.jpg" title="<?php echo $shopnameSlider; ?>" />
+<img alt="<?php echo $shopnameSlider; ?> Gutscheincode" src="<?php echo get_template_directory_uri(); ?>/images/slider/slider-coupon-background/background-slider-zooplus.jpg" title="<?php echo $shopnameSlider; ?>" />
 	<div class="slider-logo"><?php get_logo_by_coupon($shopnameSlider); ?></div>
     <p class="slider-headline"><?php echo $offer->Title;  ?></p>
     <span class="slider-list">

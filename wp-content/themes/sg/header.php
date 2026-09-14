@@ -7,8 +7,7 @@
   
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" as="style" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" />
-  
-  <link rel="preload" href="https://sparfuchs-gutschein.de/wp-content/themes/sg/styles/fonts/icomoon.woff" as="font" type="font/woff2" crossorigin="anonymous" />
+  <link rel="preload" href="<?php echo bloginfo('template_directory') ?>/styles/fonts/icomoon.woff" as="font" type="font/woff2" crossorigin="anonymous" />
 
     <?php wp_head();
 	 if (is_front_page() ) : ?>
@@ -36,7 +35,7 @@
 
   
 	<link rel="shortcut icon" href="<?php bloginfo('url'); ?>/favicon.ico" type="image/x-icon"/>
-	<link rel="apple-touch-icon" href="https://sparfuchs-gutschein.de/wp-content/themes/sg/images/logo/apple-touch-icon_152x152.png"/>
+	<link rel="apple-touch-icon" href="<?php echo bloginfo('template_directory') ?>/images/logo/apple-touch-icon_152x152.png"/>
 
     <meta name="theme-color" content="#ff5800"/>
 </head>
