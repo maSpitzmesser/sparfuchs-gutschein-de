@@ -101,7 +101,7 @@
 		$sql = "SELECT * FROM awin_vouchers v
             JOIN awin_vouchers_used u ON (v.PromotionID = u.PromotionID)
             WHERE v.Type = 'voucher'
-            ORDER BY Clicks DESC
+            ORDER BY v.Clicks DESC
             LIMIT 50";
 
 		$offers = $wpdb->get_results($sql);
@@ -117,7 +117,7 @@
 		$sql = "SELECT * FROM awin_vouchers v
             JOIN awin_vouchers_used u ON (v.PromotionID = u.PromotionID)
             WHERE v.Type = 'voucher'
-            ORDER BY Clicks DESC
+            ORDER BY v.Clicks DESC
             LIMIT 50";
 
 		$offers = $wpdb->get_results($sql);
@@ -515,7 +515,7 @@
 							WHERE p.ID = c.shopid
                             AND type = 'coupon'
 							AND public = '1'
-									 ORDER BY Starts DESC LIMIT 1";
+									 ORDER BY c.Starts DESC LIMIT 1";
 		$updates = $wpdb->get_results($sql);
 		foreach ($updates as $update) {
 			echo  '<time class="updated entry-date" datetime="' . htmlentities( strftime('%Y-%m-%d', strtotime( date('d.F.Y', strtotime($update->valid_from))))) . '">' . htmlentities( strftime(' %d. %B %Y', strtotime( date('d.F.Y', strtotime($update->valid_from))))) . '</time>';
