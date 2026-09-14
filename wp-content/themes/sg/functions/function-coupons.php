@@ -410,7 +410,6 @@
 		$shopname = urldecode(strtolower(str_replace($search, $replacelogo, $parent_title)));
 
 		echo '<img loading="lazy" data-funk="get_logo_lazy" class="i" alt="' . $shopname . ' Gutscheine" src="' . get_template_directory_uri() . '/images/shop_logos/' . $shopname . '-logo.png" title="' . $shopname . '" itemprop="image"/>';
-		//echo '<noscript><img src="<?php echo get_template_directory_uri(); ?>/images/shop_logos/' . $shopname . '-logo.png" alt="' . strip_tags($offerTitle) . '" /></noscript>';
 	}
 
 
