@@ -74,19 +74,22 @@
 
 <script src="/wp-content/themes/sg/js/jquery-3.5.1.min.js"></script>
 
-<?php if (current_user_can( 'manage_options' )) {
-    $theme_root = get_template_directory();
-    $jsFiles    = glob($theme_root . "/scripts/*.js");
-
-    foreach ($jsFiles as $jsFile){ 
-        $jsFileName = pathinfo($jsFile, PATHINFO_FILENAME); ?>
-        <script src="<?php echo bloginfo('template_directory') . '/scripts/' . $jsFileName ?>"></script><?php PHP_EOL;
-    } ?>
-    <script src="<?php echo bloginfo('template_directory') ?>/admin/js/web-assistent.js"></script><?php PHP_EOL;
-
-} else  { ?>
-    <script src="<?php echo bloginfo('template_directory') ?>/scripts/sg_min.js.gz"></script>
-<?php }  ?>
+<!-- All individual JavaScript files -->
+<script src="<?php echo bloginfo('template_directory') ?>/scripts/1-jCookie.js"></script>
+<script src="<?php echo bloginfo('template_directory') ?>/scripts/2-DesignSwitcher.js"></script>
+<script src="<?php echo bloginfo('template_directory') ?>/scripts/2-jLazyLoad.js"></script>
+<script src="<?php echo bloginfo('template_directory') ?>/scripts/3-jScrollTo.js"></script>
+<script src="<?php echo bloginfo('template_directory') ?>/scripts/MainMenu.js"></script>
+<script src="<?php echo bloginfo('template_directory') ?>/scripts/Searchform-autocomplet.js"></script>
+<script src="<?php echo bloginfo('template_directory') ?>/scripts/cookie-banner.js"></script>
+<script src="<?php echo bloginfo('template_directory') ?>/scripts/jLightbox.js"></script>
+<script src="<?php echo bloginfo('template_directory') ?>/scripts/jSingelpage-nav.js"></script>
+<script src="<?php echo bloginfo('template_directory') ?>/scripts/jStarRating.js"></script>
+<script src="<?php echo bloginfo('template_directory') ?>/scripts/sg-all.js"></script>
+<script src="<?php echo bloginfo('template_directory') ?>/scripts/slick-carousel.js"></script>
+<script src="<?php echo bloginfo('template_directory') ?>/scripts/social-media.js"></script>
+<script src="<?php echo bloginfo('template_directory') ?>/scripts/sticky-header.js"></script>
+<script src="<?php echo bloginfo('template_directory') ?>/scripts/tabs.js"></script>
 
 <?php
 wp_footer();
