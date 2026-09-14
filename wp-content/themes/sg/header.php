@@ -25,8 +25,8 @@
 		}
 
 	} else  { ?>
-		<link rel="preload" href="<?php echo bloginfo('template_directory') ?>/styles/css/sg_min_all_2.css.gz" as="style"/>
-		<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/sg_min_all_2.css.gz" media="print, screen" />
+		<link rel="preload" href="<?php echo bloginfo('template_directory') ?>/styles/css/sg_min_all_2.css" as="style"/>
+		<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/sg_min_all_2.css" media="print, screen" />
 	<?php }  ?>
   
     <link rel="preload" href="/wp-content/themes/sg/styles/flat/theme.css" as="style" />
