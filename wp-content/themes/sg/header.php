@@ -9,25 +9,36 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" />
   <link rel="preload" href="<?php echo bloginfo('template_directory') ?>/styles/fonts/icomoon.woff" as="font" type="font/woff2" crossorigin="anonymous" />
 
-    <?php wp_head();
+  	<!-- All individual CSS files -->
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/1html5reset.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/2cols.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/3cols.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/4cols.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/5cols.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/breadcrumb.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/col.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/cookie-banner.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/coupon.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/dropdowns.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/footer.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/fuchs.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/google-ads.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/header.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/lightbox.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/main-menu.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/searchform-autocomplet.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/side-nav.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/slick-carousel.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/social-networks.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/star-rating.css" media="print, screen" />
+	<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/tabs.css" media="print, screen" />
+
+   <?php wp_head();
 	 if (is_front_page() ) : ?>
 		<meta name="keywords" content="Gutschein, Rabatt, Gutscheincode"/>
 	<?php else : ?>
         <meta name="keywords" content="<?php the_title(); ?> Gutschein, <?php the_title(); ?> Rabatt, <?php the_title(); ?> Gutscheincode"/>
-	<?php endif ?>
-
-	<?php if (current_user_can( 'manage_options' )) {
-		$theme_root = get_template_directory();
-		$cssFiles   = glob($theme_root . "/styles/css/*.css");
-		foreach ($cssFiles as $cssFile){
-			$cssFilesName = pathinfo($cssFile, PATHINFO_FILENAME); ?>
-			<link rel="stylesheet" href="<?php echo bloginfo('template_directory') . '/styles/css/' . $cssFilesName ?>" media="print, screen" /><?php  PHP_EOL;
-		}
-
-	} else  { ?>
-		<link rel="preload" href="<?php echo bloginfo('template_directory') ?>/styles/css/sg_min_all_2.css" as="style"/>
-		<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/sg_min_all_2.css" media="print, screen" />
-	<?php }  ?>
+	<?php endif; ?>
   
     <link rel="preload" href="/wp-content/themes/sg/styles/flat/theme.css" as="style" />
     <link rel="stylesheet" href="/wp-content/themes/sg/styles/flat/theme.css" media="screen" />
