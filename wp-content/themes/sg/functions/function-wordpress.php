@@ -59,9 +59,12 @@
   function cssklassen_menu_classes($classes, $item) {
     $classes = array_filter(
       $classes,
-      create_function( '$class',
-        'return in_array( $class,
-									array( "current-menu-item", "current-menu-parent" ) );' )
+      static function ($class) {
+        return in_array(
+          $class,
+          array( "current-menu-item", "current-menu-parent" )
+        );
+      }
     );
     return array_merge(
       $classes,

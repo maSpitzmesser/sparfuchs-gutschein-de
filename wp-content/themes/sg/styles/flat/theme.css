@@ -629,7 +629,7 @@ a.oben {
   text-shadow: 1px 1px #C20E00, 2px 2px #C20E00, 3px 3px #C20E00, 4px 4px #C20E00, 5px 5px #C20E00, 6px 6px #C20E00, 7px 7px #C20E00, 8px 8px #C20E00, 9px 9px #C20E00, 10px 10px #C20E00, 11px 11px #C20E00, 12px 12px #C20E00, 13px 13px #C30E00, 14px 14px #C40E00, 15px 15px rgb(197, 14, 0), 16px 16px rgb(198, 14, 0), 17px 17px rgb(199, 14, 0), 18px 18px rgb(201, 14, 0), 19px 19px rgb(202, 14, 0), 20px 20px rgb(203, 14, 0), 21px 21px rgb(204, 14, 0), 22px 22px rgb(205, 14, 0), 23px 23px rgb(206, 14, 0), 24px 24px rgb(208, 14, 0);
 }
 #theme-drawer ul li:nth-child(1) span {
-  background: url('http://sg.sparfuchs-gutschein.de/images/checkmark.min.png') no-repeat scroll 0px 0px transparent;
+  background: none;
 }
 #drawer-toggler:before,
 #theme-wrapper:before {
@@ -643,7 +643,7 @@ a.oben {
   z-index: -1;
 }
 a.pfeil {
-  background: url("https://sg.sparfuchs-gutschein.de/images/down.png") no-repeat scroll left center transparent !important;
+  background: none !important;
 }
 .ABC a {
   background: linear-gradient(to bottom, #ff5800 0, #ff5400 50%, #f24000 51%, #d60e00 100%);

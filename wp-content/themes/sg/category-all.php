@@ -8,9 +8,13 @@ $categories=get_categories($args);
       <h1 class="headline-a1">Alle <?php the_title(); ?></h1>
       <h2>Online-Shops und Gutscheine nach Kategorien</h2>
       <ul class="cat_img">
-        <?php foreach($categories as $category) {
-          echo '<li><a href="' . get_category_link( $category->term_id ) . '" title="Alle Shops der Kategorie ' . $category->name . '">
-                                        <img src="http://sg.sparfuchs-gutschein.de/images/kategorien/' . $category->cat_ID . '.jpg" alt="' . $category->cat_name . '" />' . $category->name.'</a></li>';
+        <?php foreach ($categories as $category) {
+          $imagePath = 'images/kategorien/' . absint($category->cat_ID) . '.jpg';
+          echo '<li><a href="' . esc_url(get_category_link($category->term_id)) . '" title="Alle Shops der Kategorie ' . esc_attr($category->name) . '">';
+          if (file_exists(ABSPATH . $imagePath)) {
+            echo '<img src="' . esc_url(home_url('/' . $imagePath)) . '" alt="' . esc_attr($category->cat_name) . '" />';
+          }
+          echo esc_html($category->name) . '</a></li>';
         } ?>
       </ul>
     </article>
@@ -44,7 +48,7 @@ $categories=get_categories($args);
   </article>
 
   <span class="col span_1_of_5">
-    <img class="logo2" src="https://sparfuchs-gutschein.de/wp-content/themes/sg/images/logo/Sparfuchs-Gutschein.webp" alt="Sparfuchs Gutschein Schnäppchen" title="Sparfuchs Gutschein"/>
+    <img class="logo2" src="<?php echo esc_url(get_template_directory_uri() . '/images/logo/Sparfuchs-Gutschein.webp'); ?>" alt="Sparfuchs Gutschein Schnäppchen" title="Sparfuchs Gutschein"/>
 </span>
 
 

@@ -8,7 +8,7 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" as="style" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" />
   
-  <link rel="preload" href="https://sparfuchs-gutschein.de/wp-content/themes/sg/styles/fonts/icomoon.woff" as="font" type="font/woff2" crossorigin="anonymous" />
+  <link rel="preload" href="<?php echo esc_url(get_template_directory_uri() . '/styles/fonts/icomoon.woff'); ?>" as="font" type="font/woff" crossorigin="anonymous" />
 
     <?php wp_head();
 	 if (is_front_page() ) : ?>
@@ -19,15 +19,17 @@
 
 	<?php if (current_user_can( 'manage_options' )) {
 		$theme_root = get_template_directory();
-		$cssFiles   = glob($theme_root . "/styles/css/*.css");
+		$cssFiles = array_filter(glob($theme_root . "/styles/css/*.css"), static function ($cssFile) {
+			return basename($cssFile) !== 'sg_min_all_2.css';
+		});
 		foreach ($cssFiles as $cssFile){
 			$cssFilesName = pathinfo($cssFile, PATHINFO_FILENAME); ?>
 			<link rel="stylesheet" href="<?php echo bloginfo('template_directory') . '/styles/css/' . $cssFilesName ?>" media="print, screen" /><?php  PHP_EOL;
 		}
 
 	} else  { ?>
-		<link rel="preload" href="<?php echo bloginfo('template_directory') ?>/styles/css/sg_min_all_2.css.gz" as="style"/>
-		<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/sg_min_all_2.css.gz" media="print, screen" />
+		<link rel="preload" href="<?php echo bloginfo('template_directory') ?>/styles/css/sg_min_all_2.css" as="style"/>
+		<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/sg_min_all_2.css" media="print, screen" />
 	<?php }  ?>
   
     <link rel="preload" href="/wp-content/themes/sg/styles/flat/theme.css" as="style" />
@@ -36,7 +38,7 @@
 
   
 	<link rel="shortcut icon" href="<?php bloginfo('url'); ?>/favicon.ico" type="image/x-icon"/>
-	<link rel="apple-touch-icon" href="https://sparfuchs-gutschein.de/wp-content/themes/sg/images/logo/apple-touch-icon_152x152.png"/>
+	<link rel="apple-touch-icon" href="<?php echo esc_url(get_template_directory_uri() . '/images/logo/apple-touch-icon_152x152.png'); ?>"/>
 
     <meta name="theme-color" content="#ff5800"/>
 </head>

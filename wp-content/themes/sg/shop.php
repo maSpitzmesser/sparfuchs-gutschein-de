@@ -5,8 +5,8 @@
   ?>
   <article class="entry-content col-first span_3_of_4 shop" role="article" data-shop-id="<?php echo $post->ID; ?>">
     <div class="style-a1">
-      <figure><img alt="<?php echo $post->post_name; ?> Gutscheincode" src="https://sparfuchs-gutschein.de/wp-content/themes/sg/images/shop_logos/<?php echo $post->post_name; ?>-logo.png" title="<?php echo $post->post_name; ?>" itemprop="logo"><?php //get_logo($shopname); ?>
-        <span itemprop="url" content="http://sparfuchs-gutschein.de/mirapodo"></span>
+      <figure><img alt="<?php echo $post->post_name; ?> Gutscheincode" src="/wp-content/themes/sg/images/shop_logos/<?php echo $post->post_name; ?>-logo.png" title="<?php echo $post->post_name; ?>" itemprop="logo"><?php //get_logo($shopname); ?>
+        <span itemprop="url" content="<?php echo esc_url(get_permalink()); ?>"></span>
       </figure>
       <h1 class="headline-a1 fn entry-title"><?php echo $post->post_title; ?> <span class="hidden">Gutschein'e</span></h1>
       <h2 class="sub-title">Tolle Rabatte und top Gutscheincode's für <?php echo $post->post_title; ?></h2>

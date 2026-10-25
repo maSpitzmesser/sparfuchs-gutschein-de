@@ -62,7 +62,9 @@
               <p class="description">Sparfuchs-Gutschein/wp-content/themes/sg/styles/css/</p>
             
             <?php
-              $CSS_files = glob("/homepages/40/d393556749/htdocs/Sparfuchs-Gutschein/wp-content/themes/sg/styles/css/*.css");
+              $CSS_files = array_filter(glob(get_template_directory() . "/styles/css/*.css"), static function ($CSS_file) {
+                return basename($CSS_file) !== 'sg_min_all_2.css';
+              });
               
               echo '<ol>';
               foreach ($CSS_files as $CSS_file){
@@ -75,7 +77,7 @@
                   <li>flat.css</li>
               </ol>
               <hr/>
-              <p>Summary: <a href="http://sparfuchs-gutschein.de/wp-content/themes/sg/styles/css/sg_min_all_2.css.gz" target="_blank">http://sparfuchs-gutschein.de/wp-content/themes/sg/styles/css/sg_min_all.css.gz</a></p>
+              <p>Summary: <a href="<?php echo esc_url(get_template_directory_uri() . '/styles/css/sg_min_all_2.css'); ?>" target="_blank">sg_min_all_2.css</a></p>
               <form method="post" action="">
                   <input class="button-primary" name="gz_it" type="submit" value="CSS komprimieren und veröffentlichen" />
               </form>
@@ -85,17 +87,19 @@
               <h3>Javascript:</h3>
               <p class="description">Sparfuchs-Gutschein/wp-content/themes/sg/scripts/</p>
             <?php
-              $files = glob("/homepages/40/d393556749/htdocs/Sparfuchs-Gutschein/wp-content/themes/sg/scripts/*.js");
+              $files = array_filter(glob(get_template_directory() . "/scripts/*.js"), static function ($dataJS) {
+                return basename($dataJS) !== 'sg_min.js';
+              });
               
               echo '<ol>';
               foreach ($files as $dataJS){
                 $dataJS = preg_split ("~/~", $dataJS);
-                echo '<li>' . $dataJS[10] . '</li>';
+                echo '<li>' . esc_html(basename($dataJS)) . '</li>';
               }
               echo '</ol>';
             ?>
               <hr/>
-              <p>Summary: <a href="http://sparfuchs-gutschein.de/wp-content/themes/sg/scripts/sg_min.js.gz" target="_blank">http://sparfuchs-gutschein.de/wp-content/themes/sg/scripts/sg_min.js.gz</a></p>
+              <p>Summary: <a href="<?php echo esc_url(get_template_directory_uri() . '/scripts/sg_min.js'); ?>" target="_blank">sg_min.js</a></p>
 
 
               <form method="post" action="">
@@ -107,9 +111,11 @@
         <?php
           if ( isset($_POST['gz_it']) ) {  // Action wenn Button gedrückt wird
             
-            $CSS_files = glob("/homepages/40/d393556749/htdocs/Sparfuchs-Gutschein/wp-content/themes/sg/styles/css/*.css");
+            $CSS_files = array_filter(glob(get_template_directory() . "/styles/css/*.css"), static function ($CSS_file) {
+              return basename($CSS_file) !== 'sg_min_all_2.css';
+            });
             $CSS_datei_min = "";
-            $gz_js = gzopen('/homepages/40/d393556749/htdocs/Sparfuchs-Gutschein/wp-content/themes/sg/styles/css/sg_min_all_2.css.gz','w');
+            $cssBundle = fopen(get_template_directory() . '/styles/css/sg_min_all_2.css', 'w');
             
             foreach($CSS_files as $CSS_single_file) {
               
@@ -118,13 +124,10 @@
               $dateifuchs = fopen($CSS_single_file, "r");
               $dateiinhaltfuchs = fread($dateifuchs, $CSS_single_file_size);
               $min_codefuchs = minify($dateiinhaltfuchs);
-              gzwrite($gz_js, $min_codefuchs);
+              fwrite($cssBundle, $min_codefuchs);
             }
             
-            //Minifizierte Datei zu einem Gzip-Archiv komprimieren und speichern
-            
-            
-            gzclose($gz_js);
+            fclose($cssBundle);
             
             //$dateinamefuchs = '/kunden/homepages/40/d393556749/htdocs/Sparfuchs-Gutschein-static/style/fuchs.css';
             //$dateisizefuchs = filesize($dateinamefuchs);
@@ -188,16 +191,15 @@
           
           if ( isset($_POST['gz_js_it']) ) {  // Action wenn Button gedrückt wird
             
-            $JS_files = glob("/homepages/40/d393556749/htdocs/Sparfuchs-Gutschein/wp-content/themes/sg/scripts/*.js");
+            $JS_files = array_filter(glob(get_template_directory() . "/scripts/*.js"), static function ($JS_file) {
+              return basename($JS_file) !== 'sg_min.js';
+            });
             $js_datei_min = "";
-            foreach($files as $JS_file) {
+            foreach($JS_files as $JS_file) {
               $js_datei_min .= \JShrink\Minifier::minify(file_get_contents($JS_file));
             }
             
-            //Minifizierte Datei zu einem Gzip-Archiv komprimieren und speichern
-            $gz_js = gzopen('/homepages/40/d393556749/htdocs/Sparfuchs-Gutschein/wp-content/themes/sg/scripts/sg_min.js.gz','w');
-            gzwrite($gz_js, $js_datei_min);
-            gzclose($gz_js);
+            file_put_contents(get_template_directory() . '/scripts/sg_min.js', $js_datei_min);
           }
         ?>
       </div>

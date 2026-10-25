@@ -32,7 +32,7 @@
     content: "";
     height:22px;
     line-height:22px;
-    background: url(http://sg.sparfuchs-gutschein.de/images/select.png) no-repeat scroll 78px 2px #fff !important;
+    background: url(/wp-content/themes/sg/images/blank.png) no-repeat scroll 78px 2px #fff !important;
     position:absolute;
     top:2px;
     cursor:pointer;

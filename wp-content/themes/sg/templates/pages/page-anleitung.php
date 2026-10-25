@@ -14,9 +14,7 @@ position:relative
 }
 
 .large,.big,.bigi{width:175px;height:175px;position:absolute;border-radius:100%;box-shadow:0 0 0 7px rgba(255,255,255,0.85),0 0 7px 7px rgba(0,0,0,0.25),inset 0 0 40px 2px rgba(0,0,0,0.25);display:none;cursor:none}
-.large{background:url(http://sg.sparfuchs-gutschein.de/images/A1.jpg) no-repeat}
-.big{background:url(http://sg.sparfuchs-gutschein.de/images/A2.jpg) no-repeat}
-.bigi{background:url(http://sg.sparfuchs-gutschein.de/images/A3.jpg) no-repeat}
+.screenshot-unavailable{min-height:180px;display:flex;align-items:center;justify-content:center;padding:1rem;background:#f4f4f4;color:#666;text-align:center}
 
 .small,
 .mini,
@@ -57,8 +55,7 @@ border-bottom: 2px solid #E6E7E7;
 
 	<div class="float-box">
 		<div class="magnify">
-			<div class="large"></div>
-			<img  class="small" alt="Anleitungschritt1" src="http://sg.sparfuchs-gutschein.de/images/A1.jpg" width="350"/>
+			<p class="screenshot-unavailable">Screenshot nicht verfügbar.</p>
 		</div>
 		<h3><span>❶</span> Den passenden Gutschein aussuchen</h3>
 		<p>Wähle deinen gewünschten Gutschein und klicke auf <br/>"Gutschein & Shop öffnen".</p>
@@ -66,8 +63,7 @@ border-bottom: 2px solid #E6E7E7;
 
 	<div class="float-box">
 		<div class="mag">
-			<div class="big"></div>
-			<img class="min" alt="Anleitungschritt2" src="http://sg.sparfuchs-gutschein.de/images/A2.jpg" width="350"/>
+			<p class="screenshot-unavailable">Screenshot nicht verfügbar.</p>
 		</div>
 		<h3><span>❷</span> Gutscheincode kopieren</h3>
 		<p> Daraufhin öffnet sich die Webseite von z.b.: Konsolenkost und der Gutscheincode erscheint oben in einer Leiste, diesen Code musst Du markieren und dann kopieren.
@@ -77,8 +73,7 @@ border-bottom: 2px solid #E6E7E7;
 
 	<div class="float-box">
 		<div class="magi">
-			<div class="bigi"></div>
-			<img class="mini" alt="Anleitungschritt3" src="http://sg.sparfuchs-gutschein.de/images/A3.jpg" width="350"/>
+			<p class="screenshot-unavailable">Screenshot nicht verfügbar.</p>
 		</div>
 		<h3><span>❸</span> Gutschein einlösen</h3>
 		<p>Wenn Du nun deinen gewünschten Einkauf getätigt hast, kannst Du im Warenkorb den Gutscheincode in das entsprechende Feld einfügen.
@@ -89,4 +84,3 @@ border-bottom: 2px solid #E6E7E7;
 	</div>
 
 </div>
-<script src="http://sg.sparfuchs-gutschein.de/zoompack.js.gz" type="text/javascript"></script>

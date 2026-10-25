@@ -85,7 +85,7 @@
     <script src="<?php echo bloginfo('template_directory') ?>/admin/js/web-assistent.js"></script><?php PHP_EOL;
 
 } else  { ?>
-    <script src="<?php echo bloginfo('template_directory') ?>/scripts/sg_min.js.gz"></script>
+    <script src="<?php echo bloginfo('template_directory') ?>/scripts/sg_min.js"></script>
 <?php }  ?>
 
 <?php

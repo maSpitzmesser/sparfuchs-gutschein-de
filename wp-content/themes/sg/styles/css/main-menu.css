@@ -75,7 +75,7 @@
 .main-menu ul li:nth-child(5) ul li a {
   line-height:30px;
   padding-left:40px;
-  background-image:url("https://sparfuchs-gutschein.de/wp-content/themes/sg/styles/flat/sidebox-li.png");
+  background-image:url("/wp-content/themes/sg/styles/flat/sidebox-li.png");
   background-repeat:no-repeat;
   box-shadow:none !important;
   margin-top: 0;
@@ -84,7 +84,7 @@
 }
 
 .main-menu ul li:nth-child(5) ul li a:hover {
-  background-image:url("https://sparfuchs-gutschein.de/wp-content/themes/sg/styles/flat/sidebox-li.png");
+  background-image:url("/wp-content/themes/sg/styles/flat/sidebox-li.png");
   background-repeat:no-repeat;
 }
 

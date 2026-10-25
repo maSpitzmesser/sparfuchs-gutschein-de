@@ -133,7 +133,7 @@ float:right
 	min-height:240px;
 	max-height:245px !important;
 	overflow: hidden;
-	background: url('https://sparfuchs-gutschein.de/wp-content/themes/sg/images/like-box.png') no-repeat 10px 10px !important;
+	background: url('/wp-content/themes/sg/images/like-box.png') no-repeat 10px 10px !important;
 
 }
 .fb-like-box {

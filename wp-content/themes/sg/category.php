@@ -47,7 +47,12 @@
 
         <div class="category-header style-a1">
             <h1 class="headline-a1"><?php echo $cat_name ?> Gutscheine</h1>
-            <figure><img src="http://sg.sparfuchs-gutschein.de/images/kategorien/<?php echo $yourcat->cat_ID; ?>.jpg" alt="<?php echo $cat_name ?>"/></figure>
+            <?php
+            $categoryImagePath = 'images/kategorien/' . absint($yourcat->cat_ID) . '.jpg';
+            if (file_exists(ABSPATH . $categoryImagePath)) :
+            ?>
+                <figure><img src="<?php echo esc_url(home_url('/' . $categoryImagePath)); ?>" alt="<?php echo esc_attr($cat_name); ?>"/></figure>
+            <?php endif; ?>
             <p>Hier findest du alle Online-Shops, Gutscheine &amp; Gutscheincodes zu <?php echo $cat_name ?> nach alphabet und folgender Aufteilung:</p>
             <p style="padding-left: 85px;">
                 <a class="pfeil" href="#top-shops">Beliebteste Online-Shops <?php echo $cat_name ?></a><br>

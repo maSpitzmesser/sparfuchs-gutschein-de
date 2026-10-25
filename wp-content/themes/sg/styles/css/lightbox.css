@@ -136,7 +136,7 @@ html.lightbox #main section {
 	height: 100%;
 	cursor: pointer;
 	text-decoration: none;
-	background: transparent url('http://i.sparfuchs-gutschein.de/blank.png'); /* helps IE */
+	background: transparent url('/wp-content/themes/sg/images/blank.png'); /* helps IE */
 
 	z-index: 9997;
 }

@@ -287,10 +287,14 @@ ORDER BY o.valid_from DESC LIMIT 8";
         $replacelogo = array("-und-", "-", "-", "-und-");
 
         $shopnamelogo = strtolower(str_replace($searchlogo, $replacelogo, $offer->shopname));
+        $logoPath = '/images/shop_logos/' . sanitize_file_name($shopnamelogo) . '-logo.png';
+        if (!file_exists(get_template_directory() . $logoPath)) {
+          $logoPath = '/images/shop_logos/blank.png';
+        }
 
 
         echo '<li><a href="' . $post_url . '" title="Alle ' . $name . ' Gutscheincodes">';?>
-          <img alt="<?php echo $name ?> Gutscheincode" src="http://i.sparfuchs-gutschein.de/<?php echo $shopnamelogo; ?>-logo.png" title="<?php echo $name ?> Codes"/>
+          <img alt="<?php echo esc_attr($name); ?> Gutscheincode" src="<?php echo esc_url(get_template_directory_uri() . $logoPath); ?>" title="<?php echo esc_attr($name); ?> Codes"/>
         <?php
         echo '</a> ' . $name . '<span>' . $offer->title . '</span></li>';
       }

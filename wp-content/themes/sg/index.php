@@ -29,14 +29,14 @@ get_header(); ?>
       <img loading="lazy" src="/wp-content/themes/sg/images/shop_logos/mirapodo-logo.png" alt="<?php echo get_the_title( 4106 ); ?> Gutschein"/>
     </a>
     <a href="<?php echo get_permalink( 3982 ); ?>" title="Alle <?php echo get_the_title( 3982 ); ?> Gutscheincodes"><!-- douglas -->
-      <img loading="lazy" src="/wp-content/themes/sg/images/shop_logos/tom-tailor-logo" alt="<?php echo get_the_title( 3982 ); ?> Gutschein"/>
+      <img loading="lazy" src="/wp-content/themes/sg/images/shop_logos/tom-tailor-logo.png" alt="<?php echo get_the_title( 3982 ); ?> Gutschein"/>
     </a>
     <a href="<?php echo get_permalink( 3965 ); ?>" title="Alle <?php echo get_the_title( 3965 ); ?> Gutscheincodes"><!-- douglas -->
-      <img loading="lazy" src="/wp-content/themes/sg/images/shop_logos/galeria-logo" alt="<?php echo get_the_title( 3965 ); ?> Gutschein"/>
+      <img loading="lazy" src="/wp-content/themes/sg/images/shop_logos/galeria-logo.png" alt="<?php echo get_the_title( 3965 ); ?> Gutschein"/>
     </a>
 
     <a href="<?php echo get_permalink( 3763 ); ?>" title="Alle <?php echo get_the_title( 3763 ); ?> Gutscheincodes"><!-- douglas -->
-      <img loading="lazy" src="/wp-content/themes/sg/images/shop_logos/quelle-logo" alt="<?php echo get_the_title( 3763 ); ?> Gutschein"/>
+      <img loading="lazy" src="/wp-content/themes/sg/images/shop_logos/quelle-logo.png" alt="<?php echo get_the_title( 3763 ); ?> Gutschein"/>
     </a>
 
     <?php //query_posts('showposts=9&order=ASC'); while (have_posts()) : the_post(); ?>
@@ -50,7 +50,7 @@ get_header(); ?>
     </a>
 
     <a href="<?php echo get_permalink( 4770 ); ?>" title="Alle <?php echo get_the_title( 4770 ); ?> Gutscheincodes"><!-- douglas -->
-      <img loading="lazy" src="/wp-content/themes/sg/images/shop_logos/lensbest-logo" alt="<?php echo get_the_title( 4770 ); ?> Gutschein"/>
+      <img loading="lazy" src="/wp-content/themes/sg/images/shop_logos/lensbest-logo.png" alt="<?php echo get_the_title( 4770 ); ?> Gutschein"/>
     </a>
   </section>
 

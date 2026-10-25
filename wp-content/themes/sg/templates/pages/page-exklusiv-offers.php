@@ -10,5 +10,5 @@ get_header(); ?>
 	<?php if(!function_exists('dynamic_sidebar') || dynamic_sidebar('Page Sidebar') ) {} ?>
 </aside>
 <article class="sk mo"><?php if ( have_posts() ) while ( have_posts() ) : the_post(); the_content(); endwhile; ?></article>
-<img class="logo2" src="http://sg.sparfuchs-gutschein.de/images/logo/Sparfuchs-Gutschein.png" alt="Sparfuchs Gutschein Schn&auml;ppchen" title="Sparfuchs Gutschein"/>
+<img class="logo2" src="<?php echo esc_url(get_template_directory_uri() . '/images/logo/Sparfuchs-Gutschein.png'); ?>" alt="Sparfuchs Gutschein Schn&auml;ppchen" title="Sparfuchs Gutschein"/>
 <?php get_footer(); ?>

@@ -652,7 +652,7 @@ ul.breadcrumbs li:last-child {
 	overflow:hidden
 }
 #theme-drawer ul li:nth-child(1) span{
-  background: url('http://sg.sparfuchs-gutschein.de/images/checkmark.min.png') no-repeat scroll 0px 0px transparent
+  background: none
 }
 #drawer-toggler:before,
 #theme-wrapper:before {
@@ -671,7 +671,7 @@ ul.breadcrumbs li:last-child {
 
 /*single cats site*/
 a.pfeil {
-  background: url("http://sg.sparfuchs-gutschein.de/images/down.png") no-repeat scroll left center transparent !important
+  background: none !important
 }
 
 
@@ -706,4 +706,3 @@ nav.sticky {
 	text-shadow: 1px 1px #E6E6E6, 2px 2px #E6E6E6, 3px 3px #E6E6E6, 4px 4px #E6E6E6, 5px 5px #E6E6E6, 6px 6px #E6E6E6, 7px 7px #E6E6E6, 8px 8px #E6E6E6, 9px 9px #E6E6E6, 10px 10px #E6E6E6, 11px 11px #E6E6E6, 12px 12px #E6E6E6, 13px 13px #E7E7E7, 14px 14px #E8E8E8, 15px 15px rgb(234, 234, 234), 16px 16px rgb(235, 235, 235), 17px 17px rgb(236, 236, 236), 18px 18px rgb(238, 238, 238), 19px 19px rgb(239, 239, 239), 20px 20px rgb(241, 241, 241), 21px 21px rgb(242, 242, 242), 22px 22px rgb(243, 243, 243), 23px 23px rgb(245, 245, 245);
 overflow:hidden
 }
-
