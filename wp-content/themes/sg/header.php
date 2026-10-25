@@ -46,8 +46,8 @@
 			return basename($cssFile) !== 'sg_min_all_2.css';
 		});
 		foreach ($cssFiles as $cssFile){
-			$cssFilesName = pathinfo($cssFile, PATHINFO_FILENAME); ?>
-			<link rel="stylesheet" href="<?php echo bloginfo('template_directory') . '/styles/css/' . $cssFilesName ?>" media="print, screen" /><?php  PHP_EOL;
+			$cssFileName = basename($cssFile); ?>
+			<link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri() . '/styles/css/' . $cssFileName); ?>" media="print, screen" /><?php  PHP_EOL;
 		}
 
 	} else  { ?>

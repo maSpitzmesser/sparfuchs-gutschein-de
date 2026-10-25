@@ -76,16 +76,18 @@
 
 <?php if (current_user_can( 'manage_options' )) {
     $theme_root = get_template_directory();
-    $jsFiles    = glob($theme_root . "/scripts/*.js");
+    $jsFiles    = array_filter(glob($theme_root . "/scripts/*.js"), static function ($jsFile) {
+        return basename($jsFile) !== 'sg_min.js';
+    });
 
     foreach ($jsFiles as $jsFile){ 
-        $jsFileName = pathinfo($jsFile, PATHINFO_FILENAME); ?>
-        <script src="<?php echo bloginfo('template_directory') . '/scripts/' . $jsFileName ?>"></script><?php PHP_EOL;
+        $jsFileName = basename($jsFile); ?>
+        <script src="<?php echo esc_url(get_template_directory_uri() . '/scripts/' . $jsFileName); ?>"></script><?php PHP_EOL;
     } ?>
-    <script src="<?php echo bloginfo('template_directory') ?>/admin/js/web-assistent.js"></script><?php PHP_EOL;
+    <script src="<?php echo esc_url(get_template_directory_uri() . '/admin/js/web-assistent.js'); ?>"></script><?php PHP_EOL;
 
 } else  { ?>
-    <script src="<?php echo bloginfo('template_directory') ?>/scripts/sg_min.js"></script>
+    <script src="<?php echo esc_url(get_template_directory_uri() . '/scripts/sg_min.js'); ?>"></script>
 <?php }  ?>
 
 <?php
