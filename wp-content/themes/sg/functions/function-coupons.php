@@ -101,7 +101,7 @@
 		$sql = "SELECT * FROM awin_vouchers v
             JOIN awin_vouchers_used u ON (v.PromotionID = u.PromotionID)
             WHERE v.Type = 'voucher'
-            ORDER BY Clicks DESC
+            ORDER BY v.Clicks DESC
             LIMIT 50";
 
 		$offers = $wpdb->get_results($sql);
@@ -117,7 +117,7 @@
 		$sql = "SELECT * FROM awin_vouchers v
             JOIN awin_vouchers_used u ON (v.PromotionID = u.PromotionID)
             WHERE v.Type = 'voucher'
-            ORDER BY Clicks DESC
+            ORDER BY v.Clicks DESC
             LIMIT 50";
 
 		$offers = $wpdb->get_results($sql);
@@ -437,7 +437,7 @@
 		}
 
 		$mshot = 'https://s0.wordpress.com/mshots/v1/' . $domain . '?w=300';
-		$ch = curl_init('https://sparfuchs-gutschein.de/wp-content/themes/sg/images/shop_logos/screenshots/' . $shopname . '.jpg');
+		$ch = curl_init('<?php echo get_template_directory_uri(); ?>/images/shop_logos/screenshots/' . $shopname . '.jpg');
 
 		curl_setopt($ch, CURLOPT_NOBODY, true);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,false);
@@ -525,7 +525,7 @@
 							WHERE p.ID = c.shopid
                             AND type = 'coupon'
 							AND public = '1'
-									 ORDER BY Starts DESC LIMIT 1";
+									 ORDER BY c.Starts DESC LIMIT 1";
 		$updates = $wpdb->get_results($sql);
 		foreach ($updates as $update) {
 			echo  '<time class="updated entry-date" datetime="' . htmlentities( strftime('%Y-%m-%d', strtotime( date('d.F.Y', strtotime($update->valid_from))))) . '">' . htmlentities( strftime(' %d. %B %Y', strtotime( date('d.F.Y', strtotime($update->valid_from))))) . '</time>';

@@ -1,0 +1,8 @@
+
+# Development
+wp-cli.phar
+wp-content/debug.log
+.DS_Store
+*.swp
+*.swo
+*~
