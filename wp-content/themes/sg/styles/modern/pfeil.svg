@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <!-- Slider-Pfeil nach rechts; für links wird er per CSS gespiegelt -->
+  <circle cx="24" cy="24" r="19" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5"/>
+  <path d="M21 16 L29 24 L21 32" fill="none" stroke="#0F172A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

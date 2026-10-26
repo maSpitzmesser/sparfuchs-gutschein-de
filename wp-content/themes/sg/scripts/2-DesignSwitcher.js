@@ -6,7 +6,7 @@ var get_social = jQuery.cookie(cookie_bezeichnung);
 /* Design-Wechsler: tauscht das Stylesheet #active-theme und merkt sich die Wahl ein Jahr lang im Cookie */
 (function ($) {
   var cookieName = 'selected_theme';
-  var designs    = ['flat', 'standard', 'pinky', 'grey', 'fuchsbau'];
+  var designs    = ['flat', 'standard', 'pinky', 'grey', 'fuchsbau', 'modern'];
   var $theme     = $('#active-theme');
   if (!$theme.length) return;
 

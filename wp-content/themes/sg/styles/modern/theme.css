@@ -1,0 +1,701 @@
+/*
+ * Design „Modern“ – ruhig, seriös, vertrauenswürdig.
+ * Weiße Flächen auf hellem Grau, Schiefer-Typografie, Fuchsorange nur für Aktionen.
+ * Maskottchen: der Original-Sparfuchs (images/logo) plus daraus zusammengesetzte Bilder (Siegel, Gutschein, Avatar).
+ * Schrift: Inter, lokal eingebunden.
+ */
+
+@font-face {
+  font-family: 'Inter';
+  src: url("/wp-content/themes/sg/styles/modern/fonts/inter.woff2") format("woff2");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'icomoon';
+  src: url("/wp-content/themes/sg/styles/fonts/icomoon.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+/* Farben
+   Text    #0F172A / #334155 / #64748B     Linie  #E2E8F0 / #F1F5F9
+   Fläche  #FFFFFF auf #F6F7F9             Aktion #EA580C, Hover #C2410C
+   Gültig  #15803D auf #F0FDF4              Fuß    #0F172A */
+
+/* ---------- Seite ---------- */
+
+html {
+  background:
+    linear-gradient(#E2E8F0, #E2E8F0) no-repeat 0 152px / 100% 1px,
+    linear-gradient(#FFFFFF, #FFFFFF) no-repeat 0 0 / 100% 152px,
+    #F6F7F9;
+}
+
+body {
+  color: #334155;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 90%;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, strong, b {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  color: #0F172A;
+}
+h1, h2, h3, h4 { font-weight: 700; letter-spacing: -.01em; }
+strong, b { font-weight: 600; }
+a { color: #0F172A; transition: color .15s ease; }
+a:hover { color: #EA580C; }
+::selection { background: #FFEDD5; color: #0F172A; }
+
+/* ---------- Kopf ---------- */
+
+header[role="banner"] { margin: 0 auto 34px auto; }
+
+/* Logo: Original-Fuchskopf mit sachlichem Schriftzug, das alte Bild bleibt für Suchmaschinen im Markup */
+header[role="banner"] a#logo {
+  background: url(/wp-content/themes/sg/images/logo/fav.png) no-repeat 0 50% / 70px 70px;
+}
+header[role="banner"] a#logo img { opacity: 0; }
+header[role="banner"] a#logo::before,
+header[role="banner"] a#logo::after,
+header[role="banner"] a#logo:hover::after {
+  display: block;
+  position: absolute;
+  left: 82px;
+  width: auto;
+  height: auto;
+  background: none;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  white-space: nowrap;
+  pointer-events: none;
+}
+header[role="banner"] a#logo::before {
+  content: "Sparfuchs";
+  top: 26px;
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1;
+  color: #0F172A;
+}
+header[role="banner"] a#logo::after {
+  content: "GUTSCHEIN.DE";
+  top: 58px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .24em;
+  line-height: 1;
+  color: #EA580C;
+}
+
+/* Suche */
+header[role="banner"] form.style-a1 {
+  margin-top: 30px;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+header[role="banner"] form.style-a1:focus-within {
+  border-color: #EA580C;
+  box-shadow: 0 0 0 4px rgba(234, 88, 12, .12);
+}
+header[role="banner"] form input {
+  padding: 0 60px 0 16px;
+  box-sizing: border-box;
+  color: #64748B;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+header[role="banner"] form input:focus { color: #0F172A !important; }
+header[role="banner"] #submit {
+  width: 48px;
+  padding: 0;
+  background: #0F172A url(/wp-content/themes/sg/styles/modern/lupe.svg) no-repeat 50% 50% / 18px 18px;
+  color: transparent;
+  transition: background-color .15s ease;
+}
+header[role="banner"] #submit:hover { background-color: #EA580C; }
+#ac_s {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, .12);
+  overflow: hidden;
+}
+#ac_s ul li { border-bottom: 1px solid #F1F5F9; }
+#ac_s a:hover { background: #F8FAFC; }
+
+/* Hauptmenü: Textnavigation mit Unterstrich */
+.main-menu.style-a1 {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.main-menu ul,
+.main-menu ul li { background: transparent; border: 0; }
+.main-menu ul li a {
+  color: #334155;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-weight: 600;
+  font-size: 98%;
+  text-shadow: none;
+  transition: color .15s ease, box-shadow .15s ease;
+}
+.main-menu ul li a:hover,
+.main-menu ul li:hover > a {
+  color: #0F172A;
+  box-shadow: inset 0 -2px 0 #CBD5E1;
+  text-shadow: none !important;
+}
+.main-menu ul li.active a,
+.main-menu ul li.active a:hover {
+  background-color: transparent !important;
+  color: #EA580C !important;
+  box-shadow: inset 0 -2px 0 #EA580C;
+  text-shadow: none !important;
+}
+.main-menu ul li:first-child a { color: #64748B; }
+.main-menu ul li ul {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, .12);
+  text-shadow: none !important;
+}
+.main-menu ul li ul li a,
+.main-menu ul li.active ul li a,
+.main-menu ul li.active ul li a:hover { text-shadow: none !important; box-shadow: none; }
+.main-menu ul li ul li a:hover { background-color: #F8FAFC; background-image: none; color: #EA580C !important; }
+
+@media screen and (min-width: 701px) {
+  .main-menu ul li { width: auto; }
+  .main-menu ul li a { padding: 0 18px; }
+  .main-menu ul li:nth-child(1) { width: 44px; }
+  .main-menu ul li:nth-child(1) a { padding: 0; }
+}
+
+nav.sticky {
+  background: rgba(255, 255, 255, .96) !important;
+  box-shadow: 0 1px 0 #E2E8F0, 0 6px 20px rgba(15, 23, 42, .06) !important;
+}
+.sticky:before { display: none; }
+
+/* ---------- Überschriften ---------- */
+
+h1.top-level-heading-2 {
+  color: #0F172A;
+  font-size: 215%;
+  font-weight: 800;
+  letter-spacing: -.025em;
+  text-shadow: none;
+  overflow: visible !important;
+}
+p.top-level-heading-2 {
+  position: relative;
+  padding-bottom: 1.4em;
+  color: #64748B;
+  font-size: 125%;
+  text-align: center;
+}
+p.top-level-heading-2 strong { color: #64748B; font-weight: 400; }
+
+.headline-a1,
+.headline-a2,
+.video span,
+aside h3:first-child,
+aside span:first-child {
+  color: #0F172A;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  text-shadow: none;
+  border-bottom: 1px solid #E2E8F0;
+}
+.headline-a1 {
+  height: auto;
+  line-height: 1.25;
+  padding: 14px 0 12px;
+  margin: 0 0 10px 0;
+  text-align: left;
+  font-size: 210%;
+  font-weight: 800;
+  letter-spacing: -.025em;
+  overflow: visible;
+}
+.headline-a2 { padding: 12px 0 10px; font-size: 118%; }
+span.headline-a2 { display: block; margin-bottom: .5em; }
+.sb > .headline-a2,
+.shop-list > .headline-a2,
+.logos > .headline-a2 { padding-left: 14px; padding-right: 14px; }
+h2.sub-title { color: #334155; font-weight: 600; }
+
+/* ---------- Kästen ---------- */
+
+.style-a1 {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, .04);
+}
+#main .style-a1 { overflow: hidden; }
+
+.main article #div-gpt-ad-1403906711175-0,
+.main article #div-gpt-ad-1403907182536-0,
+.main article #div-gpt-ad-1403907470989-0 { background: #FFFFFF; box-shadow: none; }
+
+/* Brotkrumen: schlichte Pfadangabe */
+.bread { color: #64748B; }
+.bread a { background: none; color: #334155; text-shadow: none; box-shadow: none; }
+.breadcrumbs { color: #94A3B8; overflow: hidden; font-size: 92%; }
+/* Manche Seiten setzen „»“ als Text zwischen die Einträge: ausblenden, Trenner kommt einheitlich per CSS */
+.breadcrumbs li { margin: 0; font-size: 0; }
+.breadcrumbs li:first-child,
+.breadcrumbs li a { font-size: 13px; }
+.breadcrumbs li a {
+  display: block;
+  float: left;
+  margin: 0 0 0 6px;
+  padding: 0 6px 0 0;
+  background: none;
+  color: #64748B;
+}
+.breadcrumbs li a::before,
+.breadcrumbs li a::after { display: none; }
+.breadcrumbs li + li + li a::before {
+  content: "/";
+  display: inline;
+  position: static;
+  border: 0;
+  margin-right: 8px;
+  color: #CBD5E1;
+}
+.breadcrumbs li a:hover { background: none; color: #EA580C; }
+.breadcrumbs li:last-child a { background: none; color: #0F172A; font-weight: 600; }
+
+/* ---------- Gutscheine ---------- */
+
+ul.c {
+  padding: 12px 16px 4px;
+  box-sizing: border-box;
+}
+ul.c li {
+  box-sizing: border-box;
+  margin: 0 0 12px 0;
+  padding: 16px 0;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+ul.c li:last-child { border-bottom: 1px solid #E2E8F0; }
+ul.c li:hover {
+  background: #FFFFFF !important;
+  border-color: #CBD5E1;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, .07);
+}
+.c li img { border-radius: 8px; }
+.mc p {
+  color: #0F172A;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 125%;
+  letter-spacing: -.01em;
+  line-height: 1.3;
+  transition: color .15s ease;
+}
+ul.c li:hover .mc p:first-child { color: #EA580C; }
+.mc p .ex {
+  background: #0F172A;
+  color: #FFFFFF;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 75%;
+  letter-spacing: .04em;
+  vertical-align: 2px;
+}
+.mc p:nth-child(2) { padding-bottom: .5em; }
+article .mc p:nth-child(2), .nk, .bk, .mb { color: #64748B; }
+
+.rc {
+  box-sizing: border-box;
+  padding: 0 18px 0 20px;
+  border-left: 1px solid #F1F5F9;
+}
+.rc:after { background-image: none; }
+.vato, .kmb { color: #15803D; font-weight: 600; font-size: 92%; }
+.rc .vato {
+  display: inline-block;
+  padding: 2px 10px;
+  background: #F0FDF4;
+  border-radius: 999px;
+}
+.used { color: #94A3B8; }
+
+/* Buttons */
+.b,
+.btn,
+a.oben,
+.ABC a {
+  background: #EA580C;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, .12);
+  color: #FFFFFF !important;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: .005em;
+  text-shadow: none;
+  overflow: hidden;
+  transition: background-color .15s ease, box-shadow .15s ease;
+}
+.b:hover,
+.btn:hover,
+a.oben:hover,
+.ABC a:hover {
+  background: #C2410C;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, .25);
+  color: #FFFFFF !important;
+  text-shadow: none;
+}
+.b:focus-visible, .btn:focus-visible { outline: 3px solid rgba(234, 88, 12, .35); outline-offset: 2px; }
+.rc .b { margin: 16px 0 4px 0; }
+.rc .b a { color: #FFFFFF; }
+.button-offer .folded-corner { display: none; }
+
+.count {
+  background: #0F172A;
+  color: #FFFFFF !important;
+  border-radius: 999px;
+  padding: 0 8px 1px 6px;
+}
+.count:hover { cursor: help; }
+.new-offer {
+  background: #EA580C;
+  color: #FFFFFF;
+  border-radius: 0 0 6px 0;
+  font-size: 80%;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+/* kleine Listen (Neue Gutscheine, Bald endend) */
+ul.cs li {
+  background: transparent;
+  border-bottom: 1px solid #F1F5F9;
+  transition: background-color .15s ease;
+}
+ul.cs li:last-child { border-bottom: 0; }
+.cs li:hover { background: #F8FAFC !important; }
+.cs li img { border-radius: 6px; }
+.cs .mc b { color: #64748B; font-weight: 600; font-size: 90%; }
+.cs .mc p { color: #0F172A; font-weight: 600; font-size: 100%; }
+.cs li:hover .mc p { color: #EA580C; }
+.sb ul { padding: 0 8px; }
+.sb > a {
+  display: inline-block;
+  margin: 12px 0 16px;
+  color: #EA580C;
+  font-weight: 600;
+}
+
+/* ---------- Startseite ---------- */
+
+.slider-coupon .slider-headline {
+  color: #0F172A;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  text-shadow: 0 0 20px #FFFFFF, 0 0 6px #FFFFFF;
+}
+.slider-coupon .slider-button { line-height: 35px; padding: 0 18px; }
+
+/* Box „Rabatte nutzen!“: Häkchen und der Sparfuchs mit Gutschein */
+.video ol li:before {
+  background: url(/wp-content/themes/sg/styles/modern/haken.svg) no-repeat 0 50% / 20px 20px;
+  height: 30px;
+}
+.video ol li { color: #334155; }
+.video ol:after {
+  left: auto;
+  right: 6px;
+  top: auto;
+  bottom: -12px;
+  width: 210px;
+  height: 166px;
+  background: url(/wp-content/themes/sg/styles/modern/sparfuchs-gutschein.png) no-repeat 50% 100% / contain;
+}
+#main aside.video.style-a1 { padding-bottom: 160px; }
+
+/* Logo-Karussell */
+.slick-prev,
+.slick-next,
+.slick-prev:hover, .slick-prev:focus,
+.slick-next:hover, .slick-next:focus,
+.prev, .next, .prev2, .next2 {
+  background: url(/wp-content/themes/sg/styles/modern/pfeil.svg) no-repeat 50% 50% / 40px 40px;
+}
+.slick-prev, .slick-prev:hover, .slick-prev:focus, .prev, .prev2 { transform: translate(0, -50%) scaleX(-1); }
+.slick-next::before, .slick-prev::before { content: ''; }
+.prev, .next { display: none; }
+.slider:hover .prev, .slider:hover .next { display: block; }
+
+/* Reiter mit Unterstrich */
+.tabs li {
+  background: transparent;
+  border-bottom: 1px solid #E2E8F0;
+  color: #64748B;
+  font-weight: 600;
+  text-shadow: none;
+  overflow: hidden;
+  position: relative;
+  transition: color .15s ease, box-shadow .15s ease;
+}
+.tabs li:hover { color: #0F172A; }
+.tabs li.active {
+  background: transparent;
+  border-bottom: 1px solid #E2E8F0;
+  box-shadow: inset 0 -2px 0 #EA580C;
+  color: #0F172A;
+  text-shadow: none;
+}
+.tabs a:hover, .tabs a:hover::after, .tabs a:focus, .tabs a:focus::after { background: transparent; color: #0F172A; }
+.tabs a:focus { outline: 0; }
+.tabs #current a, .tabs #current a::after { background: #FFFFFF; z-index: 3; }
+
+.shop-list a { border-bottom: 1px solid #F1F5F9; border-radius: 6px; color: #334155; }
+.shop-list a:hover { background: #F8FAFC; color: #EA580C; }
+
+ul.cat_img li a { border: 1px solid #E2E8F0; border-radius: 10px; color: #0F172A !important; }
+ul.cat_img li a:hover { border-color: #EA580C; color: #EA580C !important; }
+
+/* ---------- Seitenleiste ---------- */
+
+/* „Gutschein einlösen“ als Tipp vom Sparfuchs */
+.sidebar .text > span:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  height: auto;
+  line-height: 1.3;
+  padding: 14px 0 12px;
+  text-align: left;
+  font-size: 112%;
+}
+.sidebar .text > span:first-child::before {
+  content: "";
+  flex: 0 0 44px;
+  height: 44px;
+  background: url(/wp-content/themes/sg/styles/modern/sparfuchs-avatar.png) no-repeat 0 0 / contain;
+}
+div.text ol li { color: #334155; }
+div.text ol li::marker { color: #EA580C; font-weight: 700; }
+.shop-meta h3:first-child { margin: 0 -10px 10px -10px; }
+.shop-meta img { border-radius: 8px; }
+.shop-meta ol li:before { background: url(/wp-content/themes/sg/styles/modern/haken.svg) no-repeat 0 0 / 18px 18px; }
+ul.g li { border-bottom: 1px solid #F1F5F9; color: #EA580C; transition: background-color .15s ease; }
+ul.g li:hover { background: #F8FAFC; }
+ul.g li span { color: #334155; }
+.sidebar article h2 { line-height: 15px; padding: 20px 0 12px 0; text-align: center; }
+.sidebar article p { font-size: 13px; padding: 5px 5px 5px 3px; text-align: justify; }
+.sidebar .gads { text-align: center; }
+.logos a img { border-radius: 8px; filter: grayscale(.15); transition: filter .15s ease; }
+.logos a:hover img { filter: none; }
+
+.side-nav a { color: #94A3B8; }
+.side-nav a.current, .side-nav a:hover { color: #EA580C; }
+
+/* ---------- Fuß ---------- */
+
+footer.site-footer {
+  margin-top: 80px;
+  border-top: 0;
+  background: #0F172A;
+  color: #CBD5E1;
+}
+/* Siegel auf der Kante des Fußbereichs */
+footer.site-footer::before {
+  content: "";
+  position: absolute;
+  right: 6%;
+  top: -60px;
+  width: 120px;
+  height: 120px;
+  background: url(/wp-content/themes/sg/styles/modern/sparfuchs-siegel.png) no-repeat 0 0 / contain;
+  pointer-events: none;
+}
+footer.site-footer .box { background: #1E293B; }
+footer.site-footer .site-links h4 {
+  padding: 0 0 8px;
+  background: none;
+  border-bottom: 1px solid #1E293B;
+  color: #FFFFFF;
+  font-size: 82%;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-shadow: none;
+  overflow: hidden;
+}
+footer.site-footer .site-links a {
+  background: none;
+  color: #94A3B8;
+  line-height: 2;
+  transition: color .15s ease;
+}
+footer.site-footer .site-links a:hover { color: #FFFFFF; }
+footer.site-footer .copy { color: #64748B; }
+footer.site-footer .site-info,
+footer.site-footer .site-info ul { background: #020617; }
+footer.site-footer .site-info ul li { background: #0F172A; }
+footer.site-footer .site-info ul li span { background: #1E293B; }
+
+a.top {
+  bottom: 14px;
+  right: 14px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 18px;
+  position: fixed;
+  z-index: 7777;
+  background: #0F172A;
+  border-radius: 10px;
+  color: #FFFFFF;
+}
+a.top:hover { background: #EA580C; }
+
+/* Cookie-Hinweis als ruhige Karte */
+.cookie-banner.style-b1 {
+  background: #FFFFFF;
+  color: #334155;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, .16);
+}
+.cookie-banner a { color: #EA580C; }
+
+/* ---------- Sonstiges ---------- */
+
+.ratings:before {
+  content: "";
+  position: absolute;
+  top: 3px; right: 3px; bottom: 3px; left: 3px;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+}
+.fancybox-close { background: #FFFFFF; }
+.gift a { background: #EA580C; display: block; font-weight: 300; overflow: hidden; position: relative; z-index: 2; border-radius: 12px; }
+.gift a .worth { color: #FFFFFF; text-shadow: none; }
+a.pfeil { background: none !important; }
+.noc { background: #FFF7ED; border: 1px solid #FED7AA; border-radius: 10px; }
+
+/* Formulare */
+#form input[type="text"],
+#form input[type="email"],
+#form textarea {
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  background: #FFFFFF;
+  padding: 9px 12px;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+#form input:focus,
+#form textarea:focus { border-color: #EA580C; box-shadow: 0 0 0 4px rgba(234, 88, 12, .12); }
+
+/* Seite „Design ändern“ */
+.float-box { border-radius: 12px; border-color: #E2E8F0 !important; box-sizing: border-box; background: #FFFFFF; }
+.float-box img { border-radius: 8px; border: 1px solid #E2E8F0; }
+.float-box .b { display: inline-block; margin-top: 10px; padding: 6px 16px; cursor: pointer; }
+.float-box h3 small {
+  display: inline-block;
+  padding: 1px 8px;
+  background: #FFEDD5;
+  border-radius: 999px;
+  color: #C2410C;
+  font-size: 65%;
+  font-weight: 700;
+  vertical-align: 3px;
+}
+[data-design].is-active { background: #15803D; box-shadow: none; cursor: default; }
+
+/* ---------- Symbole (icomoon) ---------- */
+
+.cats:before,
+.tags:before,
+span.date:before,
+.count:before,
+.vato:before,
+.nk:before,
+.bk:before,
+.mb:before,
+.kmb:before,
+.main-menu ul li:nth-child(1) a:before,
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 85%;
+  width: 16px;
+  margin: 0 5px 0 0;
+  display: inline-block;
+}
+.main-menu ul li:nth-child(1) a:before,
+.icon-home:before {
+  text-indent: 0;
+  line-height: 40px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  font-size: 120%;
+  content: "\e900";
+}
+.icon-price-tag:before { content: "\e901"; }
+.tags:before, .icon-price-tags:before { content: "\e902"; }
+.icon-cart:before { content: "\e903"; }
+.icon-location:before { content: "\e904"; }
+span.date:before, .vato:before, .icon-calendar:before { content: "\e905"; }
+.icon-bubbles2:before { content: "\e906"; }
+.nk:before, .icon-user:before { content: "\e907"; }
+.bk:before, .icon-users:before { content: "\e908"; }
+.icon-search:before { content: "\e909"; }
+.mb:before, .kmb:before, .icon-coin-euro:before { content: "\e90b"; }
+.cats:before, .icon-folder-open:before { content: "\e90c"; }
+.icon-folder-plus:before { content: "\e90d"; }
+.count:before, .icon-clock:before { content: "\e90e"; }
+
+/* ---------- Kleinere Bildschirme ---------- */
+
+@media screen and (max-width: 700px) {
+  html {
+    background:
+      linear-gradient(#E2E8F0, #E2E8F0) no-repeat 0 150px / 100% 1px,
+      linear-gradient(#FFFFFF, #FFFFFF) no-repeat 0 0 / 100% 150px,
+      #F6F7F9;
+  }
+  header[role="banner"] form.style-a1 { margin-top: 5px; }
+  header[role="banner"] a#logo { background-size: 60px 60px; }
+  header[role="banner"] a#logo::before { left: 70px; top: 30px; font-size: 24px; }
+  header[role="banner"] a#logo::after { left: 71px; top: 58px; font-size: 10.5px; }
+  h1.top-level-heading-2 { margin-top: 44px; font-size: 165%; }
+  /* Menü wird zur Leiste oben: dunkel mit hellem Burger-Symbol, aufgeklappte Liste hell */
+  .main-menu.style-a1 { background: #0F172A; }
+  .main-menu ul { background: #FFFFFF; border-bottom: 1px solid #E2E8F0; box-shadow: 0 12px 32px rgba(15, 23, 42, .14); }
+  .main-menu ul li { border-bottom: 1px solid #F1F5F9; }
+  .rc { border-left: 0; border-top: 1px solid #F1F5F9; padding: 12px 14px 0; margin-top: 10px; }
+  footer.site-footer::before { width: 92px; height: 92px; top: -46px; right: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

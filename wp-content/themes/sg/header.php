@@ -57,7 +57,7 @@
   
     <?php
       $sg_design = $_COOKIE['selected_theme'] ?? 'flat';
-      if (!in_array($sg_design, array('flat', 'standard', 'pinky', 'grey', 'fuchsbau'), true)) $sg_design = 'flat';
+      if (!in_array($sg_design, array('flat', 'standard', 'pinky', 'grey', 'fuchsbau', 'modern'), true)) $sg_design = 'flat';
       // Gemeinsame Versionsnummer aller Designs, damit auch der Wechsler im Browser frische Dateien lädt
       $sg_design_ver = max(array_map('filemtime', glob(get_template_directory() . '/styles/*/theme.css')));
       $sg_design_css = get_template_directory_uri() . '/styles/' . $sg_design . '/theme.css?ver=' . $sg_design_ver;
