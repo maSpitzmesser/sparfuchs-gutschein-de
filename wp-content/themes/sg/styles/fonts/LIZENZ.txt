@@ -1,0 +1,2 @@
+Open Sans, Pacifico, Dosis, Glegoo, Bree Serif: SIL Open Font License 1.1 (https://openfontlicense.org), Quelle Google Fonts, lokal eingebunden.
+icomoon: Symbolschrift des Themes.

@@ -197,50 +197,50 @@ textarea:focus {
 
 
 
-input[name="name"],
-input[name="email"],
-input[name="betreff"],
-input[name="code"],
-input[name="date"],
-input[name="link"],
-input[name="wert"] {
+input[name="sg_name"],
+input[name="sg_email"],
+input[name="sg_betreff"],
+input[name="sg_code"],
+input[name="sg_date"],
+input[name="sg_link"],
+input[name="sg_wert"] {
 	min-width:280px;
 	max-width:450px;
 	background-image: url('../images/fields.png');
 	background-repeat: no-repeat;
 }
 
-input[name="name"] {
+input[name="sg_name"] {
 	background-position: 2px -268px;
 }
 
-input[name="email"] {
+input[name="sg_email"] {
 	background-position: 2px -238px;
 }
 
-input[name="betreff"] {
+input[name="sg_betreff"] {
 	background-position: 2px -30px;
 }
 
-input[name="code"] {
+input[name="sg_code"] {
 	background-position: 2px -120px;
 }
 
-input[name="wert"] {
+input[name="sg_wert"] {
 	max-width:400px;
 		min-width:220px;
 	background-position: 2px -180px;
 }
 
-input[name="link"] {
+input[name="sg_link"] {
 	background-position: 2px -60px;
 }
 
-input[name="ate"] {
+input[name="sg_ate"] {
 	background-position: 5px -256px;
 }
 
-input[name="date"] {
+input[name="sg_date"] {
 	background-position: 2px -148px;
 }
 

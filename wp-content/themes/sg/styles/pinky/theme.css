@@ -1,4 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Pacifico|Dosis:300,400);
+@font-face { font-family: 'Pacifico'; src: url("/wp-content/themes/sg/styles/fonts/pacifico.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Dosis'; src: url("/wp-content/themes/sg/styles/fonts/dosis.woff2") format("woff2"); font-weight: 300 400; font-style: normal; font-display: swap; }
 
 
 /* #ED2790 */

@@ -1,0 +1,107 @@
+/* Zwischenseite (/go/aw) und Gutschein-Details (/go/layer-aw); eigenständig, ohne Theme-Stylesheets */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url("../fonts/open-sans.woff2") format("woff2");
+  font-weight: 300 800;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+
+body.go {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  background: #f4f6f8;
+  color: #333;
+  font: 16px/1.5 'Open Sans', Arial, sans-serif;
+}
+body.go--layer {
+  place-items: start center;
+  background: #fff;
+}
+
+.go-card {
+  width: min(560px, 100%);
+  padding: 28px 24px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+  text-align: center;
+}
+.go--layer .go-card {
+  box-shadow: none;
+  padding-top: 8px;
+}
+
+.go-logo { max-width: 260px; height: auto; }
+.go-shop { max-width: 160px; height: auto; }
+
+.go-card h1 {
+  margin: 16px 0;
+  color: #ff5800;
+  font-size: 1.4rem;
+  line-height: 1.3;
+}
+.go-card h1 .ex {
+  padding: 0 4px;
+  background: #ff5800;
+  color: #fff;
+}
+
+.go-label { margin: 0 0 6px; font-weight: 600; }
+
+.go-code {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 8px;
+  margin: 0 0 18px;
+}
+.go-code output {
+  padding: 10px 18px;
+  border: 2px dashed #2e8b57;
+  border-radius: 8px;
+  color: #2e8b57;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  user-select: all;
+}
+.go-code--none { color: #2e8b57; font-weight: 600; }
+
+.go-copy,
+.go-button {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: #ff5800;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.go-copy:hover,
+.go-button:hover { background: #d60e00; }
+
+.go-progress {
+  width: 100%;
+  height: 8px;
+  margin: 8px 0 4px;
+  accent-color: #ff5800;
+}
+
+.go-details {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 14px;
+  margin: 0 0 20px;
+  text-align: left;
+}
+.go-details dt { font-weight: 600; }
+.go-details dd { margin: 0; }
+.go-details ol { margin: 0; padding-left: 18px; }

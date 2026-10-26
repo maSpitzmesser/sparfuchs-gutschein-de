@@ -1,43 +1,46 @@
-<?php /** Template Name: Page with Sidebar */
+<?php
+/**
+ * Template Name: Page with Sidebar
+ *
+ * Standardseite mit Seitenleiste. Einige Seiten haben eigene Inhalte (Formulare, Anleitung, Designwahl).
+ * Mit ?lightbox=true (Anzeige im Dialog) entfallen Überschrift und Seitenleiste.
+ */
 
-if ( is_page( 'Kontakt' ) ||  ( 'gutschein-melden' ) || ( 'feedback' ) ) {
-	 include dirname(__FILE__).'/templates/forms/_sending_data.php'; 
-}
+defined('ABSPATH') || exit;
+
+$in_lightbox = !empty($_GET['lightbox']);
+$special     = [
+    'kontakt'          => 'templates/forms/form-kontakt',
+    'gutschein-melden' => 'templates/forms/form-code-melden',
+    'feedback'         => 'templates/forms/form-feedback',
+    'anleitung'        => 'templates/pages/page-anleitung',
+    'design-aendern'   => 'template-parts/page-designs',
+];
 
 get_header();
 
-setlocale(LC_TIME, 'de_DE.UTF8');
+while (have_posts()) :
+    the_post();
+    $slug = get_post_field('post_name');
+    ?>
+    <article class="col-first col span_3_of_4 style-a1">
+      <?php if (!$in_lightbox) : ?>
+        <?php the_title('<h1>', '</h1>'); ?>
+      <?php endif; ?>
 
-?>
-<article class="col-first col span_3_of_4 style-a1">
-	<?php if (empty($_GET['lightbox'])) { the_title('<h1>', '</h1>'); }?>
+      <?php
+      if (isset($special[$slug])) {
+          get_template_part($special[$slug]);
+      } else {
+          the_content();
+      }
+      ?>
+    </article>
+<?php
+endwhile;
 
-	<?php 
-		if ( is_page( 'Kontakt' ) ) {
-			include dirname(__FILE__).'/templates/forms/form-kontakt.php'; 
-		}  
-		elseif ( is_page( 'gutschein-melden' ) ) {
-			get_template_part('page-gutschein-melden');
-		}
-		elseif ( is_page( 'anleitung' ) ) {
-           include_once 'templates/pages/page-anleitung.php'; 
-		}
-		elseif ( is_page( 'feedback' ) ) {
-			get_template_part('page-feedback');
-		} 
-		elseif ( is_page( 'design-aendern' ) ) {
-			get_template_part('page-themes');
-		} 
-		else {
-			get_template_part('content');
-		}
-	?>
-</article>
-<?php 
-
-if (empty($_GET['lightbox'])) { 
-	get_sidebar();
+if (!$in_lightbox) {
+    get_sidebar();
 }
 
 get_footer();
-?>

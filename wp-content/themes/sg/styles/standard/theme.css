@@ -2,7 +2,7 @@
 	font-family:'Bree Serif';
 	font-style:normal;
 	font-weight:400;
-	src:local('Bree Serif'),local('BreeSerif-Regular'),url(http://themes.googleusercontent.com/static/fonts/breeserif/v2/LQ7WLTaITDg4OSRuOZCpsxsxEYwM7FgeyaSgU71cLG0.woff) format('woff')
+	src:local('Bree Serif'),local('BreeSerif-Regular'),url("/wp-content/themes/sg/styles/fonts/bree-serif.woff2") format("woff2")
 }
 
 @font-face {
@@ -512,7 +512,7 @@ figure:first-child img{width:129px;height:90px}
 .logos:before {
   content:"";
   position:absolute;
-  background:url("http://sg.sparfuchs-gutschein.de/images/loch.png") repeat scroll 2px 0 transparent;
+  background:none repeat scroll 2px 0 transparent;
   height:7px;
   width:100%;
   top:-15px;
@@ -537,7 +537,7 @@ figure:first-child img{width:129px;height:90px}
 .sb h2{position:relative;margin-left:-23px !important;margin:0 0 10px -23px}
 
 
-.sb ul:before{content:"";display:block;left:-2px;background:url("http://sg.sparfuchs-gutschein.de/images/loch.png") repeat scroll 4px 0 transparent;width:101%;height:7px;bottom:-7px;position:absolute}
+.sb ul:before{content:"";display:block;left:-2px;background:none repeat scroll 4px 0 transparent;width:101%;height:7px;bottom:-7px;position:absolute}
 
 .sb ul:after{content:"";display:block;height:0;clear:both}
 
@@ -551,7 +551,7 @@ ul.c {
 	margin:0 -15px 20px -15px
 }
 .nk,.bk,.mb,.kmb,.vato,.dbtn,.mc .se {
-	background-image:url(http://sg.sparfuchs-gutschein.de/images/tpl-sg.png);
+	background-image:url(/wp-content/themes/sg/images/tpl-sg.png);
 	background-position:-243px -388px;
 	background-repeat:no-repeat
 }
@@ -571,7 +571,7 @@ ul.cs li {
 	display:block;
 	left:-2px;
 	top: 0;
-	background:url("http://sg.sparfuchs-gutschein.de/images/loch.png") repeat scroll 4px 0 transparent;
+	background:none repeat scroll 4px 0 transparent;
 	width:100%;
 	height:7px;
 	position:absolute
@@ -750,7 +750,7 @@ ul.coupons:after {
    top:-7px;
 	width:100%;
 	height:7px;
-	background:url("http://sg.sparfuchs-gutschein.de/images/loch.png") repeat scroll 2px 0 transparent
+	background:none repeat scroll 2px 0 transparent
 }
 
 
@@ -810,7 +810,7 @@ ul.coupons:after {
 
 .dt{display:none;float:left}
 .dt ul{float:right;width:575px}
-.dt ul li{  font-family: "Kalam";font-size:16px;float:left;padding:0 18px;background:url(http://sg.sparfuchs-gutschein.de/images/i.png) no-repeat left center}
+.dt ul li{  font-family: "Kalam";font-size:16px;float:left;padding:0 18px;background:none no-repeat left center}
 
 .la {
 	float:left;
@@ -864,7 +864,7 @@ ul.coupons:after {
 #div-gpt-ad-1390127481704-0:after {
 	content:"";
 	display:block;
-	background:url("http://sg.sparfuchs-gutschein.de/images/loch.png") repeat scroll 2px 0 transparent;
+	background:none repeat scroll 2px 0 transparent;
 	width:99%;
 	height:7px;
 	position:absolute
@@ -965,7 +965,7 @@ content:"";
 	left:-2px;
 	width:101%;
 	height:7px;
-	background-image:url(http://sg.sparfuchs-gutschein.de/images/loch.png);
+	background-image:none;
 	background-position:2px 0;
 	background-repeat:repeat
 }
@@ -995,7 +995,7 @@ content:"";
 
 #sidebar ul{padding:7px 0 20px 8px}
 #sidebar ul li:last-child{border:0 !important}
-#sidebar ul li a{padding:0 5px 0 40px;background-image:url(http://sg.sparfuchs-gutschein.de/images/sidebox-li.png);background-position:0 0;background-repeat:no-repeat}
+#sidebar ul li a{padding:0 5px 0 40px;background-image:url(/wp-content/themes/sg/styles/flat/sidebox-li.png);background-position:0 0;background-repeat:no-repeat}
 #sidebar ul.g{padding:0}
 #sidebar ul.g li{height:60px;background:0;padding:2px 0;padding:5px 0 0 92px;border-bottom:1px dotted #ccc;color:#333;font-size:16px;text-shadow:none;display:block;font-family:'Bree Serif';line-height:13px;overflow:hidden}
 #sidebar ul.g li img{float:left;width:80px;height:56px;padding:0 !important;margin:0 8px 1px 5px}
@@ -1297,7 +1297,7 @@ font-family: 'Bree Serif',serif;
 font-size:100%
 }
 #theme-drawer ul li:nth-child(2) span{
-  background: url("http://sg.sparfuchs-gutschein.de/images/checkmark.min.png") no-repeat scroll 0px 0px transparent
+  background: none no-repeat scroll 0px 0px transparent
 }
 
 
@@ -1305,7 +1305,7 @@ font-size:100%
 
 /*single cats site*/
 
-a.pfeil {font-size:14px;padding:0 0 3px 18px;background: url("http://sg.sparfuchs-gutschein.de/images/down.png") no-repeat scroll left center transparent !important;font-family: 'Bree Serif',serif}
+a.pfeil {font-size:14px;padding:0 0 3px 18px;background: none no-repeat scroll left center transparent !important;font-family: 'Bree Serif',serif}
 
 
 

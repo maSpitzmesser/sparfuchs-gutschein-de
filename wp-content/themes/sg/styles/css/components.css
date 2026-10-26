@@ -1,0 +1,269 @@
+/*
+ * Bausteine, die früher jQuery-Plugins oder Inline-Styles in den Templates übernommen haben:
+ * Karussell (Slick-kompatible Klassen), Dialog statt Fancybox, Video-Vorschau, Formular-Ergänzungen,
+ * sowie die Styles der Kategorie-, Schlagwort- und Design-Seite. Die Designs (styles/<design>/theme.css)
+ * gestalten weiterhin Pfeile, Punkte und Farben.
+ */
+
+/* ---------- Bedienelemente als echte Buttons ---------- */
+
+.mobile-menu-button,
+.cookie-banner-close,
+.lazy-video-play,
+.sg-dialog-close,
+[data-design] {
+  font: inherit;
+  cursor: pointer;
+}
+.mobile-menu-button {
+  color: inherit;
+  padding: 0;
+}
+.cookie-banner-close {
+  position: absolute;
+  padding: 0;
+  appearance: none;
+  background: transparent;
+  color: #fff;
+}
+
+header[role="banner"] input[type="search"] {
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+}
+header[role="banner"] input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(255, 88, 0, .45);
+  outline-offset: 2px;
+}
+
+/* ---------- Karussell ---------- */
+
+[data-carousel] > .slick-list {
+  overflow: hidden;
+}
+[data-carousel] .slick-track {
+  display: flex;
+  transition: transform .4s ease;
+}
+[data-carousel] .slick-slide {
+  flex: 0 0 auto;
+  float: none;
+  height: auto;
+}
+/* Wie bei Slick: Inhalt füllt die Zelle, Logos stehen dadurch mittig */
+[data-carousel] .slick-slide > * {
+  display: inline-block;
+  width: 100%;
+}
+[data-carousel="fade"] .slick-track {
+  display: grid;
+  transition: none;
+}
+[data-carousel="fade"] .slick-slide {
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s linear, visibility 0s linear .5s;
+}
+[data-carousel="fade"] .slick-slide.slick-active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .5s linear;
+  z-index: 1;
+}
+[data-carousel] .slick-dots button {
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-carousel] .slick-track,
+  [data-carousel="fade"] .slick-slide {
+    transition: none;
+  }
+}
+
+/* ---------- Dialog (Anleitung, Kontakt, Gutschein-Details) ---------- */
+
+.sg-dialog {
+  width: min(980px, calc(100vw - 24px));
+  height: min(86vh, 900px);
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .35);
+}
+.sg-dialog.is-narrow {
+  width: min(480px, calc(100vw - 24px));
+}
+.sg-dialog::backdrop {
+  background: rgba(0, 0, 0, .55);
+}
+.sg-dialog-frame {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.sg-dialog-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .92);
+  color: #333;
+  font-size: 20px;
+  line-height: 38px;
+}
+.sg-dialog-close:hover {
+  color: #d60202;
+}
+
+/* ---------- Video erst nach Klick laden ---------- */
+
+.lazy-video-play {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  width: 100%;
+  padding: 0 16px 18px;
+  border: 0;
+  background: #222;
+  color: #fff;
+  text-align: center;
+}
+.lazy-video-play small {
+  opacity: .75;
+  font-size: 80%;
+}
+
+/* ---------- Scroll nach oben ---------- */
+
+a.scroll-to-top {
+  transition: opacity .3s ease;
+}
+a.scroll-to-top.hidden {
+  display: block !important;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---------- Formulare ---------- */
+
+.sg-hp {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.field-error {
+  margin: 4px 0 0;
+  color: #d60202;
+  font-size: 90%;
+}
+.main form .invalid {
+  border-color: #d60202 !important;
+}
+
+/* ---------- Kategorie-Seite ---------- */
+
+.category-page {
+  padding: 0;
+}
+.category-page .category-header,
+.category-page .logos {
+  margin-bottom: 25px;
+}
+.category-page figure {
+  margin: 0 15px 15px 0;
+}
+.category-page .c {
+  padding: 0 15px;
+}
+.category-jump {
+  padding-left: 85px;
+}
+.select-box select {
+  font: inherit;
+}
+
+/* ---------- Schlagwort-Seite ---------- */
+
+.tag-shops li {
+  float: left;
+  margin: 0 10px 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.tag-shops a {
+  display: block;
+  padding: 5px;
+}
+
+/* ---------- Seiten ohne Seitenleiste: Tabellen ---------- */
+
+.full-width-content td,
+.full-width-content th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.full-width-content tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.full-width-content tr:hover {
+  background-color: #ddd;
+}
+.full-width-content th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* ---------- Seite "Design ändern" ---------- */
+
+.float-box {
+  width: 100%;
+  display: inline-block;
+  margin: 0 0 10px 0;
+  padding: 5px;
+  border: 1px solid #f2f2f2;
+  box-sizing: border-box;
+}
+.float-box img {
+  float: left;
+  margin: 0 10px 0 0;
+}
+
+/* ---------- Startseite: Facebook-Link statt eingebettetem Facebook ---------- */
+
+.box-300 .social-link {
+  padding: 15px 5px;
+}
+.box-300 .social-link a {
+  display: block;
+  font-weight: 600;
+}
+.box-300 .social-link span {
+  display: block;
+  margin-top: 4px;
+  font-size: 90%;
+  opacity: .8;
+}
