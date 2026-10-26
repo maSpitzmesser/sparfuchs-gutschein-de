@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 92">
+  <!-- Kopf, unten von der Kastenkante (y = 80) abgeschnitten -->
+  <defs>
+    <clipPath id="kante"><rect x="0" y="0" width="140" height="80"/></clipPath>
+  </defs>
+  <g clip-path="url(#kante)" transform="translate(10 4)">
+    <path d="M14 10 L52 38 L20 60 Z" fill="#C9501B"/>
+    <path d="M22 22 L42 38 L25 50 Z" fill="#2E211A"/>
+    <path d="M106 10 L68 38 L100 60 Z" fill="#C9501B"/>
+    <path d="M98 22 L78 38 L95 50 Z" fill="#2E211A"/>
+    <path d="M60 110 C47 104 20 86 13 66 C9 52 18 39 33 35 C43 32 51 33 60 33 C69 33 77 32 87 35 C102 39 111 52 107 66 C100 86 73 104 60 110 Z" fill="#E8662A"/>
+    <path d="M60 33 C55 43 55 55 60 64 C65 55 65 43 60 33 Z" fill="#F08A52"/>
+    <path d="M60 110 C49 105 28 90 21 75 C35 71 50 75 60 86 C70 75 85 71 99 75 C92 90 71 105 60 110 Z" fill="#FFF6EA"/>
+    <ellipse cx="42" cy="62" rx="6" ry="7.5" fill="#2E211A"/>
+    <circle cx="44.5" cy="58.5" r="2.2" fill="#FFF"/>
+    <ellipse cx="78" cy="62" rx="6" ry="7.5" fill="#2E211A"/>
+    <circle cx="80.5" cy="58.5" r="2.2" fill="#FFF"/>
+  </g>
+  <!-- Pfoten auf der Kante -->
+  <g fill="#E8662A">
+    <rect x="20" y="70" width="30" height="20" rx="10"/>
+    <rect x="90" y="70" width="30" height="20" rx="10"/>
+  </g>
+  <g fill="#2E211A">
+    <rect x="20" y="80" width="30" height="10" rx="5"/>
+    <rect x="90" y="80" width="30" height="10" rx="5"/>
+  </g>
+  <g stroke="#E8662A" stroke-width="2" stroke-linecap="round">
+    <path d="M30 81 V89 M40 81 V89 M100 81 V89 M110 81 V89"/>
+  </g>
+</svg>

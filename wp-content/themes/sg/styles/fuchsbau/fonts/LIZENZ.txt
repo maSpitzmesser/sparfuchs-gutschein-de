@@ -1,0 +1,3 @@
+Fredoka (c) The Fredoka Project Authors, Nunito (c) The Nunito Project Authors.
+Beide unter der SIL Open Font License 1.1: https://openfontlicense.org
+Quelle: Google Fonts (lokal eingebunden, keine Verbindung zu Google beim Seitenaufruf).

@@ -57,7 +57,7 @@
   
     <?php
       $sg_design = $_COOKIE['selected_theme'] ?? 'flat';
-      if (!in_array($sg_design, array('flat', 'standard', 'pinky', 'grey'), true)) $sg_design = 'flat';
+      if (!in_array($sg_design, array('flat', 'standard', 'pinky', 'grey', 'fuchsbau'), true)) $sg_design = 'flat';
       $sg_design_css = get_template_directory_uri() . '/styles/' . $sg_design . '/theme.css';
     ?>
     <link rel="preload" href="<?php echo esc_url($sg_design_css); ?>" as="style" />

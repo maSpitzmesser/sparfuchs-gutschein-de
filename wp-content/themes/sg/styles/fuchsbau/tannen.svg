@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 80" preserveAspectRatio="none">
+  <!-- Waldkante: hellere Tannen vor dem dunklen Band, unten eine sanfte Hügellinie -->
+  <rect x="0" y="0" width="480" height="64" fill="#1F3D2F"/>
+  <g fill="#2B5440">
+    <path d="M18 62 L34 12 L50 62 Z"/>
+    <path d="M44 62 L56 28 L68 62 Z"/>
+    <path d="M92 62 L112 4 L132 62 Z"/>
+    <path d="M128 62 L140 30 L152 62 Z"/>
+    <path d="M186 62 L200 20 L214 62 Z"/>
+    <path d="M232 62 L250 8 L268 62 Z"/>
+    <path d="M262 62 L274 34 L286 62 Z"/>
+    <path d="M318 62 L334 16 L350 62 Z"/>
+    <path d="M372 62 L390 6 L408 62 Z"/>
+    <path d="M404 62 L416 30 L428 62 Z"/>
+    <path d="M452 62 L466 22 L480 62 Z"/>
+    <path d="M0 56 C60 46 120 64 180 56 C240 48 300 64 360 56 C420 48 450 58 480 56 V80 C420 74 360 80 300 76 C240 72 180 80 120 76 C60 72 30 80 0 76 Z"/>
+  </g>
+</svg>

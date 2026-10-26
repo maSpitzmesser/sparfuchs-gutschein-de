@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160">
+  <!-- Boden -->
+  <ellipse cx="92" cy="150" rx="78" ry="7" fill="#2E211A" opacity="0.12"/>
+  <!-- Schwanz mit weißer Spitze -->
+  <path d="M112 140 C150 146 182 124 178 92 C175 70 156 62 146 74 C158 84 160 104 144 116 C132 125 118 124 108 122 Z" fill="#E8662A"/>
+  <path d="M178 92 C175 70 156 62 146 74 C152 79 156 87 157 95 C164 99 172 98 178 92 Z" fill="#FFF6EA"/>
+  <!-- Körper -->
+  <path d="M58 146 C44 146 40 128 46 108 C52 88 64 76 80 74 C98 72 112 86 116 106 C120 126 114 146 98 146 Z" fill="#E8662A"/>
+  <!-- Brust -->
+  <path d="M66 140 C60 124 64 100 80 90 C94 100 98 124 92 140 Z" fill="#FFF6EA"/>
+  <!-- Füße -->
+  <rect x="56" y="138" width="22" height="12" rx="6" fill="#2E211A"/>
+  <rect x="82" y="138" width="22" height="12" rx="6" fill="#2E211A"/>
+  <!-- Gutschein -->
+  <g transform="rotate(-12 40 96)">
+    <path d="M6 80 H74 V88 A6 6 0 0 0 74 100 V108 H6 V100 A6 6 0 0 0 6 88 Z" fill="#F2B134"/>
+    <path d="M22 82 V106" stroke="#2E211A" stroke-width="2" stroke-dasharray="3 3" opacity="0.5"/>
+    <!-- Prozentzeichen -->
+    <circle cx="40" cy="88" r="3.6" fill="none" stroke="#2E211A" stroke-width="2.6"/>
+    <circle cx="56" cy="100" r="3.6" fill="none" stroke="#2E211A" stroke-width="2.6"/>
+    <path d="M59 85 L37 103" stroke="#2E211A" stroke-width="2.6" stroke-linecap="round"/>
+  </g>
+  <!-- Pfote am Gutschein -->
+  <ellipse cx="62" cy="104" rx="11" ry="9" fill="#E8662A"/>
+  <path d="M55 108 Q62 113 69 108" fill="none" stroke="#2E211A" stroke-width="2" stroke-linecap="round"/>
+  <!-- Kopf -->
+  <g transform="translate(36 -6) scale(0.75)">
+    <path d="M14 10 L52 38 L20 60 Z" fill="#C9501B"/>
+    <path d="M22 22 L42 38 L25 50 Z" fill="#2E211A"/>
+    <path d="M106 10 L68 38 L100 60 Z" fill="#C9501B"/>
+    <path d="M98 22 L78 38 L95 50 Z" fill="#2E211A"/>
+    <path d="M60 110 C47 104 20 86 13 66 C9 52 18 39 33 35 C43 32 51 33 60 33 C69 33 77 32 87 35 C102 39 111 52 107 66 C100 86 73 104 60 110 Z" fill="#E8662A"/>
+    <path d="M60 33 C55 43 55 55 60 64 C65 55 65 43 60 33 Z" fill="#F08A52"/>
+    <path d="M60 110 C49 105 28 90 21 75 C35 71 50 75 60 86 C70 75 85 71 99 75 C92 90 71 105 60 110 Z" fill="#FFF6EA"/>
+    <ellipse cx="42" cy="64" rx="6" ry="7.5" fill="#2E211A"/>
+    <circle cx="44.5" cy="60.5" r="2.2" fill="#FFF"/>
+    <path d="M71 66 Q78 58 85 66" fill="none" stroke="#2E211A" stroke-width="4" stroke-linecap="round"/>
+    <path d="M52 91 Q60 86 68 91 Q65 98 60 99.5 Q55 98 52 91 Z" fill="#2E211A"/>
+    <path d="M53 102 Q60 107 67 102" fill="none" stroke="#2E211A" stroke-width="2.4" stroke-linecap="round"/>
+  </g>
+</svg>

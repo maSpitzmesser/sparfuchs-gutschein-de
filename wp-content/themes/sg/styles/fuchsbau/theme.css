@@ -1,0 +1,733 @@
+/*
+ * Design „Fuchsbau“ – Herbstwald mit dem Sparfuchs als Maskottchen.
+ * Tannengrünes Kopfband mit Waldkante, Papier-Hintergrund mit Pfotenspuren,
+ * Gutscheine als Abreiß-Coupons. Schriften: Fredoka (Überschriften), Nunito (Text), lokal eingebunden.
+ */
+
+@font-face {
+  font-family: 'Fredoka';
+  src: url("/wp-content/themes/sg/styles/fuchsbau/fonts/fredoka.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url("/wp-content/themes/sg/styles/fuchsbau/fonts/nunito.woff2") format("woff2");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url("/wp-content/themes/sg/styles/fuchsbau/fonts/nunito-italic.woff2") format("woff2");
+  font-weight: 200 1000;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'icomoon';
+  src: url("/wp-content/themes/sg/styles/fonts/icomoon.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+/* Farben
+   Tanne   #1F3D2F / #2B5440     Fuchs  #E8662A / #C24E17
+   Papier  #FFFAF2 / #F5EDE0     Linie  #EADFCD
+   Tinte   #33261D / #7A6A5C     Senf   #F2B134     Gültig #2F7D4F */
+
+/* ---------- Seite ---------- */
+
+html {
+  background:
+    url(/wp-content/themes/sg/styles/fuchsbau/tannen.svg) repeat-x 0 96px / 480px 80px,
+    linear-gradient(#1F3D2F, #1F3D2F) no-repeat 0 0 / 100% 100px,
+    url(/wp-content/themes/sg/styles/fuchsbau/pfoten-muster.svg) repeat 0 0 / 220px 220px,
+    #F5EDE0;
+}
+
+body {
+  color: #33261D;
+  font-family: 'Nunito', Arial, sans-serif;
+  font-size: 92%;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-weight: 600;
+  color: #33261D;
+}
+strong, b {
+  font-family: 'Nunito', Arial, sans-serif;
+  font-weight: 700;
+  color: #33261D;
+}
+h1 { color: #33261D; }
+a { color: #33261D; transition: color .15s ease; }
+a:hover { color: #E8662A; }
+
+::selection { background: #F2B134; color: #33261D; }
+
+/* ---------- Kopf ---------- */
+
+header[role="banner"] {
+  margin: 0 auto 26px auto;
+}
+
+/* Logo: eigener Fuchskopf mit Schriftzug, das alte Bild bleibt für Suchmaschinen und Screenreader im Markup */
+header[role="banner"] a#logo {
+  background: url(/wp-content/themes/sg/styles/fuchsbau/fuchs-kopf.svg) no-repeat 0 50% / 86px 86px;
+  transition: transform .2s ease;
+}
+header[role="banner"] a#logo img { opacity: 0; }
+header[role="banner"] a#logo:hover { transform: rotate(-3deg); }
+header[role="banner"] a#logo::before,
+header[role="banner"] a#logo::after,
+header[role="banner"] a#logo:hover::after {
+  display: block;
+  position: absolute;
+  left: 98px;
+  width: auto;
+  height: auto;
+  background: none;
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  white-space: nowrap;
+  pointer-events: none;
+}
+header[role="banner"] a#logo::before {
+  content: "Sparfuchs";
+  top: 14px;
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1;
+  color: #FFF6EA;
+  letter-spacing: .5px;
+}
+header[role="banner"] a#logo::after {
+  content: "Gutschein.de";
+  top: 56px;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1;
+  color: #F2B134;
+  letter-spacing: 1px;
+}
+
+/* Suche */
+header[role="banner"] form.style-a1 {
+  margin-top: 26px;
+  border: 0;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #FFFAF2;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, .22);
+}
+header[role="banner"] form input {
+  padding: 0 64px 0 22px;
+  box-sizing: border-box;
+  background: #FFFAF2;
+  color: #7A6A5C;
+  font-family: 'Nunito', Arial, sans-serif;
+  transition: color .3s ease-in-out;
+}
+header[role="banner"] form input:focus { color: #33261D !important; }
+header[role="banner"] #submit {
+  width: 56px;
+  padding: 0;
+  background: #E8662A url(/wp-content/themes/sg/styles/fuchsbau/lupe.svg) no-repeat 50% 50% / 20px 20px;
+  color: transparent;
+  transition: background-color .15s ease;
+}
+header[role="banner"] #submit:hover { background-color: #C24E17; }
+#ac_s {
+  background: #FFFAF2;
+  border: 1px solid #EADFCD;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(51, 38, 29, .16);
+  overflow: hidden;
+}
+#ac_s ul li { border-bottom: 1px dashed #EADFCD; }
+#ac_s a:hover { background: #F5EDE0; }
+
+/* Hauptmenü */
+.main-menu.style-a1 {
+  background: #FFFAF2;
+  border: 0;
+  border-radius: 14px;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, .22);
+}
+.main-menu ul { background: transparent; }
+.main-menu ul li {
+  background: transparent;
+  border-right: 1px dashed #EADFCD;
+}
+.main-menu ul li:last-child { border-right: 0; }
+.main-menu ul li a {
+  color: #33261D;
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-weight: 500;
+  font-size: 112%;
+  text-shadow: none;
+  transition: color .15s ease, background-color .15s ease;
+}
+.main-menu ul li:first-child a { border-radius: 14px 0 0 14px; color: #E8662A; }
+.main-menu ul li a:hover,
+.main-menu ul li:hover > a { color: #E8662A; text-shadow: none !important; }
+.main-menu ul li.active a,
+.main-menu ul li.active a:hover {
+  background-color: #E8662A !important;
+  color: #FFF !important;
+  text-shadow: none !important;
+}
+.main-menu ul li ul {
+  background-color: #FFFAF2;
+  border-radius: 0 0 14px 14px;
+  box-shadow: 0 12px 28px rgba(51, 38, 29, .16);
+  text-shadow: none !important;
+}
+.main-menu ul li ul li a,
+.main-menu ul li.active ul li a,
+.main-menu ul li.active ul li a:hover { text-shadow: none !important; }
+.main-menu ul li ul li a:hover {
+  background-color: #F5EDE0;
+  background-image: none;
+  color: #E8662A !important;
+}
+.main-menu .mobile-menu-button { color: #33261D; }
+
+nav.sticky {
+  background: #FFFAF2 !important;
+  box-shadow: 0 4px 0 rgba(51, 38, 29, .12) !important;
+}
+.sticky:before { display: none; }
+
+/* ---------- Überschriften ---------- */
+
+h1.top-level-heading-2 {
+  color: #33261D;
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-size: 200%;
+  font-weight: 600;
+  text-shadow: none;
+  overflow: visible !important;
+}
+p.top-level-heading-2 {
+  position: relative;
+  padding-bottom: 1.2em;
+  color: #7A6A5C;
+  font-family: 'Nunito', Arial, sans-serif;
+  font-size: 140%;
+  text-align: center;
+}
+p.top-level-heading-2 strong { color: #7A6A5C; font-weight: 400; }
+
+.headline-a1,
+.headline-a2,
+.video span,
+aside h3:first-child,
+aside span:first-child {
+  color: #33261D;
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-weight: 600;
+  text-shadow: none;
+  border-bottom: 2px dashed #EADFCD;
+}
+.headline-a1 {
+  height: auto;
+  line-height: 1.3;
+  padding: 10px 0;
+  margin: 0 0 10px 0;
+  text-align: left;
+  font-size: 220%;
+  color: #E8662A;
+  overflow: visible;
+}
+.headline-a2 { padding-bottom: 4px; }
+/* Pfote vor den Kastenüberschriften */
+.headline-a2::before {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin: 0 8px 0 0;
+  vertical-align: -4px;
+  background: url(/wp-content/themes/sg/styles/fuchsbau/pfote.svg) no-repeat 0 0 / 22px 22px;
+}
+span.headline-a2 { display: block; margin-bottom: .5em; padding: 0; }
+h2.sub-title { color: #7A6A5C; font-weight: 500; }
+
+/* ---------- Kästen ---------- */
+
+.style-a1 {
+  position: relative;
+  background: #FFFAF2;
+  border: 1px solid #EADFCD;
+  border-radius: 18px;
+  box-shadow: 0 6px 0 rgba(51, 38, 29, .05), 0 14px 30px rgba(51, 38, 29, .07);
+}
+#main .style-a1 { overflow: hidden; }
+#main aside.video.style-a1,
+#main .sidebar .style-a1:first-child { overflow: visible; }
+
+.main article #div-gpt-ad-1403906711175-0,
+.main article #div-gpt-ad-1403907182536-0,
+.main article #div-gpt-ad-1403907470989-0 { background: #FFFAF2; box-shadow: none; }
+
+/* Brotkrumen als Pillen */
+.bread { color: #7A6A5C; }
+.bread a { background: #FFFAF2; color: #33261D; border-radius: 999px; text-shadow: none; box-shadow: none; }
+.breadcrumbs { color: #7A6A5C; overflow: hidden; }
+.breadcrumbs li { margin: 0 0 0 6px; }
+.breadcrumbs li a {
+  display: block;
+  float: left;
+  margin: 0 0 0 4px;
+  padding: 0 12px;
+  background: #FFFAF2;
+  border: 1px solid #EADFCD;
+  border-radius: 999px;
+  color: #33261D;
+  transition: border-color .15s ease, color .15s ease;
+}
+.breadcrumbs li a:before,
+.breadcrumbs li a:after { display: none; }
+.breadcrumbs li a:hover { background: #FFFAF2; border-color: #E8662A; color: #E8662A; }
+.breadcrumbs li:last-child a { background: #E8662A; border-color: #E8662A; color: #FFF; }
+
+/* ---------- Gutscheine als Abreiß-Coupons ---------- */
+
+ul.c {
+  padding: 8px 14px 4px;
+  box-sizing: border-box;
+}
+ul.c li {
+  box-sizing: border-box;
+  margin: 0 0 14px 0;
+  padding: 14px 0;
+  background: #FFF;
+  border: 1px solid #EADFCD;
+  border-radius: 16px;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+ul.c li:last-child { border-bottom: 1px solid #EADFCD; }
+ul.c li:hover {
+  background: #FFF !important;
+  border-color: #E8662A;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(232, 102, 42, .14);
+}
+/* Kerben oben und unten an der Perforation */
+ul.c li::before,
+ul.c li::after {
+  content: "";
+  position: absolute;
+  left: calc(60% - 11px);
+  width: 20px;
+  height: 20px;
+  background: #FFFAF2;
+  border: 1px solid #EADFCD;
+  border-radius: 50%;
+  transition: border-color .15s ease;
+}
+ul.c li::before { top: -11px; }
+ul.c li::after { bottom: -11px; }
+ul.c li:hover::before,
+ul.c li:hover::after { border-color: #E8662A; }
+
+.c li img { border-radius: 10px; }
+.mc p {
+  color: #33261D;
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-weight: 500;
+  line-height: 1.25;
+}
+ul.c li:hover .mc p:first-child { color: #E8662A; }
+.mc p .ex {
+  background: #F2B134;
+  color: #33261D;
+  padding: 0 6px;
+  border-radius: 6px;
+}
+.mc p:nth-child(2) { padding-bottom: .5em; }
+article .mc p:nth-child(2), .nk, .bk, .mb { color: #7A6A5C; }
+
+.rc {
+  box-sizing: border-box;
+  padding: 0 16px 0 22px;
+  border-left: 2px dashed #EADFCD;
+}
+.rc:after { background-image: none; }
+.vato, .kmb { color: #2F7D4F; font-weight: 700; }
+.used { color: #7A6A5C; }
+
+/* Buttons */
+.b,
+.btn,
+a.oben,
+.ABC a {
+  background: #E8662A;
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 4px 0 #C24E17;
+  color: #FFF !important;
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-weight: 500;
+  text-shadow: none;
+  overflow: hidden;
+  transition: background-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+.b:hover,
+.btn:hover,
+a.oben:hover,
+.ABC a:hover {
+  background: #1F3D2F;
+  box-shadow: 0 4px 0 #12261C;
+  color: #FFF !important;
+  transform: translateY(-1px);
+  text-shadow: none;
+}
+.b:active, .btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #12261C; }
+.rc .b { margin: 18px 0 4px 0; }
+.rc .b a { color: #FFF; }
+.button-offer .folded-corner { display: none; }
+
+.count {
+  background: #2F7D4F;
+  color: #FFF !important;
+  border-radius: 999px;
+  padding: 0 8px 1px 6px;
+}
+.count:hover { cursor: help; }
+.new-offer {
+  background: #F2B134;
+  color: #33261D;
+  border-radius: 0 0 8px 0;
+  font-weight: 700;
+}
+
+/* kleine Listen (Neue Gutscheine, Bald endend) */
+ul.cs li {
+  background: transparent;
+  border-bottom: 1px dashed #EADFCD;
+  transition: background-color .15s ease;
+}
+ul.cs li:last-child { border-bottom: 0; }
+.cs li:hover { background: #F5EDE0 !important; }
+.cs li img { border-radius: 8px; }
+.cs .mc b { color: #7A6A5C; font-weight: 700; }
+.cs .mc p { color: #C24E17; }
+.sb ul { padding: 0 8px; }
+.sb > a {
+  display: inline-block;
+  margin: 10px 0 14px;
+  color: #E8662A;
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-weight: 500;
+}
+
+/* ---------- Startseite ---------- */
+
+.slider-coupon .slider-headline {
+  color: #E8662A;
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-weight: 600;
+  text-shadow: 0 2px 0 #FFFAF2, 0 0 18px #FFFAF2;
+}
+.slider-coupon .slider-button { line-height: 35px; padding: 0 18px; }
+
+/* Box „Rabatte nutzen!“: Pfoten statt Häkchen, Fuchs mit Gutschein statt Münzen */
+.video ol li:before {
+  background: url(/wp-content/themes/sg/styles/fuchsbau/pfote.svg) no-repeat 0 50% / 22px 22px;
+  height: 30px;
+}
+.video ol:after {
+  left: auto;
+  right: 10px;
+  top: auto;
+  bottom: -14px;
+  width: 190px;
+  height: 152px;
+  background: url(/wp-content/themes/sg/styles/fuchsbau/fuchs-gutschein.svg) no-repeat 50% 100% / contain;
+}
+#main aside.video.style-a1 { padding-bottom: 150px; }
+
+/* Logo-Karussell */
+.slick-prev,
+.slick-next,
+.slick-prev:hover, .slick-prev:focus,
+.slick-next:hover, .slick-next:focus,
+.prev, .next, .prev2, .next2 {
+  background: url(/wp-content/themes/sg/styles/fuchsbau/pfeil.svg) no-repeat 50% 50% / 42px 42px;
+}
+.slick-prev, .slick-prev:hover, .slick-prev:focus, .prev, .prev2 { transform: translate(0, -50%) scaleX(-1); }
+.slick-next::before, .slick-prev::before { content: ''; }
+.prev, .next { display: none; }
+.slider:hover .prev, .slider:hover .next { display: block; }
+
+/* Reiter */
+.tabs li {
+  background: #F5EDE0;
+  border-bottom: 2px solid #EADFCD;
+  color: #7A6A5C;
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-weight: 500;
+  text-shadow: none;
+  overflow: hidden;
+  position: relative;
+  transition: color .15s ease, background-color .15s ease;
+}
+.tabs li:hover { color: #E8662A; }
+.tabs li.active {
+  background: #FFFAF2;
+  border-bottom: 2px solid #E8662A;
+  color: #33261D;
+  text-shadow: none;
+}
+.tabs a:hover, .tabs a:hover::after, .tabs a:focus, .tabs a:focus::after { background: transparent; color: #33261D; }
+.tabs a:focus { outline: 0; }
+.tabs #current a, .tabs #current a::after { background: #FFFAF2; z-index: 3; }
+
+.shop-list a { border-bottom: 1px dashed #EADFCD; border-radius: 6px; }
+.shop-list a:hover { background: #F5EDE0; color: #E8662A; }
+
+ul.cat_img li a { border: 1px solid #EADFCD; border-radius: 12px; color: #33261D !important; }
+ul.cat_img li a:hover { border-color: #E8662A; color: #E8662A !important; }
+
+/* ---------- Seitenleiste ---------- */
+
+/* Der Fuchs schaut über den ersten Kasten der Seitenleiste */
+.sidebar::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  right: 18px;
+  top: -61px;
+  width: 104px;
+  height: 68px;
+  background: url(/wp-content/themes/sg/styles/fuchsbau/fuchs-guckt.svg) no-repeat 50% 100% / contain;
+  pointer-events: none;
+}
+.shop-meta h3:first-child { margin: 0 -10px 10px -10px; }
+.shop-meta img { border-radius: 12px; }
+.shop-meta ol li:before { background: url(/wp-content/themes/sg/styles/fuchsbau/pfote.svg) no-repeat 0 0 / 18px 18px; }
+div.text ol li::marker { color: #E8662A; font-family: 'Fredoka', 'Nunito', sans-serif; font-weight: 600; }
+ul.g li { border-bottom: 1px dashed #EADFCD; color: #E8662A; transition: background-color .15s ease; }
+ul.g li:hover { background: #F5EDE0; }
+ul.g li span { color: #33261D; }
+.sidebar article h2 { line-height: 15px; padding: 20px 0 12px 0; text-align: center; }
+.sidebar article p { font-size: 13px; padding: 5px 5px 5px 3px; text-align: justify; }
+.sidebar .gads { text-align: center; }
+.logos a img { border-radius: 10px; transition: transform .15s ease; }
+.logos a:hover img { transform: translateY(-2px); }
+
+.side-nav a { color: #7A6A5C; }
+.side-nav a.current, .side-nav a:hover { color: #E8662A; }
+
+/* ---------- Fuß ---------- */
+
+footer.site-footer {
+  margin-top: 70px;
+  border-top: 0;
+  background: #1F3D2F;
+  color: #FFF6EA;
+}
+/* Sitzender Fuchs auf der Kante des Fußbereichs, mit Sprechblase */
+footer.site-footer::before {
+  content: "";
+  position: absolute;
+  right: 6%;
+  top: -118px;
+  width: 150px;
+  height: 120px;
+  background: url(/wp-content/themes/sg/styles/fuchsbau/fuchs-gutschein.svg) no-repeat 50% 100% / contain;
+  pointer-events: none;
+}
+footer.site-footer::after {
+  content: "Clever sparen!";
+  position: absolute;
+  right: calc(6% + 150px);
+  top: -96px;
+  padding: 6px 14px;
+  background: #FFFAF2;
+  border: 1px solid #EADFCD;
+  border-radius: 14px 14px 2px 14px;
+  color: #33261D;
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+  pointer-events: none;
+}
+footer.site-footer .box { background: #2B5440; }
+footer.site-footer .site-links h4 {
+  padding: 0 0 6px;
+  background: none;
+  border-bottom: 2px dashed rgba(255, 246, 234, .2);
+  color: #F2B134;
+  font-family: 'Fredoka', 'Nunito', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-shadow: none;
+  overflow: hidden;
+}
+footer.site-footer .site-links a {
+  background: none;
+  color: #FFF6EA;
+  line-height: 1.9;
+  transition: color .15s ease;
+}
+footer.site-footer .site-links a:hover { color: #F2B134; }
+footer.site-footer .copy { color: rgba(255, 246, 234, .65); }
+footer.site-footer .site-info,
+footer.site-footer .site-info ul { background: #17301F; }
+footer.site-footer .site-info ul li { background: #1F3D2F; }
+footer.site-footer .site-info ul li span { background: #2B5440; }
+
+a.top {
+  bottom: 12px;
+  right: 12px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 22px;
+  position: fixed;
+  z-index: 7777;
+  background: #1F3D2F;
+  border-radius: 999px;
+  color: #FFF6EA;
+}
+a.top:hover { background: #E8662A; }
+
+/* Cookie-Hinweis */
+.cookie-banner.style-b1 {
+  background: #33261D;
+  color: #FFF6EA;
+  border-radius: 18px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .25);
+}
+.cookie-banner a { color: #F2B134; }
+
+/* ---------- Sonstiges aus den bisherigen Designs ---------- */
+
+.ratings:before {
+  content: "";
+  position: absolute;
+  top: 3px; right: 3px; bottom: 3px; left: 3px;
+  border: 1px dashed #EADFCD;
+  border-radius: 12px;
+}
+.fancybox-close { background: #FFFAF2; }
+.gift a { background: #E8662A; display: block; font-weight: 300; overflow: hidden; position: relative; z-index: 2; border-radius: 16px; }
+.gift a .worth { color: #FFF; text-shadow: none; }
+a.pfeil { background: none !important; }
+.noc { background: #FFF6EA; border: 1px dashed #F2B134; border-radius: 12px; }
+
+/* Formulare */
+#form input[type="text"],
+#form input[type="email"],
+#form textarea {
+  border: 1px solid #EADFCD;
+  border-radius: 12px;
+  background: #FFF;
+  padding: 8px 12px;
+  font-family: 'Nunito', Arial, sans-serif;
+}
+#form input:focus,
+#form textarea:focus { border-color: #E8662A; box-shadow: 0 0 0 3px rgba(232, 102, 42, .18); }
+
+/* Seite „Design ändern“: aktives Design hervorheben */
+.float-box { border-radius: 16px; border-color: #EADFCD !important; box-sizing: border-box; }
+.float-box img { border-radius: 12px; }
+.float-box .b { display: inline-block; margin-top: 10px; padding: 5px 18px; cursor: pointer; }
+.float-box h3 small {
+  display: inline-block;
+  padding: 0 8px;
+  background: #F2B134;
+  border-radius: 999px;
+  color: #33261D;
+  font-size: 60%;
+  vertical-align: 3px;
+}
+[data-design].is-active { background: #2F7D4F; box-shadow: 0 4px 0 #1E5A37; cursor: default; }
+
+/* ---------- Symbole (icomoon) ---------- */
+
+.cats:before,
+.tags:before,
+span.date:before,
+.count:before,
+.vato:before,
+.nk:before,
+.bk:before,
+.mb:before,
+.kmb:before,
+.main-menu ul li:nth-child(1) a:before,
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: 85%;
+  width: 16px;
+  margin: 0 5px 0 0;
+  display: inline-block;
+}
+.main-menu ul li:nth-child(1) a:before,
+.icon-home:before {
+  text-indent: 0;
+  line-height: 40px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  font-size: 130%;
+  content: "\e900";
+}
+.icon-price-tag:before { content: "\e901"; }
+.tags:before, .icon-price-tags:before { content: "\e902"; }
+.icon-cart:before { content: "\e903"; }
+.icon-location:before { content: "\e904"; }
+span.date:before, .vato:before, .icon-calendar:before { content: "\e905"; }
+.icon-bubbles2:before { content: "\e906"; }
+.nk:before, .icon-user:before { content: "\e907"; }
+.bk:before, .icon-users:before { content: "\e908"; }
+.icon-search:before { content: "\e909"; }
+.mb:before, .kmb:before, .icon-coin-euro:before { content: "\e90b"; }
+.cats:before, .icon-folder-open:before { content: "\e90c"; }
+.icon-folder-plus:before { content: "\e90d"; }
+.count:before, .icon-clock:before { content: "\e90e"; }
+
+/* ---------- Kleine Bildschirme ---------- */
+
+@media screen and (max-width: 700px) {
+  html {
+    background:
+      url(/wp-content/themes/sg/styles/fuchsbau/tannen.svg) repeat-x 0 100px / 480px 64px,
+      linear-gradient(#1F3D2F, #1F3D2F) no-repeat 0 0 / 100% 104px,
+      url(/wp-content/themes/sg/styles/fuchsbau/pfoten-muster.svg) repeat 0 0 / 220px 220px,
+      #F5EDE0;
+  }
+  header[role="banner"] form.style-a1 { margin-top: 5px; }
+  header[role="banner"] a#logo { background-size: 70px 70px; }
+  header[role="banner"] a#logo::before { left: 80px; top: 22px; font-size: 32px; }
+  header[role="banner"] a#logo::after { left: 82px; top: 58px; font-size: 18px; }
+  h1.top-level-heading-2 { margin-top: 56px; font-size: 160%; }
+  /* Menü wird zur Leiste oben: tannengrün mit hellem Burger-Symbol, aufgeklappte Liste hell */
+  .main-menu.style-a1 { background: #1F3D2F; border-radius: 0; box-shadow: none; }
+  .main-menu ul { background: #FFFAF2; border-radius: 0 0 14px 14px; box-shadow: 0 12px 28px rgba(0, 0, 0, .2); }
+  .main-menu ul li { border-right: 0; border-bottom: 1px dashed #EADFCD; }
+  .main-menu ul li:first-child a { border-radius: 0; }
+  /* Coupon-Kerben passen nur zur zweispaltigen Anordnung */
+  ul.c li::before, ul.c li::after { display: none; }
+  .rc { border-left: 0; border-top: 2px dashed #EADFCD; padding: 10px 14px 0; margin-top: 10px; }
+  .sidebar::before { display: none; }
+  footer.site-footer::after { display: none; }
+  footer.site-footer::before { right: 12px; width: 110px; height: 88px; top: -86px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  ul.c li:hover, .b:hover, .btn:hover { transform: none; }
+}

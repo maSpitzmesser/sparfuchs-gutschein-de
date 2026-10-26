@@ -21,6 +21,13 @@
 <p>Wir konnten uns für kein Design entscheiden, deswegen lassen wir euch die Wahl. Sucht euch ein Design aus welches dann für dich persönlich gespeichert bleibt und wenn Du möchtest kannst es hier jeder Zeit wieder ändern.<br/> Grüße Euer Sparfuchs-Gutschein Team</p>
 
 <div class="float-box">
+	<img src="<?php echo esc_url(get_template_directory_uri()); ?>/styles/fuchsbau/sparfuchs-fuchsbau.min.png" alt=""/>
+	<h3>Fuchsbau Design <small>neu</small></h3>
+	<p>Ein warmer Herbstwald mit unserem Sparfuchs als Begleiter. Gutscheine sehen aus wie echte Abreiß-Coupons.</p>
+	<span data-design="fuchsbau" rel="nofollow" class="b" href="/">Design ändern</span>
+</div>
+
+<div class="float-box">
 	<img src="<?php echo esc_url(get_template_directory_uri()); ?>/styles/flat/sparfuchs-flat.min.jpg" alt=""/>
 	<h3>Flat Design</h3>
 	<p>Ein sehr einfach gehaltenes Design für eine saubere Übersicht.</p>
