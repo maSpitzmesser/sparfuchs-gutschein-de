@@ -5,9 +5,9 @@
     <p class="slider-headline"><?php echo $offer->Title;  ?></p>
     <span class="slider-list">
   		<?php
-  			if ( ($offer->existing_customers == 'YES') && ($offer->new_customers == 'YES') ) { echo '<span class="bk">Neu- &amp; Bestandskunden</span>'; }
-  			else if ( ($offer->existing_customers == 'NO') && ($offer->new_customers == 'YES') ) { echo '<span class="nk">Nur für Neukunden</span>';}
-        else if ( ($offer->existing_customers == 'YES') && ($offer->new_customers == 'NO') ) { echo '<span class="nk">Nur für Bestandskunden</span>';}
+  			if ( (($offer->existing_customers ?? '') == 'YES') && (($offer->new_customers ?? '') == 'YES') ) { echo '<span class="bk">Neu- &amp; Bestandskunden</span>'; }
+  			else if ( (($offer->existing_customers ?? '') == 'NO') && (($offer->new_customers ?? '') == 'YES') ) { echo '<span class="nk">Nur für Neukunden</span>';}
+        else if ( (($offer->existing_customers ?? '') == 'YES') && (($offer->new_customers ?? '') == 'NO') ) { echo '<span class="nk">Nur für Bestandskunden</span>';}
 
   			if (!empty($offer->minimum_order_value)) { echo '<span class="mb">Mindestkaufbetrag:' . $offer->minimum_order_value . ',&#8211; €</span>';}
   			else if (isset($offer->minimum_order_value)) { echo '<span class="kmb">Kein Mindestkaufbetrag</span>';}

@@ -13,7 +13,7 @@
       global $wpdb;
       global $post;
 
-      $parent_title = get_the_title($post->post_parent);
+      $parent_title = get_sg_parent_title();
       $permalink    = get_permalink($post->ID);
       $shopname     = str_replace('&#038;', 'und', $parent_title);
       $sql          = "SELECT * FROM awin_vouchers WHERE Advertiser LIKE '%{$shopname}%' AND type = 'voucher' LIMIT 1";
@@ -124,7 +124,7 @@
     public function widget($args, $instance) {
       extract( $args );
       $title = apply_filters('widget_title', empty($instance['title']) ? 'Anleitung im Shop' : $instance['title']);
-      $parent_title = get_the_title($post->post_parent);
+      $parent_title = get_sg_parent_title();
       echo '<div class="text style-a1">';
       echo $before_title . $parent_title . ' Gutschein einlösen'. $after_title;
       echo '<ol><li>Trage den vorhandenen Gutscheincode im Bestellprozess in das entsprechende Feld.</li><li>Bestätige deine Eingabe.</li><li>Der Rabatt wird vom Gesamtbetrag abgezogen oder auf der Rechnung ausgewiesen.</li></ol>';
@@ -330,7 +330,7 @@ ORDER BY o.valid_from DESC LIMIT 8";
       $title = apply_filters('widget_title', empty($instance['title']) ? 'Geschenkgutschein' : $instance['title']);
 
       global $wpdb;
-      $parent_title = get_the_title($post->post_parent);
+      $parent_title = get_sg_parent_title();
 
       $ID = get_the_ID();
       $sql = "SELECT * FROM wp_coupons WHERE shopid = $ID AND public = 1 AND type = 'gift' LIMIT 1";
@@ -371,7 +371,7 @@ ORDER BY o.valid_from DESC LIMIT 8";
       $title = apply_filters('widget_title', empty($instance['title']) ? 'Amazon Top Selller' : $instance['title']);
 
       global $wpdb;
-      $parent_title = get_the_title($post->post_parent);
+      $parent_title = get_sg_parent_title();
 
       if ($parent_title == 'Amazon') { ?>
           <div class="text">

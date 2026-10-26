@@ -21,7 +21,7 @@ if ( is_single () ) {	 ?>
         $args = array( 'category' => $categories[0]->cat_ID, 'posts_per_page' => 6, 'order'=>'ASC', 'post__not_in' => array( $post->ID ), 'orderby' => 'rand' ); 
         $myposts = get_posts( $args ); 
         foreach( $myposts as $post ) : setup_postdata($post); ?>
-        <a href="<?php the_permalink();?>" title="<?php echo get_the_title( $post_id ); ?> Rabatte"><?php get_logo_lazy($shopname); ?></a>
+        <a href="<?php the_permalink();?>" title="<?php echo get_the_title( $post->ID ); ?> Rabatte"><?php get_logo_lazy(get_the_title()); ?></a>
         <?php endforeach; wp_reset_query(); ?>
 	</section>
 <?php } ?>

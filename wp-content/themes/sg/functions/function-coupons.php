@@ -10,18 +10,20 @@
 		$ul_before_coupons = '<ul class="c" id="Gutscheine">';
 		$ul_after          = '</ul>';
 
-		$sql = "SELECT * FROM awin_vouchers
-						WHERE Advertiser LIKE '%{$postName}%'
+		$sql = $wpdb->prepare("SELECT * FROM awin_vouchers
+						WHERE Advertiser LIKE %s
 						AND type = 'voucher'
-						LIMIT 40";
+						LIMIT 40", '%' . $wpdb->esc_like($postName) . '%');
 		$awin_vouchers = $wpdb->get_results($sql);
 
 		if ( count($awin_vouchers) )  {
 			echo $headline;
 			echo $ul_before_coupons;
 
+			// Werte für das Template
+			$id = $postid;
+			$shopname = $postName;
 			foreach ($awin_vouchers as $offer){
-				$offer->title = str_replace($ist, $soll, $offer->title);
 				include dirname(__FILE__).'/../templates/offers/offer-awin.php';
 			};
 
@@ -40,18 +42,20 @@
 		$ul_before_offers = '<ul class="c" id="Rabatte">';
 		$ul_after_offers  = '</ul>';
 
-		$sql = "SELECT * FROM awin_vouchers
-						WHERE Advertiser LIKE '%{$postName}%'
+		$sql = $wpdb->prepare("SELECT * FROM awin_vouchers
+						WHERE Advertiser LIKE %s
 						AND type = 'promotion'
-						LIMIT 40";
+						LIMIT 40", '%' . $wpdb->esc_like($postName) . '%');
 		$awin_vouchers = $wpdb->get_results($sql);
 
     if ( count($awin_vouchers) )  {
       echo $ul_before_offers;
       echo '<h2 class="headline-a2 article-title">Aktuelle Rabatte bei ' . $post->post_title . ' </h2>';
 
+      // Werte für das Template
+      $id = $postid;
+      $shopname = $postName;
       foreach ($awin_vouchers as $offer){
-        $offer->title = str_replace($ist, $soll, $offer->title);
         include dirname(__FILE__).'/../templates/offers/offer-awin.php';
       };
 
@@ -101,7 +105,7 @@
 		$sql = "SELECT * FROM awin_vouchers v
             JOIN awin_vouchers_used u ON (v.PromotionID = u.PromotionID)
             WHERE v.Type = 'voucher'
-            ORDER BY v.Clicks DESC
+            ORDER BY u.Clicks DESC
             LIMIT 50";
 
 		$offers = $wpdb->get_results($sql);
@@ -117,7 +121,7 @@
 		$sql = "SELECT * FROM awin_vouchers v
             JOIN awin_vouchers_used u ON (v.PromotionID = u.PromotionID)
             WHERE v.Type = 'voucher'
-            ORDER BY v.Clicks DESC
+            ORDER BY u.Clicks DESC
             LIMIT 50";
 
 		$offers = $wpdb->get_results($sql);
@@ -360,7 +364,6 @@
 
 		foreach ($coupons as $offer) {
 			$shopname = $offer->post_title;
-			$offer->title = str_replace($ist, $soll, $offer->title);
 			include dirname(__FILE__).'/../templates/offers/offer-nolink.php';
 		};
 	}
@@ -395,8 +398,14 @@
 	function get_logo_by_coupon($shopname) {
 		echo '<img data-funk="get_logo_by_coupon" alt="' . esc_attr($shopname) . ' Gutscheincode" src="' . get_sg_shop_logo_url($shopname) . '" title="' . esc_attr($shopname) . '"/>';
 	}
+	// Titel des übergeordneten Beitrags (bzw. des aktuellen, wenn es keinen gibt)
+	function get_sg_parent_title() {
+		$post = get_post();
+		return get_the_title($post && $post->post_parent ? $post->post_parent : $post);
+	}
+
 	function get_logo($shopname) {
-		$parent_title = get_the_title($post->post_parent);
+		$parent_title = get_sg_parent_title();
 		$search = array(" ", ".", "&#038;", "`", "'", "ö", "ü", "ä");
 		$replacelogo = array("-", "-", "-und-" , "-", "-", "oe", "ue", "ae");
 		$shopname = urldecode(strtolower(str_replace($search, $replacelogo, $parent_title)));
@@ -404,7 +413,7 @@
 	}
 
 	function get_logo_lazy_offer($shopname, $offerTitle) {
-		$parent_title = get_the_title($post->post_parent);
+		$parent_title = get_sg_parent_title();
 		$search = array(" ", ".", "&#038;", "`", "'", "ö", "ü", "ä");
 		$replacelogo = array("-", "-", "-und-" , "-", "-", "oe", "ue", "ae");
 		$shopname = urldecode(strtolower(str_replace($search, $replacelogo, $parent_title)));
@@ -413,7 +422,7 @@
 		//echo '<noscript><img src="https://sparfuchs-gutschein.de/wp-content/themes/sg/images/shop_logos/' . $shopname . '-logo.png" alt="' . strip_tags($offerTitle) . '" /></noscript>';
 	}
 	function get_logo_lazy($shopname) {
-		$parent_title = get_the_title($post->post_parent);
+		$parent_title = get_sg_parent_title();
 		$search = array(" ", ".", "&#038;", "`", "'", "ö", "ü", "ä");
 		$replacelogo = array("-", "-", "-und-" , "-", "-", "oe", "ue", "ae");
 		$shopname = urldecode(strtolower(str_replace($search, $replacelogo, $parent_title)));
@@ -520,16 +529,14 @@
 
 	function get_vouchers_update($postid) {
 		global $wpdb;
-		$sql = "SELECT * FROM awin_vouchers c
-							JOIN wp_posts p
-							WHERE p.ID = c.shopid
-                            AND type = 'coupon'
-							AND public = '1'
-									 ORDER BY c.Starts DESC LIMIT 1";
-		$updates = $wpdb->get_results($sql);
-		foreach ($updates as $update) {
-			echo  '<time class="updated entry-date" datetime="' . htmlentities( strftime('%Y-%m-%d', strtotime( date('d.F.Y', strtotime($update->valid_from))))) . '">' . htmlentities( strftime(' %d. %B %Y', strtotime( date('d.F.Y', strtotime($update->valid_from))))) . '</time>';
-		}
+		// Neuestes Angebot des Shops, sonst die letzte Änderung des Beitrags
+		$latest = $wpdb->get_var($wpdb->prepare(
+			"SELECT MAX(Starts) FROM awin_vouchers WHERE post_id = %d OR Advertiser = %s",
+			$postid, get_the_title($postid)
+		));
+		$time = $latest ? strtotime($latest) : get_post_modified_time('U', false, $postid);
+		if (!$time) return;
+		echo '<time class="updated entry-date" datetime="' . esc_attr(date('Y-m-d', $time)) . '">' . esc_html(date_i18n(' j. F Y', $time)) . '</time>';
 	}
 
 

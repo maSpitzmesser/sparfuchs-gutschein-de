@@ -30,17 +30,7 @@ get_header(); ?>
 	  <?php  while ( have_posts() ) : the_post(); ?>
 	  <li style="float:left;border:1px solid #ccc;border-radius: 5px 5px 5px 5px;margin:0 10px 10px 0;">
 	  <a style="padding:5px;display:block" href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
-     <?php 
-global $wpdb; 
-$domain = get_post_meta(get_the_ID(), 'gf_shopdomain',  true);
-                    $sql = "SELECT shopname
-                            FROM wp_gutschein_feed_shops
-                            WHERE shopdomain = '$domain'
-                           ";
-                    $shopname = $wpdb->get_row($sql);
-                    $shopname = $shopname->shopname;
-get_logo($shoplogo_large, $shopname);
-										?>"
+     <?php get_logo(get_the_title()); ?>
           </a>
 	  </li>
 	  <?php endwhile; ?>      

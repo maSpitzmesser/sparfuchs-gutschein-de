@@ -1,8 +1,9 @@
+<?php $offerShopId = !empty($offer->post_id) ? $offer->post_id : (isset($id) ? $id : get_the_ID()); ?>
 <li data-offer-id="<?php echo $offer->PromotionID; ?>" data-publisher="aw" itemscope="" itemtype="http://schema.org/SaleEvent">
   <span class="hidden" itemprop="location" itemscope itemtype="http://schema.org/Place">
-    <meta itemprop="name" content="<?php echo get_the_title( $id ); ?> " />
-    <meta itemprop="url" content="www.<?php echo urlencode(get_the_title( $id )); ?>.de" />
-    <meta itemprop="address" content="<?php echo get_the_title( $id ); ?> " />
+    <meta itemprop="name" content="<?php echo get_the_title( $offerShopId ); ?> " />
+    <meta itemprop="url" content="www.<?php echo urlencode(get_the_title( $offerShopId )); ?>.de" />
+    <meta itemprop="address" content="<?php echo get_the_title( $offerShopId ); ?> " />
   </span>
   <?php
     if ($offer->Type == 'voucher'): echo '<meta itemprop="offers" content="Gutscheincode" />';
@@ -30,6 +31,6 @@
         else : echo 'Aktion &amp; Shop anzeigen';
         endif;
       ?> ▸<span class="folded-corner"></span></button>
-    <?php if (is_single()) { ?><meta itemprop="url" content="<?php echo get_permalink( $offer->shopid ) ?>#aw!<?php echo $offer->PromotionID; ?>" /><?php } ?>
+    <?php if (is_single()) { ?><meta itemprop="url" content="<?php echo get_permalink( $offerShopId ) ?>#aw!<?php echo $offer->PromotionID; ?>" /><?php } ?>
   </div>
 </li>

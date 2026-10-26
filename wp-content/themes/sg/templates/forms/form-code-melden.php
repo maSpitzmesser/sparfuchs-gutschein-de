@@ -1,15 +1,17 @@
 <?php
 session_start();
 $timestamp = getdate();
-$datum = $timestamp[mday].".".$timestamp[mon].".".$timestamp[year]." um ".$timestamp[hours].":".$timestamp[minutes]." Uhr";
+$datum = $timestamp['mday'].".".$timestamp['mon'].".".$timestamp['year']." um ".$timestamp['hours'].":".$timestamp['minutes']." Uhr";
 $an =  "info@sparfuchs-gutschein.de"; // Hier die Empfängeremail eintragen
-$name = $_POST['name'];
-$email = $_POST['email'];
-$betreff = $_POST['betreff'];
-$nachricht = $_POST['nachricht'];
+$name = $_POST['name'] ?? '';
+$email = str_replace(array("\r", "\n"), '', $_POST['email'] ?? ''); // keine zusätzlichen Mail-Header einschleusen
+$betreff = str_replace(array("\r", "\n"), ' ', $_POST['betreff'] ?? '');
+$nachricht = $_POST['nachricht'] ?? '';
+$ok = '';
+$fehler = '';
 if (isset($_POST["submit"]))
 {
-  if($_POST['s3capcha'] == $_SESSION['s3capcha'] && $_POST['s3capcha'] != '') {
+  if(($_POST['s3capcha'] ?? '') != '' && $_POST['s3capcha'] == ($_SESSION['s3capcha'] ?? null)) {
           unset($_SESSION['s3capcha']);
                 $mail_header = 'From:' . $email . "\n";
                 $mail_header .= 'Content-type: text/plain; charset=UTF-8' . "\r\n";

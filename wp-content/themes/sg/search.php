@@ -43,7 +43,7 @@ foreach( $myposts as $post ) :	setup_postdata($post);
 
 
           <a href="<?php the_permalink() ?>" title="<?php the_title(); ?>">
-            <?php get_logo($shopname); ?>
+            <?php get_logo(get_the_title()); ?>
           </a>
         </li>
       <?php endwhile; ?>

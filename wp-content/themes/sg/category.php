@@ -65,7 +65,7 @@
             <h3 class="headline-a2" id="top-shops">Top Shops der Kategorie <?php echo $yourcat->cat_name; ?></h3>
           <?php $args = array( 'category' => $yourcat->cat_ID, 'post_type' => 'post', 'post_status' => 'publish', 'posts_per_page' => 6, 'offset'=> 1, 'orderby' => 'post_date', 'order' => 'ASC' );
             $myposts = get_posts( $args ); foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
-              <a href="<?php the_permalink(); ?>"><?php get_logo($shopname); ?></a>
+              <a href="<?php the_permalink(); ?>"><?php get_logo(get_the_title()); ?></a>
           <?php endforeach; ?>
         </div>
       
@@ -164,7 +164,7 @@
   
                   foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
                       <a href="<?php the_permalink(); ?>">
-                    <?php get_logo_lazy($shopname); ?>
+                    <?php get_logo_lazy(get_the_title()); ?>
                     </a>
                   <?php endforeach; ?>
             </span>
