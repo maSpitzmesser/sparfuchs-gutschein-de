@@ -47,21 +47,23 @@
 		});
 		foreach ($cssFiles as $cssFile){
 			$cssFileName = basename($cssFile); ?>
-			<link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri() . '/styles/css/' . $cssFileName); ?>" media="print, screen" /><?php  PHP_EOL;
+			<link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri() . '/styles/css/' . $cssFileName . '?ver=' . filemtime($cssFile)); ?>" media="print, screen" /><?php  PHP_EOL;
 		}
 
 	} else  { ?>
-		<link rel="preload" href="<?php echo bloginfo('template_directory') ?>/styles/css/sg_min_all_2.css" as="style"/>
-		<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/sg_min_all_2.css" media="print, screen" />
+		<link rel="preload" href="<?php echo bloginfo('template_directory') ?>/styles/css/sg_min_all_2.css?ver=<?php echo filemtime(get_template_directory() . '/styles/css/sg_min_all_2.css'); ?>" as="style"/>
+		<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/sg_min_all_2.css?ver=<?php echo filemtime(get_template_directory() . '/styles/css/sg_min_all_2.css'); ?>" media="print, screen" />
 	<?php }  ?>
   
     <?php
       $sg_design = $_COOKIE['selected_theme'] ?? 'flat';
       if (!in_array($sg_design, array('flat', 'standard', 'pinky', 'grey', 'fuchsbau'), true)) $sg_design = 'flat';
-      $sg_design_css = get_template_directory_uri() . '/styles/' . $sg_design . '/theme.css';
+      // Gemeinsame Versionsnummer aller Designs, damit auch der Wechsler im Browser frische Dateien lädt
+      $sg_design_ver = max(array_map('filemtime', glob(get_template_directory() . '/styles/*/theme.css')));
+      $sg_design_css = get_template_directory_uri() . '/styles/' . $sg_design . '/theme.css?ver=' . $sg_design_ver;
     ?>
     <link rel="preload" href="<?php echo esc_url($sg_design_css); ?>" as="style" />
-    <link rel="stylesheet" id="active-theme" data-active-design="<?php echo esc_attr($sg_design); ?>" href="<?php echo esc_url($sg_design_css); ?>" media="screen" />
+    <link rel="stylesheet" id="active-theme" data-active-design="<?php echo esc_attr($sg_design); ?>" data-version="<?php echo esc_attr($sg_design_ver); ?>" href="<?php echo esc_url($sg_design_css); ?>" media="screen" />
   
 
   

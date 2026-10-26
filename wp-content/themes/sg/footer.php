@@ -82,12 +82,12 @@
 
     foreach ($jsFiles as $jsFile){ 
         $jsFileName = basename($jsFile); ?>
-        <script src="<?php echo esc_url(get_template_directory_uri() . '/scripts/' . $jsFileName); ?>"></script><?php PHP_EOL;
+        <script src="<?php echo esc_url(get_template_directory_uri() . '/scripts/' . $jsFileName . '?ver=' . filemtime($jsFile)); ?>"></script><?php PHP_EOL;
     } ?>
     <script src="<?php echo esc_url(get_template_directory_uri() . '/admin/js/web-assistent.js'); ?>"></script><?php PHP_EOL;
 
 } else  { ?>
-    <script src="<?php echo esc_url(get_template_directory_uri() . '/scripts/sg_min.js'); ?>"></script>
+    <script src="<?php echo esc_url(get_template_directory_uri() . '/scripts/sg_min.js?ver=' . filemtime(get_template_directory() . '/scripts/sg_min.js')); ?>"></script>
 <?php }  ?>
 
 <?php

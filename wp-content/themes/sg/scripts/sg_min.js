@@ -33,7 +33,8 @@ var get_social = jQuery.cookie(cookie_bezeichnung);
 
   function applyDesign(design) {
     if ($.inArray(design, designs) === -1) return;
-    $theme.attr('href', themePath + design + '/theme.css');
+    var version = $theme.attr('data-version');
+    $theme.attr('href', themePath + design + '/theme.css' + (version ? '?ver=' + version : ''));
     markActive(design);
   }
 
