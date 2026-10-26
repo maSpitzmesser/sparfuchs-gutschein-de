@@ -1,843 +1,549 @@
-this["wp"] = this["wp"] || {}; this["wp"]["reusableBlocks"] =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "iqm2");
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ "1ZqX":
-/***/ (function(module, exports) {
-
-(function() { module.exports = window["wp"]["data"]; }());
-
-/***/ }),
-
-/***/ "GRId":
-/***/ (function(module, exports) {
-
-(function() { module.exports = window["wp"]["element"]; }());
-
-/***/ }),
-
-/***/ "HSyU":
-/***/ (function(module, exports) {
-
-(function() { module.exports = window["wp"]["blocks"]; }());
-
-/***/ }),
-
-/***/ "HaE+":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _asyncToGenerator; });
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
-  }
-
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
-}
-
-function _asyncToGenerator(fn) {
-  return function () {
-    var self = this,
-        args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-      }
-
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-
-      _next(undefined);
-    });
+(function() {
+var wp;
+(wp ||= {}).reusableBlocks = (() => {
+  var __create = Object.create;
+  var __defProp = Object.defineProperty;
+  var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+  var __getOwnPropNames = Object.getOwnPropertyNames;
+  var __getProtoOf = Object.getPrototypeOf;
+  var __hasOwnProp = Object.prototype.hasOwnProperty;
+  var __commonJS = (cb, mod) => function __require() {
+    return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
   };
-}
-
-/***/ }),
-
-/***/ "Mmq9":
-/***/ (function(module, exports) {
-
-(function() { module.exports = window["wp"]["url"]; }());
-
-/***/ }),
-
-/***/ "Tqx9":
-/***/ (function(module, exports) {
-
-(function() { module.exports = window["wp"]["primitives"]; }());
-
-/***/ }),
-
-/***/ "YLtl":
-/***/ (function(module, exports) {
-
-(function() { module.exports = window["lodash"]; }());
-
-/***/ }),
-
-/***/ "axFQ":
-/***/ (function(module, exports) {
-
-(function() { module.exports = window["wp"]["blockEditor"]; }());
-
-/***/ }),
-
-/***/ "dvlR":
-/***/ (function(module, exports) {
-
-(function() { module.exports = window["regeneratorRuntime"]; }());
-
-/***/ }),
-
-/***/ "iqm2":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, "store", function() { return /* reexport */ store; });
-__webpack_require__.d(__webpack_exports__, "ReusableBlocksMenuItems", function() { return /* reexport */ reusable_blocks_menu_items; });
-
-// NAMESPACE OBJECT: ./node_modules/@wordpress/reusable-blocks/build-module/store/actions.js
-var actions_namespaceObject = {};
-__webpack_require__.r(actions_namespaceObject);
-__webpack_require__.d(actions_namespaceObject, "__experimentalConvertBlockToStatic", function() { return __experimentalConvertBlockToStatic; });
-__webpack_require__.d(actions_namespaceObject, "__experimentalConvertBlocksToReusable", function() { return __experimentalConvertBlocksToReusable; });
-__webpack_require__.d(actions_namespaceObject, "__experimentalDeleteReusableBlock", function() { return __experimentalDeleteReusableBlock; });
-__webpack_require__.d(actions_namespaceObject, "__experimentalSetEditingReusableBlock", function() { return __experimentalSetEditingReusableBlock; });
-
-// NAMESPACE OBJECT: ./node_modules/@wordpress/reusable-blocks/build-module/store/selectors.js
-var selectors_namespaceObject = {};
-__webpack_require__.r(selectors_namespaceObject);
-__webpack_require__.d(selectors_namespaceObject, "__experimentalIsEditingReusableBlock", function() { return __experimentalIsEditingReusableBlock; });
-
-// EXTERNAL MODULE: external ["wp","blockEditor"]
-var external_wp_blockEditor_ = __webpack_require__("axFQ");
-
-// EXTERNAL MODULE: external ["wp","coreData"]
-var external_wp_coreData_ = __webpack_require__("jZUy");
-
-// EXTERNAL MODULE: external ["wp","data"]
-var external_wp_data_ = __webpack_require__("1ZqX");
-
-// EXTERNAL MODULE: external "regeneratorRuntime"
-var external_regeneratorRuntime_ = __webpack_require__("dvlR");
-var external_regeneratorRuntime_default = /*#__PURE__*/__webpack_require__.n(external_regeneratorRuntime_);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js
-var asyncToGenerator = __webpack_require__("HaE+");
-
-// EXTERNAL MODULE: external "lodash"
-var external_lodash_ = __webpack_require__("YLtl");
-
-// EXTERNAL MODULE: external ["wp","blocks"]
-var external_wp_blocks_ = __webpack_require__("HSyU");
-
-// EXTERNAL MODULE: external ["wp","i18n"]
-var external_wp_i18n_ = __webpack_require__("l3Sj");
-
-// CONCATENATED MODULE: ./node_modules/@wordpress/reusable-blocks/build-module/store/controls.js
-
-
-
-/**
- * External dependencies
- */
-
-/**
- * WordPress dependencies
- */
-
-
-
-
-/**
- * Internal dependencies
- */
-
-
-/**
- * Convert a reusable block to a static block effect handler
- *
- * @param {string}  clientId Block ID.
- * @return {Object} control descriptor.
- */
-
-function convertBlockToStatic(clientId) {
-  return {
-    type: 'CONVERT_BLOCK_TO_STATIC',
-    clientId: clientId
+  var __export = (target, all) => {
+    for (var name in all)
+      __defProp(target, name, { get: all[name], enumerable: true });
   };
-}
-/**
- * Convert a static block to a reusable block effect handler
- *
- * @param {Array}  clientIds Block IDs.
- * @return {Object} control descriptor.
- */
-
-function controls_convertBlocksToReusable(clientIds) {
-  return {
-    type: 'CONVERT_BLOCKS_TO_REUSABLE',
-    clientIds: clientIds
-  };
-}
-/**
- * Deletes a reusable block.
- *
- * @param {string} id Reusable block ID.
- * @return {Object} control descriptor.
- */
-
-function deleteReusableBlock(id) {
-  return {
-    type: 'DELETE_REUSABLE_BLOCK',
-    id: id
-  };
-}
-var controls = {
-  CONVERT_BLOCK_TO_STATIC: Object(external_wp_data_["createRegistryControl"])(function (registry) {
-    return function (_ref) {
-      var clientId = _ref.clientId;
-      var oldBlock = registry.select('core/block-editor').getBlock(clientId);
-      var reusableBlock = registry.select('core').getEditedEntityRecord('postType', 'wp_block', oldBlock.attributes.ref);
-      var newBlocks = Object(external_wp_blocks_["parse"])(Object(external_lodash_["isFunction"])(reusableBlock.content) ? reusableBlock.content(reusableBlock) : reusableBlock.content);
-      registry.dispatch('core/block-editor').replaceBlocks(oldBlock.clientId, newBlocks);
-    };
-  }),
-  CONVERT_BLOCKS_TO_REUSABLE: Object(external_wp_data_["createRegistryControl"])(function (registry) {
-    return /*#__PURE__*/function () {
-      var _ref3 = Object(asyncToGenerator["a" /* default */])( /*#__PURE__*/external_regeneratorRuntime_default.a.mark(function _callee(_ref2) {
-        var clientIds, reusableBlock, updatedRecord, newBlock;
-        return external_regeneratorRuntime_default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                clientIds = _ref2.clientIds;
-                reusableBlock = {
-                  title: Object(external_wp_i18n_["__"])('Untitled Reusable Block'),
-                  content: Object(external_wp_blocks_["serialize"])(registry.select('core/block-editor').getBlocksByClientId(clientIds)),
-                  status: 'publish'
-                };
-                _context.next = 4;
-                return registry.dispatch('core').saveEntityRecord('postType', 'wp_block', reusableBlock);
-
-              case 4:
-                updatedRecord = _context.sent;
-                newBlock = Object(external_wp_blocks_["createBlock"])('core/block', {
-                  ref: updatedRecord.id
-                });
-                registry.dispatch('core/block-editor').replaceBlocks(clientIds, newBlock);
-
-                registry.dispatch(store).__experimentalSetEditingReusableBlock(newBlock.clientId, true);
-
-              case 8:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }));
-
-      return function (_x) {
-        return _ref3.apply(this, arguments);
-      };
-    }();
-  }),
-  DELETE_REUSABLE_BLOCK: Object(external_wp_data_["createRegistryControl"])(function (registry) {
-    return /*#__PURE__*/function () {
-      var _ref5 = Object(asyncToGenerator["a" /* default */])( /*#__PURE__*/external_regeneratorRuntime_default.a.mark(function _callee2(_ref4) {
-        var id, reusableBlock, allBlocks, associatedBlocks, associatedBlockClientIds;
-        return external_regeneratorRuntime_default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                id = _ref4.id;
-                reusableBlock = registry.select('core').getEditedEntityRecord('postType', 'wp_block', id); // Don't allow a reusable block with a temporary ID to be deleted
-
-                if (reusableBlock) {
-                  _context2.next = 4;
-                  break;
-                }
-
-                return _context2.abrupt("return");
-
-              case 4:
-                // Remove any other blocks that reference this reusable block
-                allBlocks = registry.select('core/block-editor').getBlocks();
-                associatedBlocks = allBlocks.filter(function (block) {
-                  return Object(external_wp_blocks_["isReusableBlock"])(block) && block.attributes.ref === id;
-                });
-                associatedBlockClientIds = associatedBlocks.map(function (block) {
-                  return block.clientId;
-                }); // Remove the parsed block.
-
-                if (associatedBlockClientIds.length) {
-                  registry.dispatch('core/block-editor').removeBlocks(associatedBlockClientIds);
-                }
-
-                _context2.next = 10;
-                return registry.dispatch('core').deleteEntityRecord('postType', 'wp_block', id);
-
-              case 10:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }));
-
-      return function (_x2) {
-        return _ref5.apply(this, arguments);
-      };
-    }();
-  })
-};
-/* harmony default export */ var store_controls = (controls);
-
-// CONCATENATED MODULE: ./node_modules/@wordpress/reusable-blocks/build-module/store/actions.js
-
-
-var _marked = /*#__PURE__*/external_regeneratorRuntime_default.a.mark(__experimentalConvertBlockToStatic),
-    _marked2 = /*#__PURE__*/external_regeneratorRuntime_default.a.mark(__experimentalConvertBlocksToReusable),
-    _marked3 = /*#__PURE__*/external_regeneratorRuntime_default.a.mark(__experimentalDeleteReusableBlock);
-
-/**
- * Internal dependencies
- */
-
-/**
- * Returns a generator converting a reusable block into a static block.
- *
- * @param {string} clientId The client ID of the block to attach.
- */
-
-function __experimentalConvertBlockToStatic(clientId) {
-  return external_regeneratorRuntime_default.a.wrap(function __experimentalConvertBlockToStatic$(_context) {
-    while (1) {
-      switch (_context.prev = _context.next) {
-        case 0:
-          _context.next = 2;
-          return convertBlockToStatic(clientId);
-
-        case 2:
-        case "end":
-          return _context.stop();
-      }
+  var __copyProps = (to, from, except, desc) => {
+    if (from && typeof from === "object" || typeof from === "function") {
+      for (let key of __getOwnPropNames(from))
+        if (!__hasOwnProp.call(to, key) && key !== except)
+          __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
     }
-  }, _marked);
-}
-/**
- * Returns a generator converting one or more static blocks into a reusable block.
- *
- * @param {string[]} clientIds The client IDs of the block to detach.
- */
-
-function __experimentalConvertBlocksToReusable(clientIds) {
-  return external_regeneratorRuntime_default.a.wrap(function __experimentalConvertBlocksToReusable$(_context2) {
-    while (1) {
-      switch (_context2.prev = _context2.next) {
-        case 0:
-          _context2.next = 2;
-          return controls_convertBlocksToReusable(clientIds);
-
-        case 2:
-        case "end":
-          return _context2.stop();
-      }
-    }
-  }, _marked2);
-}
-/**
- * Returns a generator deleting a reusable block.
- *
- * @param {string} id The ID of the reusable block to delete.
- */
-
-function __experimentalDeleteReusableBlock(id) {
-  return external_regeneratorRuntime_default.a.wrap(function __experimentalDeleteReusableBlock$(_context3) {
-    while (1) {
-      switch (_context3.prev = _context3.next) {
-        case 0:
-          _context3.next = 2;
-          return deleteReusableBlock(id);
-
-        case 2:
-        case "end":
-          return _context3.stop();
-      }
-    }
-  }, _marked3);
-}
-/**
- * Returns an action descriptor for SET_EDITING_REUSABLE_BLOCK action.
- *
- * @param {string} clientId The clientID of the reusable block to target.
- * @param {boolean} isEditing Whether the block should be in editing state.
- * @return {Object} Action descriptor.
- */
-
-function __experimentalSetEditingReusableBlock(clientId, isEditing) {
-  return {
-    type: 'SET_EDITING_REUSABLE_BLOCK',
-    clientId: clientId,
-    isEditing: isEditing
+    return to;
   };
-}
+  var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+    // If the importer is in node compatibility mode or this is not an ESM
+    // file that has been converted to a CommonJS file using a Babel-
+    // compatible transform (i.e. "__esModule" has not been set), then set
+    // "default" to the CommonJS "module.exports" for node compatibility.
+    isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+    mod
+  ));
+  var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/defineProperty.js
-var defineProperty = __webpack_require__("rePB");
-
-// CONCATENATED MODULE: ./node_modules/@wordpress/reusable-blocks/build-module/store/reducer.js
-
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(defineProperty["a" /* default */])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-/**
- * WordPress dependencies
- */
-
-function isEditingReusableBlock() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  var action = arguments.length > 1 ? arguments[1] : undefined;
-
-  if ((action === null || action === void 0 ? void 0 : action.type) === 'SET_EDITING_REUSABLE_BLOCK') {
-    return _objectSpread(_objectSpread({}, state), {}, Object(defineProperty["a" /* default */])({}, action.clientId, action.isEditing));
-  }
-
-  return state;
-}
-/* harmony default export */ var reducer = (Object(external_wp_data_["combineReducers"])({
-  isEditingReusableBlock: isEditingReusableBlock
-}));
-
-// CONCATENATED MODULE: ./node_modules/@wordpress/reusable-blocks/build-module/store/selectors.js
-/**
- * Returns true if reusable block is in the editing state.
- *
- * @param {Object} state Global application state.
- * @param {number} clientId the clientID of the block.
- * @return {boolean} Whether the reusable block is in the editing state.
- */
-function __experimentalIsEditingReusableBlock(state, clientId) {
-  return state.isEditingReusableBlock[clientId];
-}
-
-// CONCATENATED MODULE: ./node_modules/@wordpress/reusable-blocks/build-module/store/index.js
-/**
- * WordPress dependencies
- */
-
-/**
- * Internal dependencies
- */
-
-
-
-
-
-var STORE_NAME = 'core/reusable-blocks';
-/**
- * Store definition for the reusable blocks namespace.
- *
- * @see https://github.com/WordPress/gutenberg/blob/HEAD/packages/data/README.md#createReduxStore
- *
- * @type {Object}
- */
-
-var store = Object(external_wp_data_["createReduxStore"])(STORE_NAME, {
-  actions: actions_namespaceObject,
-  controls: store_controls,
-  reducer: reducer,
-  selectors: selectors_namespaceObject
-});
-Object(external_wp_data_["register"])(store);
-
-// EXTERNAL MODULE: external ["wp","element"]
-var external_wp_element_ = __webpack_require__("GRId");
-
-// EXTERNAL MODULE: external ["wp","components"]
-var external_wp_components_ = __webpack_require__("tI+e");
-
-// EXTERNAL MODULE: external ["wp","primitives"]
-var external_wp_primitives_ = __webpack_require__("Tqx9");
-
-// CONCATENATED MODULE: ./node_modules/@wordpress/icons/build-module/library/reusable-block.js
-
-
-/**
- * WordPress dependencies
- */
-
-var reusable_block_reusableBlock = Object(external_wp_element_["createElement"])(external_wp_primitives_["SVG"], {
-  xmlns: "http://www.w3.org/2000/svg",
-  viewBox: "0 0 24 24"
-}, Object(external_wp_element_["createElement"])(external_wp_primitives_["Path"], {
-  d: "M7 7.2h8.2L13.5 9l1.1 1.1 3.6-3.6-3.5-4-1.1 1 1.9 2.3H7c-.9 0-1.7.3-2.3.9-1.4 1.5-1.4 4.2-1.4 5.6v.2h1.5v-.3c0-1.1 0-3.5 1-4.5.3-.3.7-.5 1.2-.5zm13.8 4V11h-1.5v.3c0 1.1 0 3.5-1 4.5-.3.3-.7.5-1.3.5H8.8l1.7-1.7-1.1-1.1L5.9 17l3.5 4 1.1-1-1.9-2.3H17c.9 0 1.7-.3 2.3-.9 1.5-1.4 1.5-4.2 1.5-5.6z"
-}));
-/* harmony default export */ var reusable_block = (reusable_block_reusableBlock);
-
-// EXTERNAL MODULE: external ["wp","notices"]
-var external_wp_notices_ = __webpack_require__("onLe");
-
-// CONCATENATED MODULE: ./node_modules/@wordpress/reusable-blocks/build-module/components/reusable-blocks-menu-items/reusable-block-convert-button.js
-
-
-
-
-/**
- * WordPress dependencies
- */
-
-
-
-
-
-
-
-
-/**
- * Internal dependencies
- */
-
-
-/**
- * Menu control to convert block(s) to reusable block.
- *
- * @param {Object}   props              Component props.
- * @param {string[]} props.clientIds    Client ids of selected blocks.
- * @param {string}   props.rootClientId ID of the currently selected top-level block.
- * @return {import('@wordpress/element').WPComponent} The menu control or null.
- */
-
-function ReusableBlockConvertButton(_ref) {
-  var clientIds = _ref.clientIds,
-      rootClientId = _ref.rootClientId;
-  var canConvert = Object(external_wp_data_["useSelect"])(function (select) {
-    var _getBlocksByClientId;
-
-    var _select = select('core'),
-        canUser = _select.canUser;
-
-    var _select2 = select('core/block-editor'),
-        getBlocksByClientId = _select2.getBlocksByClientId,
-        canInsertBlockType = _select2.canInsertBlockType;
-
-    var blocks = (_getBlocksByClientId = getBlocksByClientId(clientIds)) !== null && _getBlocksByClientId !== void 0 ? _getBlocksByClientId : [];
-    var isReusable = blocks.length === 1 && blocks[0] && Object(external_wp_blocks_["isReusableBlock"])(blocks[0]) && !!select('core').getEntityRecord('postType', 'wp_block', blocks[0].attributes.ref);
-
-    var _canConvert = // Hide when this is already a reusable block.
-    !isReusable && // Hide when reusable blocks are disabled.
-    canInsertBlockType('core/block', rootClientId) && blocks.every(function (block) {
-      return (// Guard against the case where a regular block has *just* been converted.
-        !!block && // Hide on invalid blocks.
-        block.isValid && // Hide when block doesn't support being made reusable.
-        Object(external_wp_blocks_["hasBlockSupport"])(block.name, 'reusable', true)
-      );
-    }) && // Hide when current doesn't have permission to do that.
-    !!canUser('create', 'blocks');
-
-    return _canConvert;
-  }, [clientIds]);
-
-  var _useDispatch = Object(external_wp_data_["useDispatch"])(store),
-      convertBlocksToReusable = _useDispatch.__experimentalConvertBlocksToReusable;
-
-  var _useDispatch2 = Object(external_wp_data_["useDispatch"])(external_wp_notices_["store"]),
-      createSuccessNotice = _useDispatch2.createSuccessNotice,
-      createErrorNotice = _useDispatch2.createErrorNotice;
-
-  var onConvert = Object(external_wp_element_["useCallback"])( /*#__PURE__*/Object(asyncToGenerator["a" /* default */])( /*#__PURE__*/external_regeneratorRuntime_default.a.mark(function _callee() {
-    return external_regeneratorRuntime_default.a.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.prev = 0;
-            _context.next = 3;
-            return convertBlocksToReusable(clientIds);
-
-          case 3:
-            createSuccessNotice(Object(external_wp_i18n_["__"])('Block created.'), {
-              type: 'snackbar'
-            });
-            _context.next = 9;
-            break;
-
-          case 6:
-            _context.prev = 6;
-            _context.t0 = _context["catch"](0);
-            createErrorNotice(_context.t0.message, {
-              type: 'snackbar'
-            });
-
-          case 9:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee, null, [[0, 6]]);
-  })), [clientIds]);
-
-  if (!canConvert) {
-    return null;
-  }
-
-  return Object(external_wp_element_["createElement"])(external_wp_blockEditor_["BlockSettingsMenuControls"], null, function (_ref3) {
-    var onClose = _ref3.onClose;
-    return Object(external_wp_element_["createElement"])(external_wp_components_["MenuItem"], {
-      icon: reusable_block,
-      onClick: function onClick() {
-        onConvert();
-        onClose();
-      }
-    }, Object(external_wp_i18n_["__"])('Add to Reusable blocks'));
+  // package-external:@wordpress/data
+  var require_data = __commonJS({
+    "package-external:@wordpress/data"(exports, module) {
+      module.exports = window.wp.data;
+    }
   });
-}
 
-// EXTERNAL MODULE: external ["wp","url"]
-var external_wp_url_ = __webpack_require__("Mmq9");
+  // package-external:@wordpress/block-editor
+  var require_block_editor = __commonJS({
+    "package-external:@wordpress/block-editor"(exports, module) {
+      module.exports = window.wp.blockEditor;
+    }
+  });
 
-// CONCATENATED MODULE: ./node_modules/@wordpress/reusable-blocks/build-module/components/reusable-blocks-menu-items/reusable-blocks-manage-button.js
+  // package-external:@wordpress/blocks
+  var require_blocks = __commonJS({
+    "package-external:@wordpress/blocks"(exports, module) {
+      module.exports = window.wp.blocks;
+    }
+  });
 
+  // package-external:@wordpress/i18n
+  var require_i18n = __commonJS({
+    "package-external:@wordpress/i18n"(exports, module) {
+      module.exports = window.wp.i18n;
+    }
+  });
 
-/**
- * WordPress dependencies
- */
+  // package-external:@wordpress/deprecated
+  var require_deprecated = __commonJS({
+    "package-external:@wordpress/deprecated"(exports, module) {
+      module.exports = window.wp.deprecated;
+    }
+  });
 
+  // package-external:@wordpress/element
+  var require_element = __commonJS({
+    "package-external:@wordpress/element"(exports, module) {
+      module.exports = window.wp.element;
+    }
+  });
 
+  // package-external:@wordpress/components
+  var require_components = __commonJS({
+    "package-external:@wordpress/components"(exports, module) {
+      module.exports = window.wp.components;
+    }
+  });
 
+  // package-external:@wordpress/primitives
+  var require_primitives = __commonJS({
+    "package-external:@wordpress/primitives"(exports, module) {
+      module.exports = window.wp.primitives;
+    }
+  });
 
+  // vendor-external:react/jsx-runtime
+  var require_jsx_runtime = __commonJS({
+    "vendor-external:react/jsx-runtime"(exports, module) {
+      module.exports = window.ReactJSXRuntime;
+    }
+  });
 
+  // package-external:@wordpress/notices
+  var require_notices = __commonJS({
+    "package-external:@wordpress/notices"(exports, module) {
+      module.exports = window.wp.notices;
+    }
+  });
 
+  // package-external:@wordpress/core-data
+  var require_core_data = __commonJS({
+    "package-external:@wordpress/core-data"(exports, module) {
+      module.exports = window.wp.coreData;
+    }
+  });
 
-function ReusableBlocksManageButton(_ref) {
-  var clientId = _ref.clientId;
+  // package-external:@wordpress/url
+  var require_url = __commonJS({
+    "package-external:@wordpress/url"(exports, module) {
+      module.exports = window.wp.url;
+    }
+  });
 
-  var _useSelect = Object(external_wp_data_["useSelect"])(function (select) {
-    var _select = select('core/block-editor'),
-        getBlock = _select.getBlock;
+  // packages/reusable-blocks/build-module/index.mjs
+  var index_exports = {};
+  __export(index_exports, {
+    ReusableBlocksMenuItems: () => ReusableBlocksMenuItems,
+    store: () => store
+  });
 
-    var _select2 = select('core'),
-        canUser = _select2.canUser;
+  // packages/reusable-blocks/build-module/store/index.mjs
+  var import_data2 = __toESM(require_data(), 1);
 
-    var reusableBlock = getBlock(clientId);
-    return {
-      isVisible: !!reusableBlock && Object(external_wp_blocks_["isReusableBlock"])(reusableBlock) && !!canUser('update', 'blocks', reusableBlock.attributes.ref)
-    };
-  }, [clientId]),
-      isVisible = _useSelect.isVisible;
-
-  if (!isVisible) {
-    return null;
-  }
-
-  return Object(external_wp_element_["createElement"])(external_wp_blockEditor_["BlockSettingsMenuControls"], null, Object(external_wp_element_["createElement"])(external_wp_components_["MenuItem"], {
-    href: Object(external_wp_url_["addQueryArgs"])('edit.php', {
-      post_type: 'wp_block'
-    })
-  }, Object(external_wp_i18n_["__"])('Manage Reusable blocks')));
-}
-
-/* harmony default export */ var reusable_blocks_manage_button = (ReusableBlocksManageButton);
-
-// CONCATENATED MODULE: ./node_modules/@wordpress/reusable-blocks/build-module/components/reusable-blocks-menu-items/index.js
-
-
-/**
- * WordPress dependencies
- */
-
-/**
- * Internal dependencies
- */
-
-
-
-
-function ReusableBlocksMenuItems(_ref) {
-  var clientIds = _ref.clientIds,
-      rootClientId = _ref.rootClientId;
-  return Object(external_wp_element_["createElement"])(external_wp_element_["Fragment"], null, Object(external_wp_element_["createElement"])(ReusableBlockConvertButton, {
-    clientIds: clientIds,
-    rootClientId: rootClientId
-  }), clientIds.length === 1 && Object(external_wp_element_["createElement"])(reusable_blocks_manage_button, {
-    clientId: clientIds[0]
-  }));
-}
-
-/* harmony default export */ var reusable_blocks_menu_items = (Object(external_wp_data_["withSelect"])(function (select) {
-  var _select = select('core/block-editor'),
-      getSelectedBlockClientIds = _select.getSelectedBlockClientIds;
-
-  return {
-    clientIds: getSelectedBlockClientIds()
+  // packages/reusable-blocks/build-module/store/actions.mjs
+  var actions_exports = {};
+  __export(actions_exports, {
+    __experimentalConvertBlockToStatic: () => __experimentalConvertBlockToStatic,
+    __experimentalConvertBlocksToReusable: () => __experimentalConvertBlocksToReusable,
+    __experimentalDeleteReusableBlock: () => __experimentalDeleteReusableBlock,
+    __experimentalSetEditingReusableBlock: () => __experimentalSetEditingReusableBlock
+  });
+  var import_block_editor = __toESM(require_block_editor(), 1);
+  var import_blocks = __toESM(require_blocks(), 1);
+  var import_i18n = __toESM(require_i18n(), 1);
+  var import_deprecated = __toESM(require_deprecated(), 1);
+  var __experimentalConvertBlockToStatic = (clientId) => ({ registry }) => {
+    (0, import_deprecated.default)(
+      "wp.data.dispatch( 'core/reusable-blocks' ).__experimentalConvertBlockToStatic",
+      {
+        since: "7.1"
+      }
+    );
+    const oldBlock = registry.select(import_block_editor.store).getBlock(clientId);
+    const reusableBlock = registry.select("core").getEditedEntityRecord(
+      "postType",
+      "wp_block",
+      oldBlock.attributes.ref
+    );
+    const newBlocks = (0, import_blocks.parse)(
+      typeof reusableBlock.content === "function" ? reusableBlock.content(reusableBlock) : reusableBlock.content
+    );
+    registry.dispatch(import_block_editor.store).replaceBlocks(oldBlock.clientId, newBlocks);
   };
-})(ReusableBlocksMenuItems));
-
-// CONCATENATED MODULE: ./node_modules/@wordpress/reusable-blocks/build-module/components/index.js
-
-
-// CONCATENATED MODULE: ./node_modules/@wordpress/reusable-blocks/build-module/index.js
-/**
- * WordPress dependencies
- */
-
-
-
-
-
-
-/***/ }),
-
-/***/ "jZUy":
-/***/ (function(module, exports) {
-
-(function() { module.exports = window["wp"]["coreData"]; }());
-
-/***/ }),
-
-/***/ "l3Sj":
-/***/ (function(module, exports) {
-
-(function() { module.exports = window["wp"]["i18n"]; }());
-
-/***/ }),
-
-/***/ "onLe":
-/***/ (function(module, exports) {
-
-(function() { module.exports = window["wp"]["notices"]; }());
-
-/***/ }),
-
-/***/ "rePB":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _defineProperty; });
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
+  var __experimentalConvertBlocksToReusable = (clientIds, title, syncType) => async ({ registry, dispatch }) => {
+    (0, import_deprecated.default)(
+      "wp.data.dispatch( 'core/reusable-blocks' ).__experimentalConvertBlocksToReusable",
+      {
+        since: "7.1"
+      }
+    );
+    const meta = syncType === "unsynced" ? {
+      wp_pattern_sync_status: syncType
+    } : void 0;
+    const reusableBlock = {
+      title: title || (0, import_i18n.__)("Untitled pattern block"),
+      content: (0, import_blocks.serialize)(
+        registry.select(import_block_editor.store).getBlocksByClientId(clientIds)
+      ),
+      status: "publish",
+      meta
+    };
+    const updatedRecord = await registry.dispatch("core").saveEntityRecord("postType", "wp_block", reusableBlock);
+    if (syncType === "unsynced") {
+      return;
+    }
+    const newBlock = (0, import_blocks.createBlock)("core/block", {
+      ref: updatedRecord.id
     });
-  } else {
-    obj[key] = value;
+    registry.dispatch(import_block_editor.store).replaceBlocks(clientIds, newBlock);
+    dispatch.__experimentalSetEditingReusableBlock(
+      newBlock.clientId,
+      true
+    );
+  };
+  var __experimentalDeleteReusableBlock = (id) => async ({ registry }) => {
+    (0, import_deprecated.default)(
+      "wp.data.dispatch( 'core/reusable-blocks' ).__experimentalDeleteReusableBlock",
+      {
+        since: "7.1"
+      }
+    );
+    const reusableBlock = registry.select("core").getEditedEntityRecord("postType", "wp_block", id);
+    if (!reusableBlock) {
+      return;
+    }
+    const allBlocks = registry.select(import_block_editor.store).getBlocks();
+    const associatedBlocks = allBlocks.filter(
+      (block) => (0, import_blocks.isReusableBlock)(block) && block.attributes.ref === id
+    );
+    const associatedBlockClientIds = associatedBlocks.map(
+      (block) => block.clientId
+    );
+    if (associatedBlockClientIds.length) {
+      registry.dispatch(import_block_editor.store).removeBlocks(associatedBlockClientIds);
+    }
+    await registry.dispatch("core").deleteEntityRecord("postType", "wp_block", id);
+  };
+  function __experimentalSetEditingReusableBlock(clientId, isEditing) {
+    (0, import_deprecated.default)(
+      "wp.data.dispatch( 'core/reusable-blocks' ).__experimentalSetEditingReusableBlock",
+      {
+        since: "7.1"
+      }
+    );
+    return {
+      type: "SET_EDITING_REUSABLE_BLOCK",
+      clientId,
+      isEditing
+    };
   }
 
-  return obj;
-}
+  // packages/reusable-blocks/build-module/store/reducer.mjs
+  var import_data = __toESM(require_data(), 1);
+  function isEditingReusableBlock(state = {}, action) {
+    if (action?.type === "SET_EDITING_REUSABLE_BLOCK") {
+      return {
+        ...state,
+        [action.clientId]: action.isEditing
+      };
+    }
+    return state;
+  }
+  var reducer_default = (0, import_data.combineReducers)({
+    isEditingReusableBlock
+  });
 
-/***/ }),
+  // packages/reusable-blocks/build-module/store/selectors.mjs
+  var selectors_exports = {};
+  __export(selectors_exports, {
+    __experimentalIsEditingReusableBlock: () => __experimentalIsEditingReusableBlock
+  });
+  var import_deprecated2 = __toESM(require_deprecated(), 1);
+  function __experimentalIsEditingReusableBlock(state, clientId) {
+    (0, import_deprecated2.default)(
+      "wp.data.select( 'core/reusable-blocks' ).__experimentalIsEditingReusableBlock",
+      {
+        since: "7.1"
+      }
+    );
+    return state.isEditingReusableBlock[clientId];
+  }
 
-/***/ "tI+e":
-/***/ (function(module, exports) {
+  // packages/reusable-blocks/build-module/store/index.mjs
+  var STORE_NAME = "core/reusable-blocks";
+  var store = (0, import_data2.createReduxStore)(STORE_NAME, {
+    actions: actions_exports,
+    reducer: reducer_default,
+    selectors: selectors_exports
+  });
+  (0, import_data2.register)(store);
 
-(function() { module.exports = window["wp"]["components"]; }());
+  // packages/reusable-blocks/build-module/components/reusable-blocks-menu-items/index.mjs
+  var import_block_editor4 = __toESM(require_block_editor(), 1);
+  var import_deprecated3 = __toESM(require_deprecated(), 1);
 
-/***/ })
+  // packages/reusable-blocks/build-module/components/reusable-blocks-menu-items/reusable-block-convert-button.mjs
+  var import_blocks2 = __toESM(require_blocks(), 1);
+  var import_block_editor2 = __toESM(require_block_editor(), 1);
+  var import_element = __toESM(require_element(), 1);
+  var import_components = __toESM(require_components(), 1);
 
-/******/ });
+  // packages/icons/build-module/library/symbol.mjs
+  var import_primitives = __toESM(require_primitives(), 1);
+  var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
+  var symbol_default = /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_primitives.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", fill: "currentColor", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_primitives.Path, { d: "M21.3 10.8l-5.6-5.6c-.7-.7-1.8-.7-2.5 0l-5.6 5.6c-.7.7-.7 1.8 0 2.5l5.6 5.6c.3.3.8.5 1.2.5s.9-.2 1.2-.5l5.6-5.6c.8-.7.8-1.9.1-2.5zm-1 1.4l-5.6 5.6c-.1.1-.3.1-.4 0l-5.6-5.6c-.1-.1-.1-.3 0-.4l5.6-5.6s.1-.1.2-.1.1 0 .2.1l5.6 5.6c.1.1.1.3 0 .4zm-16.6-.4L10 5.5l-1-1-6.3 6.3c-.7.7-.7 1.8 0 2.5L9 19.5l1.1-1.1-6.3-6.3c-.2 0-.2-.2-.1-.3z" }) });
+
+  // packages/reusable-blocks/build-module/components/reusable-blocks-menu-items/reusable-block-convert-button.mjs
+  var import_data3 = __toESM(require_data(), 1);
+  var import_i18n2 = __toESM(require_i18n(), 1);
+  var import_notices = __toESM(require_notices(), 1);
+  var import_core_data = __toESM(require_core_data(), 1);
+  var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
+  function ReusableBlockConvertButton({
+    clientIds,
+    rootClientId,
+    onClose
+  }) {
+    const [syncType, setSyncType] = (0, import_element.useState)(void 0);
+    const [isModalOpen, setIsModalOpen] = (0, import_element.useState)(false);
+    const [title, setTitle] = (0, import_element.useState)("");
+    const canConvert = (0, import_data3.useSelect)(
+      (select) => {
+        const { canUser } = select(import_core_data.store);
+        const {
+          getBlocksByClientId,
+          canInsertBlockType,
+          getBlockRootClientId
+        } = select(import_block_editor2.store);
+        const rootId = rootClientId || (clientIds.length > 0 ? getBlockRootClientId(clientIds[0]) : void 0);
+        const blocks = getBlocksByClientId(clientIds) ?? [];
+        const isReusable = blocks.length === 1 && blocks[0] && (0, import_blocks2.isReusableBlock)(blocks[0]) && !!select(import_core_data.store).getEntityRecord(
+          "postType",
+          "wp_block",
+          blocks[0].attributes.ref
+        );
+        const _canConvert = (
+          // Hide when this is already a reusable block.
+          !isReusable && // Hide when reusable blocks are disabled.
+          canInsertBlockType("core/block", rootId) && blocks.every(
+            (block) => (
+              // Guard against the case where a regular block has *just* been converted.
+              !!block && // Hide on invalid blocks.
+              block.isValid && // Hide when block doesn't support being made reusable.
+              (0, import_blocks2.hasBlockSupport)(block.name, "reusable", true)
+            )
+          ) && // Hide when current doesn't have permission to do that.
+          // Blocks refers to the wp_block post type, this checks the ability to create a post of that type.
+          !!canUser("create", {
+            kind: "postType",
+            name: "wp_block"
+          })
+        );
+        return _canConvert;
+      },
+      [clientIds, rootClientId]
+    );
+    const { __experimentalConvertBlocksToReusable: convertBlocksToReusable } = (0, import_data3.useDispatch)(store);
+    const { createSuccessNotice, createErrorNotice } = (0, import_data3.useDispatch)(import_notices.store);
+    const onConvert = (0, import_element.useCallback)(
+      async function(reusableBlockTitle) {
+        try {
+          await convertBlocksToReusable(
+            clientIds,
+            reusableBlockTitle,
+            syncType
+          );
+          createSuccessNotice(
+            !syncType ? (0, import_i18n2.sprintf)(
+              // translators: %s: the name the user has given to the pattern.
+              (0, import_i18n2.__)("Synced pattern created: %s"),
+              reusableBlockTitle
+            ) : (0, import_i18n2.sprintf)(
+              // translators: %s: the name the user has given to the pattern.
+              (0, import_i18n2.__)("Unsynced pattern created: %s"),
+              reusableBlockTitle
+            ),
+            {
+              type: "snackbar",
+              id: "convert-to-reusable-block-success"
+            }
+          );
+        } catch (error) {
+          createErrorNotice(error.message, {
+            type: "snackbar",
+            id: "convert-to-reusable-block-error"
+          });
+        }
+      },
+      [
+        convertBlocksToReusable,
+        clientIds,
+        syncType,
+        createSuccessNotice,
+        createErrorNotice
+      ]
+    );
+    if (!canConvert) {
+      return null;
+    }
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_components.MenuItem, { icon: symbol_default, onClick: () => setIsModalOpen(true), children: (0, import_i18n2.__)("Create pattern") }),
+      isModalOpen && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        import_components.Modal,
+        {
+          title: (0, import_i18n2.__)("Create pattern"),
+          onRequestClose: () => {
+            setIsModalOpen(false);
+            setTitle("");
+          },
+          overlayClassName: "reusable-blocks-menu-items__convert-modal",
+          children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+            "form",
+            {
+              onSubmit: (event) => {
+                event.preventDefault();
+                onConvert(title);
+                setIsModalOpen(false);
+                setTitle("");
+                onClose();
+              },
+              children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_components.__experimentalVStack, { spacing: "5", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+                  import_components.TextControl,
+                  {
+                    label: (0, import_i18n2.__)("Name"),
+                    value: title,
+                    onChange: setTitle,
+                    placeholder: (0, import_i18n2.__)("My pattern")
+                  }
+                ),
+                /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+                  import_components.ToggleControl,
+                  {
+                    label: (0, import_i18n2._x)("Synced", "pattern (singular)"),
+                    help: (0, import_i18n2.__)(
+                      "Sync this pattern across multiple locations."
+                    ),
+                    checked: !syncType,
+                    onChange: () => {
+                      setSyncType(
+                        !syncType ? "unsynced" : void 0
+                      );
+                    }
+                  }
+                ),
+                /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_components.__experimentalHStack, { justify: "right", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+                    import_components.Button,
+                    {
+                      __next40pxDefaultSize: true,
+                      variant: "tertiary",
+                      onClick: () => {
+                        setIsModalOpen(false);
+                        setTitle("");
+                      },
+                      children: (0, import_i18n2.__)("Cancel")
+                    }
+                  ),
+                  /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+                    import_components.Button,
+                    {
+                      __next40pxDefaultSize: true,
+                      variant: "primary",
+                      type: "submit",
+                      children: (0, import_i18n2.__)("Create")
+                    }
+                  )
+                ] })
+              ] })
+            }
+          )
+        }
+      )
+    ] });
+  }
+
+  // packages/reusable-blocks/build-module/components/reusable-blocks-menu-items/reusable-blocks-manage-button.mjs
+  var import_components2 = __toESM(require_components(), 1);
+  var import_i18n3 = __toESM(require_i18n(), 1);
+  var import_blocks3 = __toESM(require_blocks(), 1);
+  var import_data4 = __toESM(require_data(), 1);
+  var import_element2 = __toESM(require_element(), 1);
+  var import_block_editor3 = __toESM(require_block_editor(), 1);
+  var import_url = __toESM(require_url(), 1);
+  var import_core_data2 = __toESM(require_core_data(), 1);
+  var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
+  function ReusableBlocksManageButton({ clientId }) {
+    const [showConfirmDialog, setShowConfirmDialog] = (0, import_element2.useState)(false);
+    const { canRemove, isVisible, managePatternsUrl } = (0, import_data4.useSelect)(
+      (select) => {
+        const { getBlock, canRemoveBlock } = select(import_block_editor3.store);
+        const { canUser } = select(import_core_data2.store);
+        const reusableBlock = getBlock(clientId);
+        return {
+          canRemove: canRemoveBlock(clientId),
+          isVisible: !!reusableBlock && (0, import_blocks3.isReusableBlock)(reusableBlock) && !!canUser("update", {
+            kind: "postType",
+            name: "wp_block",
+            id: reusableBlock.attributes.ref
+          }),
+          // The site editor and templates both check whether the user
+          // has edit_theme_options capabilities. We can leverage that here
+          // and omit the manage patterns link if the user can't access it.
+          managePatternsUrl: canUser("create", {
+            kind: "postType",
+            name: "wp_template"
+          }) ? (0, import_url.addQueryArgs)("site-editor.php", {
+            p: "/pattern"
+          }) : (0, import_url.addQueryArgs)("edit.php", {
+            post_type: "wp_block"
+          })
+        };
+      },
+      [clientId]
+    );
+    const { __experimentalConvertBlockToStatic: convertBlockToStatic } = (0, import_data4.useDispatch)(store);
+    if (!isVisible) {
+      return null;
+    }
+    const handleDetach = () => {
+      convertBlockToStatic(clientId);
+      setShowConfirmDialog(false);
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_components2.MenuItem, { href: managePatternsUrl, children: (0, import_i18n3.__)("Manage patterns") }),
+      canRemove && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_components2.MenuItem, { onClick: () => setShowConfirmDialog(true), children: (0, import_i18n3.__)("Disconnect pattern") }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          import_components2.__experimentalConfirmDialog,
+          {
+            isOpen: showConfirmDialog,
+            onConfirm: handleDetach,
+            onCancel: () => setShowConfirmDialog(false),
+            confirmButtonText: (0, import_i18n3.__)("Disconnect"),
+            size: "medium",
+            title: (0, import_i18n3.__)("Disconnect pattern?"),
+            __experimentalHideHeader: false,
+            children: (0, import_i18n3.__)(
+              "Blocks will be separated from the original pattern and will be fully editable. Future changes to the pattern will not apply here."
+            )
+          }
+        )
+      ] })
+    ] });
+  }
+  var reusable_blocks_manage_button_default = ReusableBlocksManageButton;
+
+  // packages/reusable-blocks/build-module/components/reusable-blocks-menu-items/index.mjs
+  var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
+  function ReusableBlocksMenuItems({ rootClientId }) {
+    (0, import_deprecated3.default)("wp.reusableBlocks.ReusableBlocksMenuItems", {
+      since: "7.1"
+    });
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_block_editor4.BlockSettingsMenuControls, { children: ({ onClose, selectedClientIds }) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+        ReusableBlockConvertButton,
+        {
+          clientIds: selectedClientIds,
+          rootClientId,
+          onClose
+        }
+      ),
+      selectedClientIds.length === 1 && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+        reusable_blocks_manage_button_default,
+        {
+          clientId: selectedClientIds[0]
+        }
+      )
+    ] }) });
+  }
+  return __toCommonJS(index_exports);
+})();
+(window.wp ||= {}).reusableBlocks = wp.reusableBlocks;
+})();

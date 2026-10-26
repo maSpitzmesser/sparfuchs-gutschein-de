@@ -14,7 +14,7 @@ var getCount, updateCount, updateCountText, updatePending, updateApproved,
 	updateHtmlTitle, updateDashboardText, updateInModerationText, adminTitle = document.title,
 	isDashboard = $('#dashboard_right_now').length,
 	titleDiv, titleRegEx,
-	__ = wp.i18n.__;
+	__ = wp.i18n.__, _x = wp.i18n._x;
 
 	/**
 	 * Extracts a number from the content of a jQuery element.
@@ -370,7 +370,8 @@ window.setCommentsList = function() {
 
 		} else {
 			if ( settings.data.id == replyID )
-				replyButton.text( __( 'Reply' ) );
+				/* translators: Comment reply button text. */
+				replyButton.text( _x( 'Reply', 'verb' ) );
 
 			c.find( '.row-actions span.view' ).removeClass( 'hidden' ).end()
 				.find( 'div.comment_status' ).html( '1' );
@@ -1012,14 +1013,17 @@ window.commentReply = {
 			if ( c.hasClass('unapproved') ) {
 				replyButton.text( __( 'Approve and Reply' ) );
 			} else {
-				replyButton.text( __( 'Reply' ) );
+				/* translators: Comment reply button text. */
+				replyButton.text( _x( 'Reply', 'verb' ) );
 			}
 
 			$('#replyrow').fadeIn(300, function(){ $(this).show(); });
 		}
 
 		setTimeout(function() {
-			var rtop, rbottom, scrollTop, vp, scrollBottom;
+			var rtop, rbottom, scrollTop, vp, scrollBottom,
+				isComposing = false,
+				isContextMenuOpen = false;
 
 			rtop = $('#replyrow').offset().top;
 			rbottom = rtop + $('#replyrow').height();
@@ -1032,10 +1036,28 @@ window.commentReply = {
 			else if ( rtop - 20 < scrollTop )
 				window.scroll(0, rtop - 35);
 
-			$('#replycontent').trigger( 'focus' ).on( 'keyup', function(e){
-				if ( e.which == 27 )
-					commentReply.revert(); // Close on Escape.
-			});
+			$( '#replycontent' )
+				.trigger( 'focus' )
+				.on( 'contextmenu keydown', function ( e ) {
+					// Check if the context menu is open and set state.
+					if ( e.type === 'contextmenu' ) {
+						isContextMenuOpen = true;
+					}
+
+					// Update the context menu state if the Escape key is pressed.
+					if ( e.type === 'keydown' && e.which === 27 && isContextMenuOpen ) {
+						isContextMenuOpen = false;
+					}
+				} )
+				.on( 'keyup', function( e ) {
+					// Close on Escape unless Input Method Editors (IMEs) are in use or the context menu is open.
+					if ( e.which === 27 && ! isComposing && ! isContextMenuOpen ) {
+						commentReply.revert();
+					}
+				} )
+				.on( 'compositionstart', function() {
+					isComposing = true;
+				} );
 		}, 600);
 
 		return false;
@@ -1180,6 +1202,7 @@ window.commentReply = {
 		if ( er ) {
 			$errorNotice.removeClass( 'hidden' );
 			$error.html( er );
+			wp.a11y.speak( er );
 		}
 	},
 
@@ -1217,7 +1240,7 @@ window.commentReply = {
 	discardCommentChanges: function() {
 		var editRow = $( '#replyrow' );
 
-		if  ( this.originalContent === $( '#replycontent', editRow ).val() ) {
+		if  ( '' === $( '#replycontent', editRow ).val() || this.originalContent === $( '#replycontent', editRow ).val() ) {
 			return true;
 		}
 
@@ -1225,7 +1248,7 @@ window.commentReply = {
 	}
 };
 
-$(document).ready(function(){
+$( function(){
 	var make_hotkeys_redirect, edit_comment, toggle_all, make_bulk;
 
 	setCommentsList();

@@ -86,9 +86,37 @@ class Meta_Tags_Context_Memoizer {
 	 */
 	public function for_current_page() {
 		if ( ! isset( $this->cache['current_page'] ) ) {
-			$indexable                   = $this->repository->for_current_page();
-			$page_type                   = $this->current_page->get_page_type();
+			// First reset the query to ensure we actually have the current page.
+			global $wp_query, $post;
+
+			$old_wp_query = $wp_query;
+			$old_post     = $post;
+			// phpcs:ignore WordPress.WP.DiscouragedFunctions.wp_reset_query_wp_reset_query -- Reason: The recommended function, wp_reset_postdata, doesn't reset wp_query.
+			\wp_reset_query();
+
+			$indexable = $this->repository->for_current_page();
+			$page_type = $this->current_page->get_page_type();
+
+			if ( $page_type === 'Fallback' ) {
+				// Do not cache the context if it's a fallback page.
+				// The likely cause for this is that this function was called before the query was loaded.
+				$context = $this->get( $indexable, $page_type );
+
+				// Restore the previous query.
+				// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- Reason: we have to restore the query.
+				$GLOBALS['wp_query'] = $old_wp_query;
+				// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- Reason: we have to restore the post.
+				$GLOBALS['post'] = $old_post;
+
+				return $context;
+			}
 			$this->cache['current_page'] = $this->get( $indexable, $page_type );
+
+			// Restore the previous query.
+			// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- Reason: we have to restore the query.
+			$GLOBALS['wp_query'] = $old_wp_query;
+			// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- Reason: we have to restore the post.
+			$GLOBALS['post'] = $old_post;
 		}
 
 		return $this->cache['current_page'];
@@ -118,7 +146,7 @@ class Meta_Tags_Context_Memoizer {
 					'blocks'    => $blocks,
 					'post'      => $post,
 					'page_type' => $page_type,
-				]
+				],
 			);
 
 			$context->presentation = $this->presentation_memoizer->get( $indexable, $context, $page_type );
@@ -132,17 +160,46 @@ class Meta_Tags_Context_Memoizer {
 	/**
 	 * Clears the memoization of either a specific indexable or all indexables.
 	 *
-	 * @param Indexable|int|string $indexable Optional. The indexable or indexable id to clear the memoization of.
+	 * @param Indexable|int|string|null $indexable Optional. The indexable or indexable id to clear the memoization of.
+	 *
+	 * @return void
 	 */
 	public function clear( $indexable = null ) {
 		if ( $indexable instanceof Indexable ) {
 			unset( $this->cache[ $indexable->id ] );
+			$this->presentation_memoizer->clear( $indexable->id );
 			return;
 		}
 		if ( $indexable !== null ) {
 			unset( $this->cache[ $indexable ] );
+			$this->presentation_memoizer->clear( $indexable );
 			return;
 		}
 		$this->cache = [];
+		$this->presentation_memoizer->clear();
+	}
+
+	/**
+	 * Clears the memoization of the current page.
+	 *
+	 * @return void
+	 */
+	public function clear_for_current_page() {
+		unset( $this->cache['current_page'] );
+	}
+
+	/**
+	 * Installs a context as the memoized current-page context.
+	 *
+	 * Allows callers to redirect what `for_current_page()` resolves to (e.g. while
+	 * iterating over indexables in the schema aggregator). The matching teardown
+	 * is `clear_for_current_page()`.
+	 *
+	 * @param Meta_Tags_Context $context The context to install.
+	 *
+	 * @return void
+	 */
+	public function set_for_current_page( Meta_Tags_Context $context ): void {
+		$this->cache['current_page'] = $context;
 	}
 }

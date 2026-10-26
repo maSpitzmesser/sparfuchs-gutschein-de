@@ -1,628 +1,250 @@
-this["wp"] = this["wp"] || {}; this["wp"]["keycodes"] =
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "z7pY");
-/******/ })
-/************************************************************************/
-/******/ ({
-
-/***/ "25BE":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
+(function() {
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _iterableToArray; });
-function _iterableToArray(iter) {
-  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
-}
-
-/***/ }),
-
-/***/ "BsWD":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _unsupportedIterableToArray; });
-/* harmony import */ var _babel_runtime_helpers_esm_arrayLikeToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("a3WO");
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return Object(_babel_runtime_helpers_esm_arrayLikeToArray__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return Object(_babel_runtime_helpers_esm_arrayLikeToArray__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"])(o, minLen);
-}
-
-/***/ }),
-
-/***/ "KQm4":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, "a", function() { return /* binding */ _toConsumableArray; });
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
-var arrayLikeToArray = __webpack_require__("a3WO");
-
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) return Object(arrayLikeToArray["a" /* default */])(arr);
-}
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/iterableToArray.js
-var iterableToArray = __webpack_require__("25BE");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js
-var unsupportedIterableToArray = __webpack_require__("BsWD");
-
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/nonIterableSpread.js
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js
-
-
-
-
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || Object(iterableToArray["a" /* default */])(arr) || Object(unsupportedIterableToArray["a" /* default */])(arr) || _nonIterableSpread();
-}
-
-/***/ }),
-
-/***/ "YLtl":
-/***/ (function(module, exports) {
-
-(function() { module.exports = window["lodash"]; }());
-
-/***/ }),
-
-/***/ "a3WO":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _arrayLikeToArray; });
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
-  return arr2;
-}
-
-/***/ }),
-
-/***/ "l3Sj":
-/***/ (function(module, exports) {
-
-(function() { module.exports = window["wp"]["i18n"]; }());
-
-/***/ }),
-
-/***/ "rePB":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return _defineProperty; });
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-/***/ }),
-
-/***/ "z7pY":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, "BACKSPACE", function() { return /* binding */ BACKSPACE; });
-__webpack_require__.d(__webpack_exports__, "TAB", function() { return /* binding */ TAB; });
-__webpack_require__.d(__webpack_exports__, "ENTER", function() { return /* binding */ ENTER; });
-__webpack_require__.d(__webpack_exports__, "ESCAPE", function() { return /* binding */ ESCAPE; });
-__webpack_require__.d(__webpack_exports__, "SPACE", function() { return /* binding */ SPACE; });
-__webpack_require__.d(__webpack_exports__, "LEFT", function() { return /* binding */ LEFT; });
-__webpack_require__.d(__webpack_exports__, "UP", function() { return /* binding */ UP; });
-__webpack_require__.d(__webpack_exports__, "RIGHT", function() { return /* binding */ RIGHT; });
-__webpack_require__.d(__webpack_exports__, "DOWN", function() { return /* binding */ DOWN; });
-__webpack_require__.d(__webpack_exports__, "DELETE", function() { return /* binding */ DELETE; });
-__webpack_require__.d(__webpack_exports__, "F10", function() { return /* binding */ F10; });
-__webpack_require__.d(__webpack_exports__, "ALT", function() { return /* binding */ ALT; });
-__webpack_require__.d(__webpack_exports__, "CTRL", function() { return /* binding */ CTRL; });
-__webpack_require__.d(__webpack_exports__, "COMMAND", function() { return /* binding */ COMMAND; });
-__webpack_require__.d(__webpack_exports__, "SHIFT", function() { return /* binding */ SHIFT; });
-__webpack_require__.d(__webpack_exports__, "ZERO", function() { return /* binding */ ZERO; });
-__webpack_require__.d(__webpack_exports__, "modifiers", function() { return /* binding */ modifiers; });
-__webpack_require__.d(__webpack_exports__, "rawShortcut", function() { return /* binding */ rawShortcut; });
-__webpack_require__.d(__webpack_exports__, "displayShortcutList", function() { return /* binding */ displayShortcutList; });
-__webpack_require__.d(__webpack_exports__, "displayShortcut", function() { return /* binding */ displayShortcut; });
-__webpack_require__.d(__webpack_exports__, "shortcutAriaLabel", function() { return /* binding */ shortcutAriaLabel; });
-__webpack_require__.d(__webpack_exports__, "isKeyboardEvent", function() { return /* binding */ isKeyboardEvent; });
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/defineProperty.js
-var defineProperty = __webpack_require__("rePB");
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js + 2 modules
-var toConsumableArray = __webpack_require__("KQm4");
-
-// EXTERNAL MODULE: external "lodash"
-var external_lodash_ = __webpack_require__("YLtl");
-
-// EXTERNAL MODULE: external ["wp","i18n"]
-var external_wp_i18n_ = __webpack_require__("l3Sj");
-
-// CONCATENATED MODULE: ./node_modules/@wordpress/keycodes/build-module/platform.js
-/**
- * External dependencies
- */
-
-/**
- * Return true if platform is MacOS.
- *
- * @param {Window} _window window object by default; used for DI testing.
- *
- * @return {boolean} True if MacOS; false otherwise.
- */
-
-function isAppleOS() {
-  var _window = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : window;
-
-  var platform = _window.navigator.platform;
-  return platform.indexOf('Mac') !== -1 || Object(external_lodash_["includes"])(['iPad', 'iPhone'], platform);
-}
-
-// CONCATENATED MODULE: ./node_modules/@wordpress/keycodes/build-module/index.js
-
-
-
-/**
- * Note: The order of the modifier keys in many of the [foo]Shortcut()
- * functions in this file are intentional and should not be changed. They're
- * designed to fit with the standard menu keyboard shortcuts shown in the
- * user's platform.
- *
- * For example, on MacOS menu shortcuts will place Shift before Command, but
- * on Windows Control will usually come first. So don't provide your own
- * shortcut combos directly to keyboardShortcut().
- */
-
-/**
- * External dependencies
- */
-
-/**
- * WordPress dependencies
- */
-
-
-/**
- * Internal dependencies
- */
-
-
-/** @typedef {typeof ALT | CTRL | COMMAND | SHIFT } WPModifierPart */
-
-/** @typedef {'primary' | 'primaryShift' | 'primaryAlt' | 'secondary' | 'access' | 'ctrl' | 'alt' | 'ctrlShift' | 'shift' | 'shiftAlt'} WPKeycodeModifier */
-
-/**
- * An object of handler functions for each of the possible modifier
- * combinations. A handler will return a value for a given key.
- *
- * @template T
- *
- * @typedef {Record<WPKeycodeModifier, T>} WPModifierHandler
- */
-
-/* eslint-disable jsdoc/valid-types */
-
-/**
- * @template T
- *
- * @typedef {(character: string, isApple?: () => boolean) => T} WPKeyHandler
- */
-
-/** @typedef {(event: KeyboardEvent, character: string, isApple?: () => boolean) => boolean} WPEventKeyHandler */
-
-/* eslint-enable jsdoc/valid-types */
-
-/**
- * Keycode for BACKSPACE key.
- */
-
-var BACKSPACE = 8;
-/**
- * Keycode for TAB key.
- */
-
-var TAB = 9;
-/**
- * Keycode for ENTER key.
- */
-
-var ENTER = 13;
-/**
- * Keycode for ESCAPE key.
- */
-
-var ESCAPE = 27;
-/**
- * Keycode for SPACE key.
- */
-
-var SPACE = 32;
-/**
- * Keycode for LEFT key.
- */
-
-var LEFT = 37;
-/**
- * Keycode for UP key.
- */
-
-var UP = 38;
-/**
- * Keycode for RIGHT key.
- */
-
-var RIGHT = 39;
-/**
- * Keycode for DOWN key.
- */
-
-var DOWN = 40;
-/**
- * Keycode for DELETE key.
- */
-
-var DELETE = 46;
-/**
- * Keycode for F10 key.
- */
-
-var F10 = 121;
-/**
- * Keycode for ALT key.
- */
-
-var ALT = 'alt';
-/**
- * Keycode for CTRL key.
- */
-
-var CTRL = 'ctrl';
-/**
- * Keycode for COMMAND/META key.
- */
-
-var COMMAND = 'meta';
-/**
- * Keycode for SHIFT key.
- */
-
-var SHIFT = 'shift';
-/**
- * Keycode for ZERO key.
- */
-
-var ZERO = 48;
-/**
- * Object that contains functions that return the available modifier
- * depending on platform.
- *
- * @type {WPModifierHandler< ( isApple: () => boolean ) => WPModifierPart[]>}
- */
-
-var modifiers = {
-  primary: function primary(_isApple) {
-    return _isApple() ? [COMMAND] : [CTRL];
-  },
-  primaryShift: function primaryShift(_isApple) {
-    return _isApple() ? [SHIFT, COMMAND] : [CTRL, SHIFT];
-  },
-  primaryAlt: function primaryAlt(_isApple) {
-    return _isApple() ? [ALT, COMMAND] : [CTRL, ALT];
-  },
-  secondary: function secondary(_isApple) {
-    return _isApple() ? [SHIFT, ALT, COMMAND] : [CTRL, SHIFT, ALT];
-  },
-  access: function access(_isApple) {
-    return _isApple() ? [CTRL, ALT] : [SHIFT, ALT];
-  },
-  ctrl: function ctrl() {
-    return [CTRL];
-  },
-  alt: function alt() {
-    return [ALT];
-  },
-  ctrlShift: function ctrlShift() {
-    return [CTRL, SHIFT];
-  },
-  shift: function shift() {
-    return [SHIFT];
-  },
-  shiftAlt: function shiftAlt() {
-    return [SHIFT, ALT];
-  }
-};
-/**
- * An object that contains functions to get raw shortcuts.
- *
- * These are intended for user with the KeyboardShortcuts.
- *
- * @example
- * ```js
- * // Assuming macOS:
- * rawShortcut.primary( 'm' )
- * // "meta+m""
- * ```
- *
- * @type {WPModifierHandler<WPKeyHandler<string>>} Keyed map of functions to raw
- *                                                 shortcuts.
- */
-
-var rawShortcut = Object(external_lodash_["mapValues"])(modifiers, function (modifier) {
-  return (
-    /** @type {WPKeyHandler<string>} */
-    function (character) {
-      var _isApple = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : isAppleOS;
-
-      return [].concat(Object(toConsumableArray["a" /* default */])(modifier(_isApple)), [character.toLowerCase()]).join('+');
+var wp;
+(wp ||= {}).keycodes = (() => {
+  var __create = Object.create;
+  var __defProp = Object.defineProperty;
+  var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+  var __getOwnPropNames = Object.getOwnPropertyNames;
+  var __getProtoOf = Object.getPrototypeOf;
+  var __hasOwnProp = Object.prototype.hasOwnProperty;
+  var __commonJS = (cb, mod) => function __require() {
+    return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+  };
+  var __export = (target, all) => {
+    for (var name in all)
+      __defProp(target, name, { get: all[name], enumerable: true });
+  };
+  var __copyProps = (to, from, except, desc) => {
+    if (from && typeof from === "object" || typeof from === "function") {
+      for (let key of __getOwnPropNames(from))
+        if (!__hasOwnProp.call(to, key) && key !== except)
+          __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
     }
-  );
-});
-/**
- * Return an array of the parts of a keyboard shortcut chord for display.
- *
- * @example
- * ```js
- * // Assuming macOS:
- * displayShortcutList.primary( 'm' );
- * // [ "⌘", "M" ]
- * ```
- *
- * @type {WPModifierHandler<WPKeyHandler<string[]>>} Keyed map of functions to
- *                                                   shortcut sequences.
- */
+    return to;
+  };
+  var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+    // If the importer is in node compatibility mode or this is not an ESM
+    // file that has been converted to a CommonJS file using a Babel-
+    // compatible transform (i.e. "__esModule" has not been set), then set
+    // "default" to the CommonJS "module.exports" for node compatibility.
+    isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+    mod
+  ));
+  var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-var displayShortcutList = Object(external_lodash_["mapValues"])(modifiers, function (modifier) {
-  return (
-    /** @type {WPKeyHandler<string[]>} */
-    function (character) {
-      var _replacementKeyMap;
-
-      var _isApple = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : isAppleOS;
-
-      var isApple = _isApple();
-
-      var replacementKeyMap = (_replacementKeyMap = {}, Object(defineProperty["a" /* default */])(_replacementKeyMap, ALT, isApple ? '⌥' : 'Alt'), Object(defineProperty["a" /* default */])(_replacementKeyMap, CTRL, isApple ? '⌃' : 'Ctrl'), Object(defineProperty["a" /* default */])(_replacementKeyMap, COMMAND, '⌘'), Object(defineProperty["a" /* default */])(_replacementKeyMap, SHIFT, isApple ? '⇧' : 'Shift'), _replacementKeyMap);
-      var modifierKeys = modifier(_isApple).reduce(function (accumulator, key) {
-        var replacementKey = Object(external_lodash_["get"])(replacementKeyMap, key, key); // If on the Mac, adhere to platform convention and don't show plus between keys.
-
-        if (isApple) {
-          return [].concat(Object(toConsumableArray["a" /* default */])(accumulator), [replacementKey]);
-        }
-
-        return [].concat(Object(toConsumableArray["a" /* default */])(accumulator), [replacementKey, '+']);
-      },
-      /** @type {string[]} */
-      []);
-      var capitalizedCharacter = Object(external_lodash_["capitalize"])(character);
-      return [].concat(Object(toConsumableArray["a" /* default */])(modifierKeys), [capitalizedCharacter]);
+  // package-external:@wordpress/i18n
+  var require_i18n = __commonJS({
+    "package-external:@wordpress/i18n"(exports, module) {
+      module.exports = window.wp.i18n;
     }
-  );
-});
-/**
- * An object that contains functions to display shortcuts.
- *
- * @example
- * ```js
- * // Assuming macOS:
- * displayShortcut.primary( 'm' );
- * // "⌘M"
- * ```
- *
- * @type {WPModifierHandler<WPKeyHandler<string>>} Keyed map of functions to
- *                                                 display shortcuts.
- */
+  });
 
-var displayShortcut = Object(external_lodash_["mapValues"])(displayShortcutList, function (shortcutList) {
-  return (
-    /** @type {WPKeyHandler<string>} */
-    function (character) {
-      var _isApple = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : isAppleOS;
+  // packages/keycodes/build-module/index.mjs
+  var index_exports = {};
+  __export(index_exports, {
+    ALT: () => ALT,
+    BACKSPACE: () => BACKSPACE,
+    COMMAND: () => COMMAND,
+    CTRL: () => CTRL,
+    DELETE: () => DELETE,
+    DOWN: () => DOWN,
+    END: () => END,
+    ENTER: () => ENTER,
+    ESCAPE: () => ESCAPE,
+    F10: () => F10,
+    HOME: () => HOME,
+    LEFT: () => LEFT,
+    PAGEDOWN: () => PAGEDOWN,
+    PAGEUP: () => PAGEUP,
+    RIGHT: () => RIGHT,
+    SHIFT: () => SHIFT,
+    SPACE: () => SPACE,
+    TAB: () => TAB,
+    UP: () => UP,
+    ZERO: () => ZERO,
+    ariaKeyShortcut: () => ariaKeyShortcut,
+    displayShortcut: () => displayShortcut,
+    displayShortcutList: () => displayShortcutList,
+    isAppleOS: () => isAppleOS,
+    isKeyboardEvent: () => isKeyboardEvent,
+    modifiers: () => modifiers,
+    rawShortcut: () => rawShortcut,
+    shortcutAriaLabel: () => shortcutAriaLabel
+  });
+  var import_i18n = __toESM(require_i18n(), 1);
 
-      return shortcutList(character, _isApple).join('');
-    }
-  );
-});
-/**
- * An object that contains functions to return an aria label for a keyboard
- * shortcut.
- *
- * @example
- * ```js
- * // Assuming macOS:
- * shortcutAriaLabel.primary( '.' );
- * // "Command + Period"
- * ```
- *
- * @type {WPModifierHandler<WPKeyHandler<string>>} Keyed map of functions to
- *                                                 shortcut ARIA labels.
- */
-
-var shortcutAriaLabel = Object(external_lodash_["mapValues"])(modifiers, function (modifier) {
-  return (
-    /** @type {WPKeyHandler<string>} */
-    function (character) {
-      var _replacementKeyMap2;
-
-      var _isApple = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : isAppleOS;
-
-      var isApple = _isApple();
-
-      var replacementKeyMap = (_replacementKeyMap2 = {}, Object(defineProperty["a" /* default */])(_replacementKeyMap2, SHIFT, 'Shift'), Object(defineProperty["a" /* default */])(_replacementKeyMap2, COMMAND, isApple ? 'Command' : 'Control'), Object(defineProperty["a" /* default */])(_replacementKeyMap2, CTRL, 'Control'), Object(defineProperty["a" /* default */])(_replacementKeyMap2, ALT, isApple ? 'Option' : 'Alt'), Object(defineProperty["a" /* default */])(_replacementKeyMap2, ',', Object(external_wp_i18n_["__"])('Comma')), Object(defineProperty["a" /* default */])(_replacementKeyMap2, '.', Object(external_wp_i18n_["__"])('Period')), Object(defineProperty["a" /* default */])(_replacementKeyMap2, '`', Object(external_wp_i18n_["__"])('Backtick')), _replacementKeyMap2);
-      return [].concat(Object(toConsumableArray["a" /* default */])(modifier(_isApple)), [character]).map(function (key) {
-        return Object(external_lodash_["capitalize"])(Object(external_lodash_["get"])(replacementKeyMap, key, key));
-      }).join(isApple ? ' ' : ' + ');
-    }
-  );
-});
-/**
- * From a given KeyboardEvent, returns an array of active modifier constants for
- * the event.
- *
- * @param {KeyboardEvent} event Keyboard event.
- *
- * @return {Array<WPModifierPart>} Active modifier constants.
- */
-
-function getEventModifiers(event) {
-  return (
-    /** @type {WPModifierPart[]} */
-    [ALT, CTRL, COMMAND, SHIFT].filter(function (key) {
-      return event[
-      /** @type {'altKey' | 'ctrlKey' | 'metaKey' | 'shiftKey'} */
-      "".concat(key, "Key")];
-    })
-  );
-}
-/**
- * An object that contains functions to check if a keyboard event matches a
- * predefined shortcut combination.
- *
- * @example
- * ```js
- * // Assuming an event for ⌘M key press:
- * isKeyboardEvent.primary( event, 'm' );
- * // true
- * ```
- *
- * @type {WPModifierHandler<WPEventKeyHandler>} Keyed map of functions
- *                                                       to match events.
- */
-
-
-var isKeyboardEvent = Object(external_lodash_["mapValues"])(modifiers, function (getModifiers) {
-  return (
-    /** @type {WPEventKeyHandler} */
-    function (event, character) {
-      var _isApple = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : isAppleOS;
-
-      var mods = getModifiers(_isApple);
-      var eventMods = getEventModifiers(event);
-
-      if (Object(external_lodash_["xor"])(mods, eventMods).length) {
+  // packages/keycodes/build-module/platform.mjs
+  function isAppleOS(_window) {
+    if (!_window) {
+      if (typeof window === "undefined") {
         return false;
       }
+      _window = window;
+    }
+    const { platform } = _window.navigator;
+    return platform.indexOf("Mac") !== -1 || ["iPad", "iPhone"].includes(platform);
+  }
 
-      if (!character) {
-        return Object(external_lodash_["includes"])(mods, event.key.toLowerCase());
-      }
-
-      return event.key === character;
+  // packages/keycodes/build-module/index.mjs
+  var BACKSPACE = 8;
+  var TAB = 9;
+  var ENTER = 13;
+  var ESCAPE = 27;
+  var SPACE = 32;
+  var PAGEUP = 33;
+  var PAGEDOWN = 34;
+  var END = 35;
+  var HOME = 36;
+  var LEFT = 37;
+  var UP = 38;
+  var RIGHT = 39;
+  var DOWN = 40;
+  var DELETE = 46;
+  var F10 = 121;
+  var ALT = "alt";
+  var CTRL = "ctrl";
+  var COMMAND = "meta";
+  var SHIFT = "shift";
+  var ZERO = 48;
+  function capitaliseFirstCharacter(string) {
+    return string.length < 2 ? string.toUpperCase() : string.charAt(0).toUpperCase() + string.slice(1);
+  }
+  function mapValues(object, mapFn) {
+    return Object.fromEntries(
+      Object.entries(object).map(([key, value]) => [
+        key,
+        mapFn(value)
+      ])
+    );
+  }
+  var modifiers = {
+    primary: (_isApple) => _isApple() ? [COMMAND] : [CTRL],
+    primaryShift: (_isApple) => _isApple() ? [SHIFT, COMMAND] : [CTRL, SHIFT],
+    primaryAlt: (_isApple) => _isApple() ? [ALT, COMMAND] : [CTRL, ALT],
+    secondary: (_isApple) => _isApple() ? [SHIFT, ALT, COMMAND] : [CTRL, SHIFT, ALT],
+    access: (_isApple) => _isApple() ? [CTRL, ALT] : [SHIFT, ALT],
+    ctrl: () => [CTRL],
+    alt: () => [ALT],
+    ctrlShift: () => [CTRL, SHIFT],
+    shift: () => [SHIFT],
+    shiftAlt: () => [SHIFT, ALT],
+    undefined: () => []
+  };
+  var rawShortcut = /* @__PURE__ */ mapValues(modifiers, (modifier) => {
+    return (character, _isApple = isAppleOS) => {
+      return [...modifier(_isApple), character.toLowerCase()].join(
+        "+"
+      );
+    };
+  });
+  var ariaKeyShortcut = /* @__PURE__ */ mapValues(modifiers, (modifier) => {
+    return (character, _isApple = isAppleOS) => {
+      return [
+        ...modifier(_isApple).map((key) => key === CTRL ? "Control" : key).map((key) => capitaliseFirstCharacter(key)),
+        capitaliseFirstCharacter(character)
+      ].join("+");
+    };
+  });
+  var displayShortcutList = /* @__PURE__ */ mapValues(
+    modifiers,
+    (modifier) => {
+      return (character, _isApple = isAppleOS) => {
+        const isApple = _isApple();
+        const replacementKeyMap = {
+          [ALT]: isApple ? "\u2325" : "Alt",
+          [CTRL]: isApple ? "\u2303" : "Ctrl",
+          // Make sure ⌃ is the U+2303 UP ARROWHEAD unicode character and not the caret character.
+          [COMMAND]: "\u2318",
+          [SHIFT]: isApple ? "\u21E7" : "Shift"
+        };
+        const modifierKeys = modifier(_isApple).reduce(
+          (accumulator, key) => {
+            const replacementKey = replacementKeyMap[key] ?? key;
+            if (isApple) {
+              return [...accumulator, replacementKey];
+            }
+            return [...accumulator, replacementKey, "+"];
+          },
+          []
+        );
+        return [
+          ...modifierKeys,
+          capitaliseFirstCharacter(character)
+        ];
+      };
     }
   );
-});
-
-
-/***/ })
-
-/******/ });
+  var displayShortcut = /* @__PURE__ */ mapValues(
+    displayShortcutList,
+    (shortcutList) => {
+      return (character, _isApple = isAppleOS) => shortcutList(character, _isApple).join("");
+    }
+  );
+  var shortcutAriaLabel = /* @__PURE__ */ mapValues(modifiers, (modifier) => {
+    return (character, _isApple = isAppleOS) => {
+      const isApple = _isApple();
+      const replacementKeyMap = {
+        [SHIFT]: "Shift",
+        [COMMAND]: isApple ? "Command" : "Control",
+        [CTRL]: "Control",
+        [ALT]: isApple ? "Option" : "Alt",
+        /* translators: comma as in the character ',' */
+        ",": (0, import_i18n.__)("Comma"),
+        /* translators: period as in the character '.' */
+        ".": (0, import_i18n.__)("Period"),
+        /* translators: backtick as in the character '`' */
+        "`": (0, import_i18n.__)("Backtick"),
+        /* translators: tilde as in the character '~' */
+        "~": (0, import_i18n.__)("Tilde")
+      };
+      return [...modifier(_isApple), character].map(
+        (key) => capitaliseFirstCharacter(replacementKeyMap[key] ?? key)
+      ).join(isApple ? " " : " + ");
+    };
+  });
+  function getEventModifiers(event) {
+    return [ALT, CTRL, COMMAND, SHIFT].filter(
+      (key) => event[`${key}Key`]
+    );
+  }
+  var isKeyboardEvent = /* @__PURE__ */ mapValues(modifiers, (getModifiers) => {
+    return (event, character, _isApple = isAppleOS) => {
+      const mods = getModifiers(_isApple);
+      const eventMods = getEventModifiers(event);
+      const replacementWithShiftKeyMap = {
+        Comma: ",",
+        Backslash: "\\",
+        // Windows returns `\` for both IntlRo and IntlYen.
+        IntlRo: "\\",
+        IntlYen: "\\"
+      };
+      const modsDiff = mods.filter(
+        (mod) => !eventMods.includes(mod)
+      );
+      const eventModsDiff = eventMods.filter(
+        (mod) => !mods.includes(mod)
+      );
+      if (modsDiff.length > 0 || eventModsDiff.length > 0) {
+        return false;
+      }
+      let key = event.key.toLowerCase();
+      if (!character) {
+        return mods.includes(key);
+      }
+      if (event.altKey && character.length === 1) {
+        key = String.fromCharCode(event.keyCode).toLowerCase();
+      }
+      if (event.shiftKey && character.length === 1 && replacementWithShiftKeyMap[event.code]) {
+        key = replacementWithShiftKeyMap[event.code];
+      }
+      if (character === "del") {
+        character = "delete";
+      }
+      return key === character.toLowerCase();
+    };
+  });
+  return __toCommonJS(index_exports);
+})();
+(window.wp ||= {}).keycodes = wp.keycodes;
+})();

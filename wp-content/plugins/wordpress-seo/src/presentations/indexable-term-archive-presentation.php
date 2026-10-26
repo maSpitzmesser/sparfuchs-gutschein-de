@@ -14,6 +14,7 @@ use Yoast\WP\SEO\Wrappers\WP_Query_Wrapper;
  * @property WP_Term $source
  */
 class Indexable_Term_Archive_Presentation extends Indexable_Presentation {
+
 	use Archive_Adjacent;
 
 	/**
@@ -33,15 +34,12 @@ class Indexable_Term_Archive_Presentation extends Indexable_Presentation {
 	/**
 	 * Indexable_Post_Type_Presentation constructor.
 	 *
+	 * @codeCoverageIgnore
+	 *
 	 * @param WP_Query_Wrapper $wp_query_wrapper The wp query wrapper.
 	 * @param Taxonomy_Helper  $taxonomy         The Taxonomy helper.
-	 *
-	 * @codeCoverageIgnore
 	 */
-	public function __construct(
-		WP_Query_Wrapper $wp_query_wrapper,
-		Taxonomy_Helper $taxonomy
-	) {
+	public function __construct( WP_Query_Wrapper $wp_query_wrapper, Taxonomy_Helper $taxonomy ) {
 		$this->wp_query_wrapper = $wp_query_wrapper;
 		$this->taxonomy         = $taxonomy;
 	}
@@ -60,17 +58,16 @@ class Indexable_Term_Archive_Presentation extends Indexable_Presentation {
 			return $this->model->canonical;
 		}
 
-		$permalink = $this->get_permalink();
-		if ( ! $permalink ) {
+		if ( ! $this->permalink ) {
 			return '';
 		}
 
 		$current_page = $this->pagination->get_current_archive_page_number();
 		if ( $current_page > 1 ) {
-			return $this->pagination->get_paginated_url( $permalink, $current_page );
+			return $this->pagination->get_paginated_url( $this->permalink, $current_page );
 		}
 
-		return $permalink;
+		return $this->permalink;
 	}
 
 	/**
@@ -92,7 +89,11 @@ class Indexable_Term_Archive_Presentation extends Indexable_Presentation {
 	 * @return array The source.
 	 */
 	public function generate_source() {
-		return \get_term( $this->model->object_id, $this->model->object_sub_type );
+		if ( ! empty( $this->model->object_id ) || \get_queried_object() === null ) {
+			return \get_term( $this->model->object_id, $this->model->object_sub_type );
+		}
+
+		return \get_term( \get_queried_object()->term_id, \get_queried_object()->taxonomy );
 	}
 
 	/**
@@ -148,7 +149,7 @@ class Indexable_Term_Archive_Presentation extends Indexable_Presentation {
 		 * First we get the no index option for this taxonomy, because it can be overwritten the indexable value for
 		 * this specific term.
 		 */
-		if ( ! $this->taxonomy->is_indexable( $this->source->taxonomy ) ) {
+		if ( \is_wp_error( $this->source ) || ! $this->taxonomy->is_indexable( $this->source->taxonomy ) ) {
 			$robots['index'] = 'noindex';
 		}
 
@@ -169,6 +170,10 @@ class Indexable_Term_Archive_Presentation extends Indexable_Presentation {
 	 */
 	public function generate_title() {
 		if ( $this->model->title ) {
+			return $this->model->title;
+		}
+
+		if ( \is_wp_error( $this->source ) ) {
 			return $this->model->title;
 		}
 
@@ -202,6 +207,10 @@ class Indexable_Term_Archive_Presentation extends Indexable_Presentation {
 		$query = $this->wp_query_wrapper->get_query();
 
 		if ( ! isset( $query->tax_query ) ) {
+			return false;
+		}
+
+		if ( \is_wp_error( $this->source ) ) {
 			return false;
 		}
 

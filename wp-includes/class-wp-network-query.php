@@ -14,6 +14,7 @@
  *
  * @see WP_Network_Query::__construct() for accepted arguments.
  */
+#[AllowDynamicProperties]
 class WP_Network_Query {
 
 	/**
@@ -28,7 +29,14 @@ class WP_Network_Query {
 	 * SQL query clauses.
 	 *
 	 * @since 4.6.0
-	 * @var array
+	 * @var array{
+	 *     select: string,
+	 *     from: string,
+	 *     where: array<string, string>,
+	 *     groupby: string,
+	 *     orderby: string,
+	 *     limits: string
+	 * }
 	 */
 	protected $sql_clauses = array(
 		'select'  => '',
@@ -43,7 +51,7 @@ class WP_Network_Query {
 	 * Query vars set by the user.
 	 *
 	 * @since 4.6.0
-	 * @var array
+	 * @var array<string, mixed>
 	 */
 	public $query_vars;
 
@@ -51,7 +59,7 @@ class WP_Network_Query {
 	 * Default values for query vars.
 	 *
 	 * @since 4.6.0
-	 * @var array
+	 * @var array<string, mixed>
 	 */
 	public $query_var_defaults;
 
@@ -59,7 +67,7 @@ class WP_Network_Query {
 	 * List of networks located by the query.
 	 *
 	 * @since 4.6.0
-	 * @var array
+	 * @var WP_Network[]|int[]
 	 */
 	public $networks;
 
@@ -68,6 +76,7 @@ class WP_Network_Query {
 	 *
 	 * @since 4.6.0
 	 * @var int
+	 * @phpstan-var non-negative-int
 	 */
 	public $found_networks = 0;
 
@@ -76,6 +85,7 @@ class WP_Network_Query {
 	 *
 	 * @since 4.6.0
 	 * @var int
+	 * @phpstan-var non-negative-int
 	 */
 	public $max_num_pages = 0;
 
@@ -144,7 +154,7 @@ class WP_Network_Query {
 	 *
 	 * @since 4.6.0
 	 *
-	 * @param string|array $query WP_Network_Query arguments. See WP_Network_Query::__construct()
+	 * @param string|array $query WP_Network_Query arguments. See WP_Network_Query::__construct() for accepted arguments.
 	 */
 	public function parse_query( $query = '' ) {
 		if ( empty( $query ) ) {
@@ -158,7 +168,7 @@ class WP_Network_Query {
 		 *
 		 * @since 4.6.0
 		 *
-		 * @param WP_Network_Query $this The WP_Network_Query instance (passed by reference).
+		 * @param WP_Network_Query $query The WP_Network_Query instance (passed by reference).
 		 */
 		do_action_ref_array( 'parse_network_query', array( &$this ) );
 	}
@@ -193,7 +203,7 @@ class WP_Network_Query {
 		 *
 		 * @since 4.6.0
 		 *
-		 * @param WP_Network_Query $this Current instance of WP_Network_Query (passed by reference).
+		 * @param WP_Network_Query $query Current instance of WP_Network_Query (passed by reference).
 		 */
 		do_action_ref_array( 'pre_get_networks', array( &$this ) );
 
@@ -242,14 +252,14 @@ class WP_Network_Query {
 		// $args can include anything. Only use the args defined in the query_var_defaults to compute the key.
 		$_args = wp_array_slice_assoc( $this->query_vars, array_keys( $this->query_var_defaults ) );
 
-		// Ignore the $fields argument as the queried result will be the same regardless.
-		unset( $_args['fields'] );
+		// Ignore the $fields, $update_network_cache arguments as the queried result will be the same regardless.
+		unset( $_args['fields'], $_args['update_network_cache'] );
 
 		$key          = md5( serialize( $_args ) );
 		$last_changed = wp_cache_get_last_changed( 'networks' );
 
-		$cache_key   = "get_network_ids:$key:$last_changed";
-		$cache_value = wp_cache_get( $cache_key, 'networks' );
+		$cache_key   = "get_network_ids:$key";
+		$cache_value = wp_cache_get_salted( $cache_key, 'network-queries', $last_changed );
 
 		if ( false === $cache_value ) {
 			$network_ids = $this->get_network_ids();
@@ -261,14 +271,14 @@ class WP_Network_Query {
 				'network_ids'    => $network_ids,
 				'found_networks' => $this->found_networks,
 			);
-			wp_cache_add( $cache_key, $cache_value, 'networks' );
+			wp_cache_set_salted( $cache_key, $cache_value, 'network-queries', $last_changed );
 		} else {
 			$network_ids          = $cache_value['network_ids'];
 			$this->found_networks = $cache_value['found_networks'];
 		}
 
 		if ( $this->found_networks && $this->query_vars['number'] ) {
-			$this->max_num_pages = ceil( $this->found_networks / $this->query_vars['number'] );
+			$this->max_num_pages = (int) ceil( $this->found_networks / $this->query_vars['number'] );
 		}
 
 		// If querying for a count only, there's nothing more to do.
@@ -445,17 +455,26 @@ class WP_Network_Query {
 		 *
 		 * @since 4.6.0
 		 *
-		 * @param string[]         $pieces An associative array of network query clauses.
-		 * @param WP_Network_Query $query  Current instance of WP_Network_Query (passed by reference).
+		 * @param string[]         $clauses {
+		 *     Associative array of the clauses for the query.
+		 *
+		 *     @type string $fields   The SELECT clause of the query.
+		 *     @type string $join     The JOIN clause of the query.
+		 *     @type string $where    The WHERE clause of the query.
+		 *     @type string $orderby  The ORDER BY clause of the query.
+		 *     @type string $limits   The LIMIT clause of the query.
+		 *     @type string $groupby  The GROUP BY clause of the query.
+		 * }
+		 * @param WP_Network_Query $query   Current instance of WP_Network_Query (passed by reference).
 		 */
 		$clauses = apply_filters_ref_array( 'networks_clauses', array( compact( $pieces ), &$this ) );
 
-		$fields  = isset( $clauses['fields'] ) ? $clauses['fields'] : '';
-		$join    = isset( $clauses['join'] ) ? $clauses['join'] : '';
-		$where   = isset( $clauses['where'] ) ? $clauses['where'] : '';
-		$orderby = isset( $clauses['orderby'] ) ? $clauses['orderby'] : '';
-		$limits  = isset( $clauses['limits'] ) ? $clauses['limits'] : '';
-		$groupby = isset( $clauses['groupby'] ) ? $clauses['groupby'] : '';
+		$fields  = $clauses['fields'] ?? '';
+		$join    = $clauses['join'] ?? '';
+		$where   = $clauses['where'] ?? '';
+		$orderby = $clauses['orderby'] ?? '';
+		$limits  = $clauses['limits'] ?? '';
+		$groupby = $clauses['groupby'] ?? '';
 
 		if ( $where ) {
 			$where = 'WHERE ' . $where;
@@ -480,7 +499,14 @@ class WP_Network_Query {
 		$this->sql_clauses['orderby'] = $orderby;
 		$this->sql_clauses['limits']  = $limits;
 
-		$this->request = "{$this->sql_clauses['select']} {$this->sql_clauses['from']} {$where} {$this->sql_clauses['groupby']} {$this->sql_clauses['orderby']} {$this->sql_clauses['limits']}";
+		// Beginning of the string is on a new line to prevent leading whitespace. See https://core.trac.wordpress.org/ticket/56841.
+		$this->request =
+			"{$this->sql_clauses['select']}
+			 {$this->sql_clauses['from']}
+			 {$where}
+			 {$this->sql_clauses['groupby']}
+			 {$this->sql_clauses['orderby']}
+			 {$this->sql_clauses['limits']}";
 
 		if ( $this->query_vars['count'] ) {
 			return (int) $wpdb->get_var( $this->request );
@@ -524,14 +550,14 @@ class WP_Network_Query {
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 *
-	 * @param string   $string  Search string.
+	 * @param string   $search  Search string.
 	 * @param string[] $columns Array of columns to search.
 	 * @return string Search SQL.
 	 */
-	protected function get_search_sql( $string, $columns ) {
+	protected function get_search_sql( $search, $columns ) {
 		global $wpdb;
 
-		$like = '%' . $wpdb->esc_like( $string ) . '%';
+		$like = '%' . $wpdb->esc_like( $search ) . '%';
 
 		$searches = array();
 		foreach ( $columns as $column ) {

@@ -16,6 +16,30 @@ themes = wp.themes = wp.themes || {};
 themes.data = _wpThemeSettings;
 l10n = themes.data.l10n;
 
+/**
+ * Announces to screen readers the theme shown after previous/next navigation.
+ *
+ * @since 7.1.0
+ *
+ * @param {Object} model The theme model.
+ * @return {void}
+ */
+themes.announceThemeDebounced = _.debounce( function( model ) {
+	var name;
+
+	if ( ! model ) {
+		return;
+	}
+
+	name = model.get( 'name' ) || model.get( 'id' );
+
+	if ( ! name ) {
+		return;
+	}
+
+	wp.a11y.speak( l10n.themeViewed.replace( '%s', name ) );
+}, 500 );
+
 // Shortcut for isInstall check.
 themes.isInstall = !! themes.data.settings.isInstall;
 
@@ -118,11 +142,13 @@ themes.view.Appearance = wp.Backbone.View.extend({
 		// Render and append after screen title.
 		view.render();
 		this.searchContainer
-			.append( $.parseHTML( '<label class="screen-reader-text" for="wp-filter-search-input">' + l10n.search + '</label>' ) )
-			.append( view.el )
-			.on( 'submit', function( event ) {
-				event.preventDefault();
-			});
+			.find( '.search-box' )
+			.append( $.parseHTML( '<label for="wp-filter-search-input">' + l10n.search + '</label>' ) )
+			.append( view.el );
+
+		this.searchContainer.on( 'submit', function( event ) {
+			event.preventDefault();
+		});
 	},
 
 	// Checks when the user gets close to the bottom
@@ -404,11 +430,7 @@ themes.view.Theme = wp.Backbone.View.extend({
 		var data = this.model.toJSON();
 
 		// Render themes using the html template.
-		this.$el.html( this.html( data ) ).attr({
-			tabindex: 0,
-			'aria-describedby' : data.id + '-action ' + data.id + '-name',
-			'data-slug': data.id
-		});
+		this.$el.html( this.html( data ) ).attr( 'data-slug', data.id );
 
 		// Renders active theme styles.
 		this.activeTheme();
@@ -551,6 +573,7 @@ themes.view.Theme = wp.Backbone.View.extend({
 			preview.render();
 			this.setNavButtonsState();
 			$( '.next-theme' ).trigger( 'focus' );
+			themes.announceThemeDebounced( self.current );
 		})
 		.listenTo( preview, 'theme:previous', function() {
 
@@ -581,6 +604,7 @@ themes.view.Theme = wp.Backbone.View.extend({
 			preview.render();
 			this.setNavButtonsState();
 			$( '.previous-theme' ).trigger( 'focus' );
+			themes.announceThemeDebounced( self.current );
 		});
 
 		this.listenTo( preview, 'preview:close', function() {
@@ -625,6 +649,9 @@ themes.view.Theme = wp.Backbone.View.extend({
 		$( document ).on( 'wp-theme-install-success', function( event, response ) {
 			if ( _this.model.get( 'id' ) === response.slug ) {
 				_this.model.set( { 'installed': true } );
+			}
+			if ( response.blockTheme ) {
+				_this.model.set( { 'block_theme': true } );
 			}
 		} );
 
@@ -764,10 +791,13 @@ themes.view.Details = wp.Backbone.View.extend({
 
 				// Return focus to the theme div.
 				if ( themes.focusedTheme ) {
-					themes.focusedTheme.trigger( 'focus' );
+					themes.focusedTheme.find('.more-details').trigger( 'focus' );
 				}
 			});
 		}
+
+		// Cancel any pending navigation announcement.
+		themes.announceThemeDebounced.cancel();
 	},
 
 	// Handles .disabled classes for next/previous buttons.
@@ -908,7 +938,7 @@ themes.view.Preview = themes.view.Details.extend({
 		'click .devices button': 'previewDevice',
 		'click .previous-theme': 'previousTheme',
 		'click .next-theme': 'nextTheme',
-		'keyup': 'keyEvent',
+		'keydown': 'keyEvent',
 		'click .theme-install': 'installTheme'
 	},
 
@@ -927,7 +957,7 @@ themes.view.Preview = themes.view.Details.extend({
 
 		currentPreviewDevice = this.$el.data( 'current-preview-device' );
 		if ( currentPreviewDevice ) {
-			self.tooglePreviewDeviceButtons( currentPreviewDevice );
+			self.togglePreviewDeviceButtons( currentPreviewDevice );
 		}
 
 		themes.router.navigate( themes.router.baseUrl( themes.router.themePath + this.model.get( 'id' ) ), { replace: false } );
@@ -952,7 +982,7 @@ themes.view.Preview = themes.view.Details.extend({
 
 			// Return focus to the theme div.
 			if ( themes.focusedTheme ) {
-				themes.focusedTheme.trigger( 'focus' );
+				themes.focusedTheme.find('.more-details').trigger( 'focus' );
 			}
 		}).removeClass( 'iframe-ready' );
 
@@ -966,6 +996,9 @@ themes.view.Preview = themes.view.Details.extend({
 		this.trigger( 'preview:close' );
 		this.undelegateEvents();
 		this.unbind();
+
+		// Cancel any pending navigation announcement.
+		themes.announceThemeDebounced.cancel();
 		return false;
 	},
 
@@ -989,10 +1022,10 @@ themes.view.Preview = themes.view.Details.extend({
 			.addClass( 'preview-' + device )
 			.data( 'current-preview-device', device );
 
-		this.tooglePreviewDeviceButtons( device );
+		this.togglePreviewDeviceButtons( device );
 	},
 
-	tooglePreviewDeviceButtons: function( newDevice ) {
+	togglePreviewDeviceButtons: function( newDevice ) {
 		var $devices = $( '.wp-full-overlay-footer .devices' );
 
 		$devices.find( 'button' )
@@ -1010,13 +1043,21 @@ themes.view.Preview = themes.view.Details.extend({
 			this.undelegateEvents();
 			this.close();
 		}
+
+		// Arrow key navigation requires Alt key to avoid interfering with screen reader navigation.
+		if ( ! event.altKey ) {
+			return;
+		}
+
 		// The right arrow key, next theme.
 		if ( event.keyCode === 39 ) {
-			_.once( this.nextTheme() );
+			event.preventDefault();
+			this.nextTheme();
 		}
 
 		// The left arrow key, previous theme.
 		if ( event.keyCode === 37 ) {
+			event.preventDefault();
 			this.previousTheme();
 		}
 	},
@@ -1104,7 +1145,7 @@ themes.view.Themes = wp.Backbone.View.extend({
 		} );
 
 		// Bind keyboard events.
-		$( 'body' ).on( 'keyup', function( event ) {
+		$( 'body' ).on( 'keydown.wp-themes', function( event ) {
 			if ( ! self.overlay ) {
 				return;
 			}
@@ -1114,19 +1155,26 @@ themes.view.Themes = wp.Backbone.View.extend({
 				return;
 			}
 
-			// Pressing the right arrow key fires a theme:next event.
-			if ( event.keyCode === 39 ) {
-				self.overlay.nextTheme();
-			}
-
-			// Pressing the left arrow key fires a theme:previous event.
-			if ( event.keyCode === 37 ) {
-				self.overlay.previousTheme();
-			}
-
 			// Pressing the escape key fires a theme:collapse event.
 			if ( event.keyCode === 27 ) {
 				self.overlay.collapse( event );
+			}
+
+			// Arrow key navigation requires Alt key to avoid interfering with screen reader navigation.
+			if ( ! event.altKey ) {
+				return;
+			}
+
+			// Pressing Alt + right arrow key fires a theme:next event.
+			if ( event.keyCode === 39 ) {
+				event.preventDefault();
+				self.overlay.nextTheme();
+			}
+
+			// Pressing Alt + left arrow key fires a theme:previous event.
+			if ( event.keyCode === 37 ) {
+				event.preventDefault();
+				self.overlay.previousTheme();
 			}
 		});
 	},
@@ -1209,7 +1257,7 @@ themes.view.Themes = wp.Backbone.View.extend({
 
 		// 'Add new theme' element shown at the end of the grid.
 		if ( ! themes.isInstall && themes.data.settings.canInstall ) {
-			this.$el.append( '<div class="theme add-new-theme"><a href="' + themes.data.settings.installURI + '"><div class="theme-screenshot"><span></span></div><h2 class="theme-name">' + l10n.addNew + '</h2></a></div>' );
+			this.$el.append( '<div class="theme add-new-theme"><a href="' + themes.data.settings.installURI + '"><div class="theme-screenshot"><span aria-hidden="true"></span></div><h2 class="theme-name">' + l10n.addNew + '</h2></a></div>' );
 		}
 
 		this.parent.page++;
@@ -1301,7 +1349,7 @@ themes.view.Themes = wp.Backbone.View.extend({
 		// Find the next model within the collection.
 		nextModel = self.collection.at( self.collection.indexOf( model ) + 1 );
 
-		// Sanity check which also serves as a boundary test.
+		// Confidence check which also serves as a boundary test.
 		if ( nextModel !== undefined ) {
 
 			// We have a new theme...
@@ -1310,7 +1358,7 @@ themes.view.Themes = wp.Backbone.View.extend({
 
 			// Trigger a route update for the current model.
 			self.theme.trigger( 'theme:expand', nextModel.cid );
-
+			themes.announceThemeDebounced( nextModel );
 		}
 	},
 
@@ -1322,12 +1370,20 @@ themes.view.Themes = wp.Backbone.View.extend({
 	 */
 	previous: function( args ) {
 		var self = this,
-			model, previousModel;
+			model, previousModel, index;
 
 		// Get the current theme.
 		model = self.collection.get( args[0] );
+
+		index = self.collection.indexOf( model );
+
+		// Bail early if the current theme is the first one or the model does not exist.
+		if ( index <= 0 ) {
+			return;
+		}
+
 		// Find the previous model within the collection.
-		previousModel = self.collection.at( self.collection.indexOf( model ) - 1 );
+		previousModel = self.collection.at( index - 1 );
 
 		if ( previousModel !== undefined ) {
 
@@ -1337,7 +1393,7 @@ themes.view.Themes = wp.Backbone.View.extend({
 
 			// Trigger a route update for the current model.
 			self.theme.trigger( 'theme:expand', previousModel.cid );
-
+			themes.announceThemeDebounced( previousModel );
 		}
 	},
 
@@ -1360,7 +1416,6 @@ themes.view.Search = wp.Backbone.View.extend({
 	searching: false,
 
 	attributes: {
-		placeholder: l10n.searchPlaceholder,
 		type: 'search',
 		'aria-describedby': 'live-search-desc'
 	},
@@ -1665,7 +1720,7 @@ themes.view.Installer = themes.view.Appearance.extend({
 		this.listenTo( this.collection, 'query:fail', function() {
 			$( 'body' ).removeClass( 'loading-content' );
 			$( '.theme-browser' ).find( 'div.error' ).remove();
-			$( '.theme-browser' ).find( 'div.themes' ).before( '<div class="error"><p>' + l10n.error + '</p><p><button class="button try-again">' + l10n.tryAgain + '</button></p></div>' );
+			$( '.theme-browser' ).find( 'div.themes' ).before( '<div class="notice notice-error"><p>' + l10n.error + '</p><p><button class="button try-again">' + l10n.tryAgain + '</button></p></div>' );
 			$( '.theme-browser .error .try-again' ).on( 'click', function( e ) {
 				e.preventDefault();
 				$( 'input.wp-filter-search' ).trigger( 'input' );
@@ -1695,7 +1750,13 @@ themes.view.Installer = themes.view.Appearance.extend({
 	browse: function( section ) {
 		// Create a new collection with the proper theme data
 		// for each section.
-		this.collection.query( { browse: section } );
+		if ( 'block-themes' === section ) {
+			// Get the themes by sending Ajax POST request to api.wordpress.org/themes
+			// or searching the local cache.
+			this.collection.query( { tag: 'full-site-editing' } );
+		} else {
+			this.collection.query( { browse: section } );
+		}
 	},
 
 	// Sorting navigation.
@@ -1965,7 +2026,7 @@ themes.RunInstaller = {
 		// Set up the view.
 		// Passes the default 'section' as an option.
 		this.view = new themes.view.Installer({
-			section: 'featured',
+			section: 'popular',
 			SearchView: themes.view.InstallerSearch
 		});
 
@@ -2021,9 +2082,9 @@ themes.RunInstaller = {
 				self.view.collection.query( request );
 				self.view.collection.trigger( 'update' );
 
-				// Open the theme preview.
+				// Open the theme preview. The slug comes from the URL, so escape it.
 				self.view.collection.once( 'query:success', function() {
-					$( 'div[data-slug="' + slug + '"]' ).trigger( 'click' );
+					$( 'div.theme[data-slug="' + $.escapeSelector( slug ) + '"]' ).trigger( 'click' );
 				});
 
 			}
@@ -2032,12 +2093,12 @@ themes.RunInstaller = {
 		/*
 		 * Handles sorting / browsing routes.
 		 * Also handles the root URL triggering a sort request
-		 * for `featured`, the default view.
+		 * for `popular`, the default view.
 		 */
 		themes.router.on( 'route:sort', function( sort ) {
 			if ( ! sort ) {
-				sort = 'featured';
-				themes.router.navigate( themes.router.baseUrl( '?browse=featured' ), { replace: true } );
+				sort = 'popular';
+				themes.router.navigate( themes.router.baseUrl( '?browse=popular' ), { replace: true } );
 			}
 			self.view.sort( sort );
 
@@ -2061,7 +2122,7 @@ themes.RunInstaller = {
 };
 
 // Ready...
-$( document ).ready(function() {
+$( function() {
 	if ( themes.isInstall ) {
 		themes.RunInstaller.init();
 	} else {
@@ -2089,7 +2150,7 @@ $( document ).ready(function() {
 })( jQuery );
 
 // Align theme browser thickbox.
-jQuery(document).ready( function($) {
+jQuery( function($) {
 	window.tb_position = function() {
 		var tbWindow = $('#TB_window'),
 			width = $(window).width(),
