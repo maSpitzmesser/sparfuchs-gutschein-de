@@ -16,9 +16,9 @@
       $parent_title = get_sg_parent_title();
       $permalink    = get_permalink($post->ID);
       $shopname     = str_replace('&#038;', 'und', $parent_title);
-      $sql          = "SELECT * FROM awin_vouchers WHERE Advertiser LIKE '%{$shopname}%' AND type = 'voucher' LIMIT 1";
+      $sql          = $wpdb->prepare("SELECT * FROM awin_vouchers WHERE Advertiser LIKE %s AND type = 'voucher' LIMIT 1", '%' . $wpdb->esc_like($shopname) . '%');
       $awinVouchers = $wpdb->get_row($sql);
-      $linkID       = $awinVouchers->PromotionID;
+      $linkID       = $awinVouchers ? $awinVouchers->PromotionID : null; // Shops ohne Gutschein
 
       echo '<div class="shop-meta style-a1" id="makescreenshot">';
       if (!empty($linkID)) {

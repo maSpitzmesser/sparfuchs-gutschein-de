@@ -1,25 +1,29 @@
 <?php session_start();
+$ok = '';
+$fehler = '';
 
 
 			
 if(isset($_POST['submitted'])) {
 
-	if($_POST['s3capcha'] == $_SESSION['s3capcha'] && $_POST['s3capcha'] != '') {
+	if(($_POST['s3capcha'] ?? '') != '' && $_POST['s3capcha'] == ($_SESSION['s3capcha'] ?? null)) {
 		unset($_SESSION['s3capcha']);
 
-		$token = $_SESSION['token'];
+		$token = $_SESSION['token'] ?? '';
 		if (!empty($token) && $token === 'mFzYr6BvD5') {
 
 
 		
 			$timestamp = getdate();
-			$datum = $timestamp[mday].".".$timestamp[mon].".".$timestamp[year]." um ".$timestamp[hours].":".$timestamp[minutes]." Uhr";
+			$datum = $timestamp['mday'].".".$timestamp['mon'].".".$timestamp['year']." um ".$timestamp['hours'].":".$timestamp['minutes']." Uhr";
 			$mail_to =  'info@sparfuchs-gutschein.de';
 
-			$username = $_POST['username'];
-			$useremail = $_POST['useremail'];
-			$subject = $_POST['userbetreff'];
-			$message = $_POST['usernachricht'];			
+			$username = $_POST['username'] ?? '';
+			$useremail = sanitize_email($_POST['useremail'] ?? '');
+			$subject = str_replace(array("\r", "\n"), ' ', $_POST['userbetreff'] ?? '');
+			$message = $_POST['usernachricht'] ?? '';
+			$email = $useremail;
+			$headers = $useremail ? array('Reply-To: ' . $useremail) : array();			
 			
 			$attachments = '';
 
