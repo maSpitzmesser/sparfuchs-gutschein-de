@@ -69,7 +69,7 @@
 
 
 <?php if (current_user_can( 'manage_options' )) {
-  include_once '/homepages/40/d393556749/htdocs/webseiten/sparfuchs-gutschein-de/wp-content/themes/sg/admin/web-assistent.php';
+  include_once get_template_directory() . '/admin/web-assistent.php';
 } ?>
 
 <script src="/wp-content/themes/sg/js/jquery-3.5.1.min.js"></script>

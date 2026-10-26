@@ -55,8 +55,13 @@
 		<link rel="stylesheet" href="<?php echo bloginfo('template_directory') ?>/styles/css/sg_min_all_2.css" media="print, screen" />
 	<?php }  ?>
   
-    <link rel="preload" href="/wp-content/themes/sg/styles/flat/theme.css" as="style" />
-    <link rel="stylesheet" href="/wp-content/themes/sg/styles/flat/theme.css" media="screen" />
+    <?php
+      $sg_design = $_COOKIE['selected_theme'] ?? 'flat';
+      if (!in_array($sg_design, array('flat', 'standard', 'pinky', 'grey'), true)) $sg_design = 'flat';
+      $sg_design_css = get_template_directory_uri() . '/styles/' . $sg_design . '/theme.css';
+    ?>
+    <link rel="preload" href="<?php echo esc_url($sg_design_css); ?>" as="style" />
+    <link rel="stylesheet" id="active-theme" data-active-design="<?php echo esc_attr($sg_design); ?>" href="<?php echo esc_url($sg_design_css); ?>" media="screen" />
   
 
   

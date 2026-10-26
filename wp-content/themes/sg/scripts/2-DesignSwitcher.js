@@ -1,40 +1,39 @@
-/* cookie vars */
-var cookie_name        = "selected_theme";
-var cookie_options     = { path: '/', expires: 1 };
+/* Globale Werte, die social-media.js erwartet (standen früher hier) */
+var cookie_options = { path: '/', expires: 1 };
 var cookie_bezeichnung = 'social';
-
 var get_social = jQuery.cookie(cookie_bezeichnung);
 
-/* Get Cookie */
-var get_cookie = jQuery.cookie(cookie_name);
+/* Design-Wechsler: tauscht das Stylesheet #active-theme und merkt sich die Wahl ein Jahr lang im Cookie */
+(function ($) {
+  var cookieName = 'selected_theme';
+  var designs    = ['flat', 'standard', 'pinky', 'grey'];
+  var $theme     = $('#active-theme');
+  if (!$theme.length) return;
 
-var ThemePath = "http://sparfuchs-gutschein.de/wp-content/themes/sg/styles/";
-var ThemeCSS  = "theme.css.gz";
+  // Ordner der Designs aus dem aktuellen Stylesheet ableiten (…/styles/<design>/theme.css)
+  var themePath = $theme.attr('href').replace(/[^\/]+\/theme\.css(\?.*)?$/, '');
 
-/* theme drawer hider */
-function hideDrawer() {
-  if (!jQuery("#theme-wrapper").hasClass('open')){
-    jQuery("#theme-wrapper").addClass('closed');
+  function markActive(design) {
+    $('[data-design]').each(function () {
+      var active = $(this).attr('data-design') === design;
+      $(this).toggleClass('is-active', active).text(active ? 'Aktives Design' : 'Design ändern');
+    });
   }
-};
 
+  function applyDesign(design) {
+    if ($.inArray(design, designs) === -1) return;
+    $theme.attr('href', themePath + design + '/theme.css');
+    markActive(design);
+  }
 
-jQuery('.theme-wrapper').on('click', function(e) {
-    jQuery(this).toggleClass("open closed");
+  var saved = $.cookie(cookieName);
+  if (saved) applyDesign(saved);
+  else markActive($theme.attr('data-active-design'));
+
+  $(document).on('click', '[data-design]', function (e) {
     e.preventDefault();
-});
-
-hideDrawer();
-
-if(get_cookie != null) {
- jQuery("#active-theme").attr({ href: ThemePath + get_cookie + '/' + ThemeCSS});
-}
-
-/* theme switcher */
-jQuery('[data-design]').click(function() {
- var DesignName = jQuery(this).attr("data-design");
- jQuery("#active-theme").attr({ href: ThemePath + DesignName + '/' + ThemeCSS});
- hideDrawer();
- jQuery.cookie(cookie_name, DesignName, cookie_options);
- return false;
-});
+    var design = $(this).attr('data-design');
+    applyDesign(design);
+    $.cookie(cookieName, design, { path: '/', expires: 365 });
+  });
+})(jQuery);
