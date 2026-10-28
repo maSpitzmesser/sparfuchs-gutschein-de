@@ -1349,3 +1349,60 @@ a.oben {
 	color:#fff;
 	background-image: linear-gradient(to bottom, #FF5800 0px, #FF5400 50%, #F24000 51%, #D60E00 100%)
 }  
+/* ----------------------------------- TABS / MOBILE NAVI FIX -------------------------------- */
+/* tabs: aktuelles Markup ist ul.tabs > li.active (statt #tabs > li > a / #current) */
+.tabs li {
+	font-family:'Bree Serif',serif;
+	font-weight:bold;
+	font-size:16px;
+	color:#fff;
+	background-image:linear-gradient(to bottom, #FF5800 0px, #FF5400 50%, #F24000 51%, #D60E00 100%);
+	border-radius:3px 5px 0 0;
+	box-shadow:0px 1px 2px 0px #000, 1px 1px 0px #F49F61 inset;
+	text-shadow:0px -1px 0px #9E3400, 0px 1px 0px #FA7500
+}
+.tabs li:hover {
+	background-image:linear-gradient(to bottom,#ff6f01 0,#ff6b01 50%,#f25500 51%,#d62000 100%)
+}
+.tabs li.active {
+	background-image:none;
+	background-color:#fff;
+	color:#333;
+	text-shadow:none;
+	box-shadow:inset -3px -3px 0 0 #d7d7d7, 0px 1px 2px 0px #000
+}
+
+/* tabs mobil: Beschriftungen umbrechen statt abgeschnitten zu werden */
+@media screen and (max-width:680px) {
+	ul.tabs {
+		display:flex
+	}
+	.tabs li {
+		display:flex;
+		flex:1 1 25%;
+		align-items:center;
+		justify-content:center;
+		float:none;
+		height:auto;
+		min-height:40px;
+		padding:4px 3px;
+		box-sizing:border-box;
+		font-size:12px;
+		line-height:1.2
+	}
+}
+
+/* mobile navi: der Home-Icon-Sprite gehört nur zum ersten Reiter der Desktop-Leiste */
+@media screen and (max-width:680px) {
+	.main-menu ul li:nth-child(1) a {
+		background-image:linear-gradient(to bottom, #FF5800 0px, #FF5400 50%, #F24000 51%, #D60E00 100%);
+		background-position:0 0
+	}
+	.main-menu ul li:nth-child(1) a:hover {
+		background-image:linear-gradient(to bottom,#ff6f01 0,#ff6b01 50%,#f25500 51%,#d62000 100%)
+	}
+	.main-menu ul li.active:nth-child(1) a {
+		background-image:none;
+		background-position:0 0
+	}
+}
